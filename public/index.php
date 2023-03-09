@@ -93,7 +93,7 @@
                                 </div>
                                 <div class="fd--card--body uk-padding">
                                     <p>
-                                        A Simple mortgage
+                                        A simple mortgage calculator for repayment mortgages.
                                     </p>
                                 </div>
                                 <div class="fd--card--footer uk-card-footer">
@@ -112,7 +112,7 @@
                                 </div>
                                 <div class="fd--card--body uk-padding">
                                     <p>
-                                        A Simple mortgage
+                                        A simple mortgage calulator for interest-only mortgages.
                                     </p>
                                 </div>
                                 <div class="fd--card--footer uk-card-footer">
