@@ -16,21 +16,21 @@
                         <div class="fd--nav--divider"></div>
                     </div>
                     <div class="fd--nav--menu--container uk-width-expand uk-padding uk-padding-remove-left">
-                        <ul class="fd--nav--menu">
+                        <ul class="fd--nav--menu" uk-switcher>
                             <li>
-                                <a href="#shrubs">Calculators</a>
+                                <a href="#">Calculators</a>
                             </li>
                             <li>
-                                <a href="#alpine">Graphs</a>
+                                <a href="#">Graphs</a>
                             </li>
                             <li>
-                                <a href="#grass">Diagrams</a>
+                                <a href="#">Diagrams</a>
                             </li>
                             <li>
-                                <a href="#orchid">Info</a>
+                                <a href="#">Info</a>
                             </li>
                             <li>
-                                <a href="#orchid">Contact</a>
+                                <a href="#">Contact</a>
                             </li>
                         </ul>
                     </div>
