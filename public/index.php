@@ -18,16 +18,16 @@
                     <div class="fd--nav--menu--container uk-width-expand uk-padding uk-padding-remove-left">
                         <ul class="fd--nav--menu">
                             <li>
-                                <a href="#shrubs">Shrubs</a>
+                                <a href="#shrubs">Calculators</a>
                             </li>
                             <li>
-                                <a href="#alpine">Alpine</a>
+                                <a href="#alpine">Graphs</a>
                             </li>
                             <li>
-                                <a href="#grass">Grass</a>
+                                <a href="#grass">Diagrams</a>
                             </li>
                             <li>
-                                <a href="#orchid">Orchid</a>
+                                <a href="#orchid">Info</a>
                             </li>
                             <li>
                                 <a href="#orchid">Contact</a>
@@ -45,10 +45,123 @@
         <div style="height: 54px">
 
         </div>
-        <main class="uk-container uk-margin-large-top">
-                <div class="uk-flex uk-flex-center">
-                    <h1 class="uk-text-center fd--title">Shrubs</h1>
+        <main class="uk-container uk-container-small uk-margin-large-top">
+            <div class="uk-flex uk-flex-center">
+                <h1 class="uk-text-center fd--title">Calculators</h1>
+            </div>
+            <div class="uk-card uk-card-default uk-margin-top">
+                <div uk-grid class="uk-grid uk-child-width-1-4 uk-grid-collapse uk-grid-match">
+                    <div>
+                        <button class="uk-button fd--card--nav active" type="button">
+                            <span uk-icon="icon: settings; ratio: 1.8"></span>
+                            <br>
+                            Mortgages
+                        </button>
+                    </div>
+                    <div>
+                        
+                        <button class="uk-button fd--card--nav" type="button">
+                            <span uk-icon="icon: credit-card; ratio: 2"></span>
+                            <br>
+                            Credit Cards
+                        </button>
+                    </div>
+                    <div>
+                        <button class="uk-button fd--card--nav" type="button">
+                            <span uk-icon="icon: settings; ratio: 1.8"></span>
+                            <br>
+                            Savings
+                        </button>
+                    </div>
+                    <div>
+                        <button class="uk-button fd--card--nav" type="button">
+                            <span uk-icon="icon: settings; ratio: 1.8"></span>
+                            <br>
+                            Investments
+                        </button>
+                    </div>
                 </div>
+                <div class="uk-padding">
+                    <div>
+                        <h2>Mortgages</h2>
+                    </div>
+                    <div uk-grid class="uk-grid uk-child-width-1-2 uk-grid-match">
+                        <div>
+                            <div class="uk-card uk-card-default">
+                                <div class="fd--card--header uk-padding-small">
+                                    <h4>Simple Repayment Calculator</h4>
+                                </div>
+                                <div class="fd--card--body uk-padding">
+                                    <p>
+                                        A Simple mortgage
+                                    </p>
+                                </div>
+                                <div class="fd--card--footer">
+                                    <button class="uk-button" type="button">
+                                        GO
+                                        <span uk-icon="icon: arrow-right; ratio: 1.8"></span>
+                                    </button>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div>
+                            <div class="uk-card uk-card-default">
+                                <div class="fd--card--header uk-padding-small">
+                                    <h4>Simple Interest-Only Calculator</h4>
+                                </div>
+                                <div class="fd--card--body uk-padding">
+                                    <p>
+                                        A Simple mortgage
+                                    </p>
+                                </div>
+                                <div class="fd--card--footer">
+                                    <button class="uk-button" type="button">
+                                        GO
+                                        <span uk-icon="icon: arrow-right; ratio: 1.8"></span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="uk-card uk-card-default">
+                                <div class="fd--card--header uk-padding-small">
+                                    <h4>Overpayment Calculator</h4>
+                                </div>
+                                <div class="fd--card--body uk-padding">
+                                    <p>
+                                        A Simple overpayment calculator that allows the user to make regaular monthly payments, lump sums or both.
+                                    </p>
+                                </div>
+                                <div class="fd--card--footer">
+                                    <button class="uk-button" type="button">
+                                        GO
+                                        <span uk-icon="icon: arrow-right; ratio: 1.8"></span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="uk-card uk-card-default">
+                                <div class="fd--card--header uk-padding-small">
+                                    <h4>Complex Calculator</h4>
+                                </div>
+                                <div class="fd--card--body uk-padding">
+                                    <p>
+                                        A much more complex and informative mortgage calculator
+                                    </p>
+                                </div>
+                                <div class="fd--card--footer">
+                                    <button class="uk-button" type="button">
+                                        GO
+                                        <span uk-icon="icon: arrow-right; ratio: 1.8"></span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </main>
         <footer class="uk-margin-large-top">
             

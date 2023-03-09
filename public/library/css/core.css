@@ -178,6 +178,36 @@ nav {
     color: var(--fd-primary);
 }
 
+.fd--card--nav {
+    width: 100%;
+    background-color: var(--fd-main-bg-color);
+    height: 100px;
+    color: #fff;
+}
+
+.fd--card--nav.active {
+    border-bottom: 7px solid var(--fd-primary);
+}
+
+.fd--card--header {
+    background-color: #f1f1f1;
+    border-bottom: var(--fd-main-bg-color) 2px solid;
+}
+
+.fd--card--header h4 {
+    border-left: 3px solid var(--fd-primary);
+    padding-left: 20px;
+}
+
+.fd--card--footer button {
+    background-color: var(--fd-main-bg-color);
+    width: 100%;
+    font-size: 1.3em;
+    color: var(--fd-primary);
+    padding: 15px 0;
+}
+
+
 footer {
     background-color: var(--fd-main-bg-color);
     border-top: 4px solid var(--fd-primary);
