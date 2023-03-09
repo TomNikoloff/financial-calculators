@@ -10,7 +10,7 @@
             <div class="uk-container">
                 <div class="fd--nav uk-flex uk-width-1-1">
                     <div class="fd--nav--logo--container uk-flex uk-flex-middle">
-                        <img id="fd_nav_logo" class="fd--nav--logo" src="./images/logo-no-bg.png">
+                        <img id="fd_nav_logo" class="fd--nav--logo" src="./images/logo-remove-bg.png">
                     </div>
                     <div class="uk-flex uk-flex-middle">
                         <div class="fd--nav--divider"></div>
@@ -96,10 +96,10 @@
                                         A Simple mortgage
                                     </p>
                                 </div>
-                                <div class="fd--card--footer">
+                                <div class="fd--card--footer uk-card-footer">
                                     <button class="uk-button" type="button">
                                         GO
-                                        <span uk-icon="icon: arrow-right; ratio: 1.8"></span>
+                                        <span uk-icon="icon: arrow-right; ratio: 1.8" class="uk-animation-slide-left"></span>
                                     </button>
                                 </div>
                             </div>
@@ -115,10 +115,10 @@
                                         A Simple mortgage
                                     </p>
                                 </div>
-                                <div class="fd--card--footer">
+                                <div class="fd--card--footer uk-card-footer">
                                     <button class="uk-button" type="button">
                                         GO
-                                        <span uk-icon="icon: arrow-right; ratio: 1.8"></span>
+                                        <span uk-icon="icon: arrow-right; ratio: 1.8" class="uk-animation-slide-left"></span>
                                     </button>
                                 </div>
                             </div>
@@ -133,10 +133,10 @@
                                         A Simple overpayment calculator that allows the user to make regaular monthly payments, lump sums or both.
                                     </p>
                                 </div>
-                                <div class="fd--card--footer">
+                                <div class="fd--card--footer uk-card-footer">
                                     <button class="uk-button" type="button">
                                         GO
-                                        <span uk-icon="icon: arrow-right; ratio: 1.8"></span>
+                                        <span uk-icon="icon: arrow-right; ratio: 1.8" class="uk-animation-slide-left"></span>
                                     </button>
                                 </div>
                             </div>
@@ -148,13 +148,13 @@
                                 </div>
                                 <div class="fd--card--body uk-padding">
                                     <p>
-                                        A much more complex and informative mortgage calculator
+                                        A much more complex and informative mortgage calculator. It expands on the overpyament calculator.
                                     </p>
                                 </div>
-                                <div class="fd--card--footer">
+                                <div class="fd--card--footer uk-card-footer">
                                     <button class="uk-button" type="button">
                                         GO
-                                        <span uk-icon="icon: arrow-right; ratio: 1.8"></span>
+                                        <span uk-icon="icon: arrow-right; ratio: 1.8" class="uk-animation-slide-left"></span>
                                     </button>
                                 </div>
                             </div>
