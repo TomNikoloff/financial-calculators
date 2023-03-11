@@ -10,55 +10,60 @@
                     <div>
                         <label>Mortgage Balance</label>
                         <div>
-                            <input class="uk-input" type="text" vaLue="180000">
-                        <div>
+                            <input id="OVERPAYMENT-CALC_mortgage_balance" class="uk-input" type="text" vaLue="180000">
+                        </div>
                     </div>
                     <div>
                         <label>Term - Years</label>
                         <div>
-                            <input class="uk-input" type="text" vaLue="28">
-                        <div>
+                            <input id="OVERPAYMENT-CALC_mortgage_term_years" class="uk-input" type="text" vaLue="28">
+                        </div>
                     </div>
                     <div>
                         <label>Term - Months</label>
                         <div>
-                            <input class="uk-input" type="text" vaLue="0">
-                        <div>
+                            <input id="OVERPAYMENT-CALC_mortgage_term_months" class="uk-input" type="text" vaLue="0">
+                        </div>
                     </div>
                     <div>
                         <label>Interest Rate</label>
                         <div>
-                            <input class="uk-input" type="text" vaLue="2.17">
-                        <div>
+                            <input id="OVERPAYMENT-CALC_mortgage_rate" class="uk-input" type="text" vaLue="2.17">
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="results-banner">
-                <h3 class="uk-margin-remove">Current Monthly Payment: <span id="OVERPAYMENT-CALC_current_monthly_payment" style="color: #faa05a; font-weight: bold;">£0</span></h3>
+                <h3 class="uk-margin-remove">Current Monthly Payment: <span id="OVERPAYMENT-CALC_current_monthly_payment" style="color: #a4ccc6; font-weight: bold;">£0</span></h3>
             </div>
         </div>
     </div>
-
     <div class="uk-margin-bottom">
         <div class="uk-card uk-card-default uk-card-body">
             <div class="uk-padding-small">
                 <div class="title-border">
                     <h3>Overpayment Details</h3>
                 </div>
-                <div uk-grid class="uk-child-width-1-3@s uk-grid-small">
+                <div uk-grid class="uk-child-width-1-3@s uk-grid-collapse">
                     <div>
-                        {$regular_overpayment$}
+                        <label>Regular Monthly Overpayment</label>
+                        <div>
+                            <input id="OVERPAYMENT-CALC_regular_overpayment" class="uk-input" value="0">
+                        </div>
                     </div>
                     <div class="uk-flex uk-flex-bottom uk-flex-center">
                         <h3 class="uk-text-center uk-margin-bottom">AND / OR</h3>
                     </div>
                     <div>
-                        {$lump_sum_overpayment$}
+                        <label>Lump Sum Overpayment</label>
+                        <div>
+                            <input id="OVERPAYMENT-CALC_lump_sum_overpayment" class="uk-input" value="0">
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="results-banner">
-                <h3 class="uk-margin-remove">New Monthly Payment: <span id="OVERPAYMENT-CALC_new_monthly_payment" style="color: #faa05a; font-weight: bold;">£0</span></h3>
+                <h3 class="uk-margin-remove">New Monthly Payment: <span id="OVERPAYMENT-CALC_new_monthly_payment" style="color: #a4ccc6; font-weight: bold;">£0</span></h3>
             </div>
         </div>
     </div>
@@ -99,6 +104,6 @@
             </div>
         </div>
     </div>
-    
+
 </div>
 

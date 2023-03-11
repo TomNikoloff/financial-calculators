@@ -15,8 +15,13 @@
 
     <!-- CSS  -->
     <link rel="stylesheet" href="./library/css/core.css?<?php echo(time()); ?>">
+    <link rel="stylesheet" href="./library/css/calculators.css?<?php echo(time()); ?>">
     <link rel="stylesheet" href="./library/css/responsive.css?<?php echo(time()); ?>">
 
     <!-- JS -->
     <script src="./library/js/core.js?<?php echo(time()); ?>"></script>
+    <script src="./library/js/calculators/overpayment.js?<?php echo(time()); ?>"></script>
+
+    <!--Load Google Charts API-->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 </head>

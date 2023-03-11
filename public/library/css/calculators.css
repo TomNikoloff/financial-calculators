@@ -1,0 +1,97 @@
+
+.results-banner {
+    background-color: #373542;
+    border-radius: 5px;
+    padding: 10px 20px;
+}
+
+.details-banner {
+    background-color: #c2c2c2;
+    border-radius: 5px;
+}
+
+.results-banner h3{
+    color: #fff;
+}
+
+.text-banner {
+    border-top: 10px solid #373542;
+    border-bottom: 10px solid #373542;
+}
+
+.text-highlight {
+    color: #373542;
+    font-weight: bold;
+}
+
+.title-border {
+    padding-left: 10px;
+    border-left: 3px solid #a4ccc6;
+}
+
+/* Tabel Classes */
+
+.mortgage-table {
+    border-radius: 20px;
+    background-color: #373542;
+    width: 100%;
+}
+
+.mortgage-table-header {
+    height: 80px;
+    color: #fff;
+}
+
+.mortgage-table-content {
+    background-color: #525158;
+    height: 100%;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    padding: 20px;
+}
+
+.mortgage-table-content-header div {
+    color: #fff;
+    font-weight: 600;
+    font-size: 1rem;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.table-results-row {
+    background-color: #373542;
+    height: 50px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px !important;
+    border-left: 4px solid #a4ccc6;
+}
+
+.table-results-row div{
+    font-weight: 600;
+    font-size: 1rem;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    color: #fff;
+}
+
+.chart-container {
+    border-radius: 5px;
+    background-color: #c2c2c2;
+}
+
+.google-visualization-tooltip {
+    border-radius: 5px !important;
+    border: 3px solid #a4ccc6 !important;
+    background-color: #373542 !important;
+}
+
+.google-visualization-tooltip-item {
+    text-align: center;
+}
+
+.google-visualization-tooltip span{
+    color: #fff !important;
+}

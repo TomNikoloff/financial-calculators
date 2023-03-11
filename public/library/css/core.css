@@ -123,6 +123,7 @@ nav {
     z-index: 999;
     width: 100%;
     box-shadow: 0 0.125rem 0.625rem 0 rgb(0 0 0 / 10%);
+    background-color: #fff;
 }
 
 .fd--nav--logo--container {
@@ -209,6 +210,149 @@ nav {
     font-size: 1.3em;
     color: var(--fd-primary);
     text-align: right;
+}
+
+/* New Slider - Using JS*/
+
+input[type=range].styled-slider {
+    height: 12px;
+    -webkit-appearance: none;
+    width: 100%;
+    margin-top: 20px;
+}
+  
+  /*progress support*/
+input[type=range].styled-slider.slider-progress {
+    --range: calc(var(--max) - var(--min));
+    --ratio: calc((var(--value) - var(--min)) / var(--range));
+    --sx: calc(0.5 * 35px + var(--ratio) * (100% - 35px));
+};
+  
+input[type=range].styled-slider:focus {
+    outline: none;
+}
+  
+/*webkit*/
+input[type=range].styled-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 35px;
+    height: 35px;
+    border-radius: 10em;
+    background: linear-gradient(to right, #2F98F9, #3472b1);
+    border: 1px solid #606060;
+    box-shadow: none;
+    margin-top: calc(max((12px - 1px - 1px) * 0.5,0px) - max(35px * 0.5,1px));
+}
+  
+input[type=range].styled-slider::-webkit-slider-runnable-track {
+    height: 12px;
+    border: 1px solid #606060;
+    border-radius: 0.5em;
+    background: linear-gradient(to right, #E5E5E5, #CCCCCC);
+    box-shadow: none;
+}
+  
+input[type=range].styled-slider::-webkit-slider-thumb:hover {
+    background: #3F8BD6;
+}
+  
+input[type=range].styled-slider::-webkit-slider-thumb:active {
+    background: linear-gradient(to right, #2F98F9, #3F8BD6);
+}
+  
+input[type=range].styled-slider.slider-progress::-webkit-slider-runnable-track {
+    background: linear-gradient(to right, #2F98F9, #3472b1) 0/var(--sx) 100% no-repeat, linear-gradient(to right, #E5E5E5, #CCCCCC);
+}
+  
+/*mozilla*/
+input[type=range].styled-slider::-moz-range-thumb {
+    width: max(calc(35px - 1px - 1px),0px);
+    height: max(calc(35px - 1px - 1px),0px);
+    border-radius: 10em;
+    background: linear-gradient(to right, #2F98F9, #3472b1);
+    border: 1px solid #606060;
+    box-shadow: none;
+}
+  
+input[type=range].styled-slider::-moz-range-track {
+    height: max(calc(12px - 1px - 1px),0px);
+    border: 1px solid #606060;
+    border-radius: 0.5em;
+    background: linear-gradient(to right, #E5E5E5, #CCCCCC);
+    box-shadow: none;
+}
+  
+input[type=range].styled-slider::-moz-range-thumb:hover {
+    background: #3F8BD6;
+}
+  
+input[type=range].styled-slider::-moz-range-thumb:active {
+    background: linear-gradient(to right, #2F98F9, #3F8BD6);
+}
+  
+input[type=range].styled-slider.slider-progress::-moz-range-track {
+    background: linear-gradient(to right, #2F98F9, #3472b1) 0/var(--sx) 100% no-repeat, linear-gradient(to right, #E5E5E5, #CCCCCC);
+}
+  
+/*ms*/
+input[type=range].styled-slider::-ms-fill-upper {
+    background: transparent;
+    border-color: transparent;
+}
+  
+input[type=range].styled-slider::-ms-fill-lower {
+    background: transparent;
+    border-color: transparent;
+}
+  
+input[type=range].styled-slider::-ms-thumb {
+    width: 35px;
+    height: 35px;
+    border-radius: 10em;
+    background: linear-gradient(to right, #2F98F9, #3472b1);
+    border: 1px solid #606060;
+    box-shadow: none;
+    margin-top: 0;
+    box-sizing: border-box;
+}
+  
+input[type=range].styled-slider::-ms-track {
+    height: 12px;
+    border-radius: 0.5em;
+    background: linear-gradient(to right, #E5E5E5, #CCCCCC);
+    border: 1px solid #606060;
+    box-shadow: none;
+    box-sizing: border-box;
+}
+  
+input[type=range].styled-slider::-ms-thumb:hover {
+    background: #3F8BD6;
+}
+  
+input[type=range].styled-slider::-ms-thumb:active {
+    background: linear-gradient(to right, #2F98F9, #3F8BD6);
+}
+  
+input[type=range].styled-slider.slider-progress::-ms-fill-lower {
+    height: max(calc(12px - 1px - 1px),0px);
+    border-radius: 0.5em 0 0 0.5em;
+    margin: -1px 0 -1px -1px;
+    background: linear-gradient(to right, #2F98F9, #3472b1);
+    border: 1px solid #606060;
+    border-right-width: 0;
+}
+
+/* Slider - End */
+
+[data-results-suffix]:after {
+    position: relative;
+    content: attr(data-results-suffix);
+    white-space: pre;
+    font-size: 16px;
+    font-weight: 700;
+    color: #666;
+    top: 15px;
+    left: -25px;
 }
 
 
