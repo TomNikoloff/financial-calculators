@@ -77,7 +77,7 @@
                         <button class="uk-button fd--card--nav" type="button">
                             <span uk-icon="icon: settings; ratio: 1.8"></span>
                             <br>
-                            Investments
+                            Salary
                         </button>
                     </div>
                 </div>
@@ -160,6 +160,11 @@
                             </div>
                         </div>
                     </div>
+
+                    <?php 
+                        # Mortgage Overpayment Calculator
+                        include($_SERVER['DOCUMENT_ROOT']."/financial-dashboard/includes/html/calculators/mortgages/overpayment-calc.php");
+                    ?>
                 </div>
             </div>
         </main>
