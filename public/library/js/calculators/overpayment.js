@@ -357,7 +357,7 @@
 					var options = {'title':'',
 									curveType: 'function',
 									legend: { position: 'top' },
-									colors: ['rgb(82, 82, 116)', '#373542'],
+									colors: ['#666', '#373542'],
 									/*lineWidth: 2,*/
 									pointShape: 'circle',
 									pointSize: 5,

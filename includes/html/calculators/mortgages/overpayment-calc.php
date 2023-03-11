@@ -44,7 +44,7 @@
                 <div class="title-border">
                     <h3>Overpayment Details</h3>
                 </div>
-                <div uk-grid class="uk-child-width-1-3@s uk-grid-collapse">
+                <div class="uk-flex uk-flex-between">
                     <div>
                         <label>Regular Monthly Overpayment</label>
                         <div>
