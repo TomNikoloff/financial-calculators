@@ -309,6 +309,7 @@ _CORE={
         init: function(){
             console.log('JS Working');
             _CORE.overpayment.funcs.init();
+            _CORE.funcs.slidersSetup();
         },
         slidersSetup: function(){
             for (let e of document.querySelectorAll('input[type="range"].slider-progress')) {

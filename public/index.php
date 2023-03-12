@@ -162,9 +162,20 @@
                     </div>
 
                     <?php 
+                        # Mortgage Interest-Only Payment Calculator
+                        include($_SERVER['DOCUMENT_ROOT']."/financial-dashboard/includes/html/calculators/mortgages/simple-interest-only-calc.php");
+                    ?>
+
+                    <?php 
+                        # Mortgage Repayment Payment Calculator
+                        include($_SERVER['DOCUMENT_ROOT']."/financial-dashboard/includes/html/calculators/mortgages/simple-repayment-calc.php");
+                    ?>
+
+                    <?php 
                         # Mortgage Overpayment Calculator
                         include($_SERVER['DOCUMENT_ROOT']."/financial-dashboard/includes/html/calculators/mortgages/overpayment-calc.php");
                     ?>
+
                 </div>
             </div>
         </main>
