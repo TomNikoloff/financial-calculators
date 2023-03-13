@@ -1,5 +1,5 @@
-<div id="REPAYMENT" class="hide">
-    <div class="uk-padding">
+<div id="REPAYMENT" class="uk-margin-top">
+    <div class="">
         <h2 class="uk-text-center uk-margin-medium-bottom">Mortgage Repayment Calculator</h2>
         <div class="uk-card-body">
             <div>

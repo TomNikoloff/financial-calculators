@@ -1,5 +1,5 @@
-<div id="INTEREST-ONLY" class="hide">
-    <div class="uk-padding">
+<div id="INTEREST-ONLY" class="uk-margin-top hide">
+    <div class="">
         <h2 class="uk-text-center uk-margin-medium-bottom">Mortgage Interest-Only Calculator</h2>
         <div class="uk-card-body">
             <div>

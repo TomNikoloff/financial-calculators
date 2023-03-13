@@ -6,7 +6,7 @@
 ?>
 <body>
     <div class="fd--site--wrapper">
-        <nav id="fd_sticky_navbar">
+        <nav id="fd_sticky_navbar" class=hide>
             <div class="uk-container">
                 <div class="fd--nav uk-flex uk-width-1-1">
                     <div class="fd--nav--logo--container uk-flex uk-flex-middle">
@@ -45,7 +45,7 @@
         <div style="height: 54px">
 
         </div>
-        <main class="uk-container uk-container-small uk-margin-large-top">
+        <main class="uk-container uk-margin-large-top">
             <div class="uk-flex uk-flex-center">
                 <h1 class="uk-text-center fd--title">Calculators</h1>
             </div>
@@ -85,7 +85,7 @@
                     <div>
                         <h2>Mortgages</h2>
                     </div>
-                    <div uk-grid class="uk-grid uk-child-width-1-2 uk-grid-match">
+                    <div uk-grid class="uk-grid uk-child-width-1-2@s uk-grid-match">
                         <div>
                             <div class="uk-card uk-card-default">
                                 <div class="fd--card--header uk-padding-small">
@@ -93,7 +93,7 @@
                                 </div>
                                 <div class="fd--card--body uk-padding">
                                     <p>
-                                        A simple mortgage calculator for repayment mortgages.
+                                        A simple calculator for repayment mortgages. A quick and easy way to find out what your monthly payments could be, based on the mortgage balance and interest rate.
                                     </p>
                                 </div>
                                 <div class="fd--card--footer uk-card-footer">
@@ -112,7 +112,8 @@
                                 </div>
                                 <div class="fd--card--body uk-padding">
                                     <p>
-                                        A simple mortgage calulator for interest-only mortgages.
+                                        A simple calulator for interest-only mortgages.
+                                        A quick and easy way to find out what your monthly payments could be, base on the mortgage balance, interest rate and term.
                                     </p>
                                 </div>
                                 <div class="fd--card--footer uk-card-footer">
@@ -130,7 +131,7 @@
                                 </div>
                                 <div class="fd--card--body uk-padding">
                                     <p>
-                                        A Simple overpayment calculator that allows the user to make regaular monthly payments, lump sums or both.
+                                        A Simple overpayment calculator that allows the user to make regular monthly overpayments and/or lump sum overpayments. The mortgage balance, term and interest rate is required.
                                     </p>
                                 </div>
                                 <div class="fd--card--footer uk-card-footer">
@@ -144,11 +145,11 @@
                         <div>
                             <div class="uk-card uk-card-default">
                                 <div class="fd--card--header uk-padding-small">
-                                    <h4>Complex Calculator</h4>
+                                    <h4>Complex Mortgage Calculator</h4>
                                 </div>
                                 <div class="fd--card--body uk-padding">
                                     <p>
-                                        A much more complex and informative mortgage calculator. It expands on the overpyament calculator.
+                                        A much more complex and informative mortgage calculator. It expands greatly on the overpayment calculator. Adding extra features such as regular overpayment intervals, annual overpayments. The calculator can also be used to get the balance at the end of a mortgage fixed term. See the interest, capital split of every payment and much more.
                                     </p>
                                 </div>
                                 <div class="fd--card--footer uk-card-footer">
