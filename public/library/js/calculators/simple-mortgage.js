@@ -10,10 +10,10 @@
             },
 			updateSlider: function(slider){
 				if(slider.id == "SIMPLE-MORTGAGE-CALC_interest_rate"){
-					let mortgageInterestText = document.getElementById('SIMPLE-MORTGAGE-CALC_interest_rate_slider_text');
+					let mortgageInterestText = document.getElementById('SIMPLE-MORTGAGE-CALC_interest_rate_text');
 					mortgageInterestText.textContent = slider.value;
 				} else if(slider.id == "SIMPLE-MORTGAGE-CALC_mortgage_term"){
-					let mortgageTermText = document.getElementById('SIMPLE-MORTGAGE-CALC_mortgage_term_slider_text');
+					let mortgageTermText = document.getElementById('SIMPLE-MORTGAGE-CALC_mortgage_term_text');
 					mortgageTermText.textContent = slider.value;
 				}
 			},
@@ -21,9 +21,11 @@
 
 				/*Calc input varibles*/
 				_SIMPLE_MORTGAGE.refs.interestOnlyBalance = document.getElementById('SIMPLE-MORTGAGE-CALC_interest_only_balance');
+
 				_SIMPLE_MORTGAGE.refs.interestRate = document.getElementById('SIMPLE-MORTGAGE-CALC_interest_rate');
 
 				_SIMPLE_MORTGAGE.refs.repaymentBalance = document.getElementById('SIMPLE-MORTGAGE-CALC_repayment_balance');
+
 				_SIMPLE_MORTGAGE.refs.mortgageTerm = document.getElementById('SIMPLE-MORTGAGE-CALC_mortgage_term');
 
 				_SIMPLE_MORTGAGE.funcs.setupInputs();
@@ -32,7 +34,7 @@
 
 				if(_SIMPLE_MORTGAGE.refs.interestOnlyBalance){
 
-					_SIMPLE_MORTGAGE.refs.interestOnlyBalance.value = '15000';
+					_SIMPLE_MORTGAGE.refs.interestOnlyBalance.value = '150000';
 
 					_SIMPLE_MORTGAGE.refs.interestOnlyBalance.onchange = function(){
 						_SIMPLE_MORTGAGE.funcs.monthlyCalculation();
@@ -41,7 +43,7 @@
 
 				if(_SIMPLE_MORTGAGE.refs.repaymentBalance){
 
-					_SIMPLE_MORTGAGE.refs.repaymentBalance.value = '110000';
+					_SIMPLE_MORTGAGE.refs.repaymentBalance.value = '220000';
 
 					_SIMPLE_MORTGAGE.refs.repaymentBalance.onchange = function(){
 						_SIMPLE_MORTGAGE.funcs.monthlyCalculation();
