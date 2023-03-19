@@ -308,6 +308,8 @@ _CORE={
     funcs:{
         init: function(){
             console.log('JS Working');
+            _CORE.funcs.buildElementReferences();
+
             _CORE.overpayment.funcs.init();
             _CORE.simple_mortgage.funcs.init();
             _CORE.funcs.slidersSetup();
@@ -319,6 +321,14 @@ _CORE={
                 e.style.setProperty('--max', e.max == '' ? '100' : e.max);
                 e.addEventListener('input', () => e.style.setProperty('--value', e.value));
             }
+        },
+        buildElementReferences: function(type){
+            _CORE.utils.forEach('[data-calculator-field]', function(index, field){
+                let fieldType = field.getAttribute('data-calculator-field');
+                
+                _CORE.refs[fieldType] = field;
+            });			
+
         },
     }
 };
