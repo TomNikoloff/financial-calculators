@@ -328,8 +328,38 @@ _CORE={
                 
                 _CORE.refs[fieldType] = field;
             });			
+        },
+        switchCalcCategory: function(){
+
+            let calcsMenus =  document.querySelectorAll('.fd--calcs--menu');
+            _CORE.utils.forEach(calcsMenus, function(index, menu){
+                menu.classList.remove('hide');
+            });
+
+            let calcTitles =  document.querySelectorAll('.fd--calcs--list--title');
+            _CORE.utils.forEach(calcTitles, function(index, title){
+                title.classList.remove('hide');
+            });
+
+            let calcsList =  document.querySelectorAll('.fd--calcs--list');
+            _CORE.utils.forEach(calcsList, function(index, list){
+                list.classList.remove('hide');
+            });
 
         },
+        switchMortgageCalc: function(type){
+            let calcTitles =  document.querySelectorAll('.fd--calcs--list--title');
+            _CORE.utils.forEach(calcTitles, function(index, title){
+                title.classList.add('hide');
+            });
+
+            let mortgageCalcsMenu =  document.getElementById('fd_mortgage_calcs_menu');
+            let mortgageCalcsList =  document.getElementById('fd_mortgage_calcs_switcher');
+
+            mortgageCalcsMenu.classList.add('hide');
+            mortgageCalcsList.classList.remove('hide');
+
+        }
     }
 };
 

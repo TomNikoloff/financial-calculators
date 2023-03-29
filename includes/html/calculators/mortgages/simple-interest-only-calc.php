@@ -1,4 +1,4 @@
-<div id="INTEREST-ONLY" class="uk-margin-top hide">
+<div id="INTEREST-ONLY" class="uk-margin-top">
     <div class="">
         <h2 class="uk-text-center uk-margin-medium-bottom">Mortgage Interest-Only Calculator</h2>
         <div class="uk-card-body">
@@ -21,7 +21,7 @@
                             <input data-calculator-field="SIMPLE-MORTGAGE-CALC-io-interest-rate-text" class="uk-input" min="0.25" max="15" type="number">
                         </div>
                     </div>
-                    <input data-calculator-field="SIMPLE-MORTGAGE-CALC-io-interest-rate" type="range" min="0.25" max="15" value="4.25" class="styled-slider slider-progress" oninput="_CORE.simple_mortgage.funcs.updateSlider(this)">
+                    <input data-calculator-field="SIMPLE-MORTGAGE-CALC-io-interest-rate" type="range" min="0.25" max="15" value="4.25" class="styled-slider slider-progress">
                     <div class="uk-flex uk-flex-between">
                         <div>0.25%</div>
                         <div>15%</div>

@@ -1,4 +1,4 @@
-<div id="OVERPAYMENT-CALC" class="uk-margin-top hide">
+<div id="OVERPAYMENT-CALC" class="uk-margin-top">
     <div class="">
         <h1 class="uk-text-center uk-margin-medium-bottom">Mortgage Overpayment Calculator</h1>
         <div class="uk-margin-bottom">

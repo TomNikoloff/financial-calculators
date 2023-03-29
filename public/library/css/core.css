@@ -188,15 +188,30 @@ nav {
     background-color: var(--fd-main-bg-color);
     height: 100px;
     color: #fff;
+    padding-top: 10px;
 }
 
-.fd--card--nav.active {
+#fd_calc_category_menu div{
+    border-bottom: 7px solid var(--fd-main-bg-color);
+}
+
+#fd_calc_category_menu div.uk-active {
     border-bottom: 7px solid var(--fd-primary);
+}
+
+.fd--calc--list--cards {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.fd--calc--list--cards > div{
+    width: 100%;
 }
 
 .fd--card--header {
     background-color: #f1f1f1;
     border-bottom: var(--fd-main-bg-color) 2px solid;
+    max-height: 80px;
 }
 
 .fd--card--header h4 {
@@ -205,6 +220,7 @@ nav {
 }
 
 .fd--card--footer {
+    align-self: flex-end;
     background-color: var(--fd-main-bg-color);
 }
 
