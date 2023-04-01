@@ -1,6 +1,17 @@
-<div id="REPAYMENT" class="uk-margin-top">
+
+<ul class="uk-breadcrumb">
+    <!--
+    <li><a href="">Calculators</a></li>
+    -->
+    <li><a href="">Mortgages</a></li>
+    <li><a href="#">Simple Repayment</a></li>
+</ul>
+
+<div id="REPAYMENT" class="uk-margin-medium-top">
     <div class="">
-        <h2 class="uk-text-center uk-margin-medium-bottom">Mortgage Repayment Calculator</h2>
+        <div class="uk-padding uk-padding-remove-vertical">
+            <h2 class="uk-margin-medium-bottom fd--title--border">Mortgage Repayment Calculator</h2>
+        </div>
         <div class="uk-card-body">
             <div>
                 <div class="uk-margin">

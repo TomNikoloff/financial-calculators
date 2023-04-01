@@ -177,6 +177,11 @@ nav {
     padding-right: 20px;
 }
 
+.fd--title--border {
+    border-left: 4px solid var(--fd-primary);
+    padding-left: 20px;
+}
+
 .fd--custom--slash {
     font-size: 40px;
     margin: 7px 10px 0 10px;

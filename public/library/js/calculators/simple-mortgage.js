@@ -2,7 +2,7 @@
 	c.extend(	
 	{
         utils: {
- 
+
         },
 		refs:{},
 		funcs:{
@@ -38,6 +38,8 @@
 				_CORE.refs["SIMPLE-MORTGAGE-CALC-rp-balance"].onchange = function(){
 					_CORE.simple_mortgage.funcs.monthlyCalculation();
 				}
+
+				_CORE.utils.numberInputFormatter(_CORE.refs["SIMPLE-MORTGAGE-CALC-rp-balance"]);
 
 				_CORE.refs["SIMPLE-MORTGAGE-CALC-rp-interest-rate-text"].value = '2.25';
 
@@ -75,6 +77,8 @@
 					_CORE.simple_mortgage.funcs.monthlyCalculation();
 				}
 
+				_CORE.utils.numberInputFormatter(_CORE.refs["SIMPLE-MORTGAGE-CALC-io-balance"]);
+				
 				_CORE.refs["SIMPLE-MORTGAGE-CALC-io-interest-rate-text"].value = '4.25';
 
 				_CORE.refs["SIMPLE-MORTGAGE-CALC-io-interest-rate-text"].oninput = function(){

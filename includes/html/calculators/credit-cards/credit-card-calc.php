@@ -15,9 +15,25 @@
     <div uk-grid class="uk-grid">
 
         <div class="uk-width-1-1">
-            {$card_balance$}
-            {$interest_rate$}
-            {$interest_only_result$}
+            <div class="uk-margin">
+                <h4 class="uk-margin-small">Card Balance</h4>
+                <div class="uk-position-relative" data-prefix="£">
+                    <input data-calculator-field="CREDIT-CARD-CALC-balance" class="uk-input" value="15,000" onchange="">
+                </div>
+            </div>
+            <div class="uk-flex uk-flex-center">
+                <div class="uk-position-relative" data-suffix="%" style="width: 100px">
+                    <input data-calculator-field="CREDIT-CARD-CALC-interest-rate-text" class="uk-input" min="0.25" max="15" type="number">
+                </div>
+            </div>
+            <input data-calculator-field="CREDIT-CARD-CALC-interest-rate" type="range" min="0.25" max="15" value="4.25" step="0.25" class="styled-slider slider-progress">
+            <div class="uk-flex uk-flex-between">
+                <div>0.25%</div>
+                <div>15%</div>
+            </div>
+            <div class="uk-position-relative uk-margin-medium">
+                    <h2 class="result-text uk-text-center" data-results-suffix="a month">Interest-only payment of <span data-calculator-field="credit-card-interest-only-payment" class="results-value-text uk-text-bold">£</span></h2>
+            </div>
             <hr class="uk-divider-icon">
         </div>
 

@@ -302,6 +302,39 @@ _CORE={
         },
         objIsEmpty: function(obj){
             return Object.keys(obj).length === 0;
+        },
+        numberInputFormatter: function(input){
+            input.addEventListener('input', event => {
+                event.preventDefault();
+          
+                // allow only digits and dots
+                let text = event.target.value.replace(/[^\d\.]/gi, '');
+              
+                // check if last character is a dot
+                let lastCharIsAdot = text.substr(text.length - 1, 1) === ".";
+              
+                // try to check if input text is a valid number
+                if (isNaN(text)) {
+                    // if not, then give feedback to the user
+                    /*
+                    event.target.classList.remove('valid');
+                    event.target.classList.add('invalid');
+                    */
+              
+                } else {
+                    // if yes, then give positive feedback
+                    /*
+                    event.target.classList.remove('invalid');
+                    event.target.classList.add('valid');
+                    */
+                    // format number
+                    event.target.value = Number(text).toLocaleString("en-US");
+                    // this will remove the dot if it is the last thing input
+                    // therefor, we need to put it back
+              
+                    if (lastCharIsAdot) event.target.value += ".";
+                }
+            })
         }
     },
     refs:{},
@@ -345,6 +378,9 @@ _CORE={
             _CORE.utils.forEach(calcsList, function(index, list){
                 list.classList.remove('hide');
             });
+
+            let mortgageCalcsList =  document.getElementById('fd_mortgage_calcs_switcher');
+            mortgageCalcsList.classList.add('hide');
 
         },
         switchMortgageCalc: function(type){
