@@ -10,7 +10,7 @@
 <div id="OVERPAYMENT-CALC" class="uk-margin-medium-top">
     <div class="">
         <div class="uk-padding uk-padding-remove-vertical">
-            <h2 class="fd--title--border uk-margin-medium-bottom">Mortgage Overpayment Calculator</h2>
+            <h2 class="fd--title--border uk-margin-bottom">Mortgage Overpayment Calculator</h2>
         </div>
         <div class="uk-margin-bottom">
             <div class="uk-card uk-card-default uk-card-body">

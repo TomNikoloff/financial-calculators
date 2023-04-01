@@ -362,7 +362,7 @@ _CORE={
                 _CORE.refs[fieldType] = field;
             });			
         },
-        switchCalcCategory: function(){
+        switchCalcCategory: function(category){
 
             let calcsMenus =  document.querySelectorAll('.fd--calcs--menu');
             _CORE.utils.forEach(calcsMenus, function(index, menu){
@@ -382,6 +382,9 @@ _CORE={
             let mortgageCalcsList =  document.getElementById('fd_mortgage_calcs_switcher');
             mortgageCalcsList.classList.add('hide');
 
+            let creditLoansList = document.getElementById('fd_credit_calcs_switcher');
+            creditLoansList.classList.add('hide');
+
         },
         switchMortgageCalc: function(type){
             let calcTitles =  document.querySelectorAll('.fd--calcs--list--title');
@@ -394,6 +397,19 @@ _CORE={
 
             mortgageCalcsMenu.classList.add('hide');
             mortgageCalcsList.classList.remove('hide');
+
+        },
+        switchLoanCalc: function(type){
+            let calcTitles =  document.querySelectorAll('.fd--calcs--list--title');
+            _CORE.utils.forEach(calcTitles, function(index, title){
+                title.classList.add('hide');
+            });
+
+            let loanCalcsMenu =  document.getElementById('fd_credit_calcs_menu');
+            let loanCalcsList =  document.getElementById('fd_credit_calcs_switcher');
+
+            loanCalcsMenu.classList.add('hide');
+            loanCalcsList.classList.remove('hide');
 
         }
     }

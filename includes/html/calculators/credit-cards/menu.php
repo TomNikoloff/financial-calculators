@@ -9,7 +9,7 @@
             </p>
         </div>
         <div class="fd--card--footer uk-card-footer">
-            <button class="uk-button" type="button" onclick="_CORE.funcs.switchMortgageCalc()">
+            <button class="uk-button" type="button" onclick="_CORE.funcs.switchLoanCalc()">
                 GO
                 <span uk-icon="icon: arrow-right; ratio: 1.8" class="uk-animation-slide-left"></span>
             </button>

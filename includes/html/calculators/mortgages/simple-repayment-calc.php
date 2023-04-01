@@ -10,7 +10,7 @@
 <div id="REPAYMENT" class="uk-margin-medium-top">
     <div class="">
         <div class="uk-padding uk-padding-remove-vertical">
-            <h2 class="uk-margin-medium-bottom fd--title--border">Mortgage Repayment Calculator</h2>
+            <h2 class="uk-margin-bottom fd--title--border">Mortgage Repayment Calculator</h2>
         </div>
         <div class="uk-card-body">
             <div>

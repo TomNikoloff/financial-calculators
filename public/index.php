@@ -123,7 +123,7 @@
                             <div class="fd--calcs--list--title">
                                 <h2>Credit Cards / Loans</h2>
                             </div>
-                            <div id="fd_mortgage_calcs_menu" uk-grid class="uk-grid uk-child-width-1-2@s uk-grid-match fd--calcs--menu" uk-switcher="connect: #fd_mortgage_calcs_switcher">
+                            <div id="fd_credit_calcs_menu" uk-grid class="uk-grid uk-child-width-1-2@s uk-grid-match fd--calcs--menu" uk-switcher="connect: #fd_credit_calcs_switcher">
                                 <?php 
                                     # Credit Card Calculator Menu
                                     include($_SERVER['DOCUMENT_ROOT']."/financial-dashboard/includes/html/calculators/credit-cards/menu.php");
@@ -132,7 +132,7 @@
                             <ul id="fd_credit_calcs_switcher" class="uk-switcher uk-animation-scale-up fd--calcs--list hide">
                                 <li>
                                     <?php 
-                                        # Mortgage Repayment Payment Calculator
+                                        # Credit Card Calculator
                                         include($_SERVER['DOCUMENT_ROOT']."/financial-dashboard/includes/html/calculators/credit-cards/credit-card-calc.php");
                                     ?>
                                 </li>
