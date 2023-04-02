@@ -62,7 +62,6 @@ a {
     transition: 300ms ease-in-out;
     font-family: 'Oswald', Arial, Helvetica, sans-serif;
     font-weight: 400;
-    text-transform: uppercase;
     color: var(--fd-main-bg-color);
 }
 
@@ -235,6 +234,14 @@ nav {
     font-size: 1.3em;
     color: var(--fd-primary);
     text-align: right;
+}
+
+.fd--accordian--title {
+    background-color: #f8f8f8;
+    border-top: 1px solid #e5e5e5;
+    border-bottom: 1px solid #E5E5E5;
+    text-decoration: none;
+    padding: 10px 20px;
 }
 
 /* New Slider - Using JS*/

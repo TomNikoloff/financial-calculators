@@ -43,7 +43,7 @@
         </div>
         <div class="fd--card--body uk-padding">
             <p>
-                A Simple overpayment calculator that allows the user to make regular monthly overpayments and/or lump sum overpayments. The mortgage balance, term and interest rate is required.
+                An overpayment calculator helps you calculate the potential benefits of making additional payments towards your mortgage. It shows you how much you could save in interest and how much quicker you could pay off your mortgage. The calculator can also help you compare different scenarios, such as making regular overpayments or a one-off lump sum payment. 
             </p>
         </div>
         <div class="fd--card--footer uk-card-footer">

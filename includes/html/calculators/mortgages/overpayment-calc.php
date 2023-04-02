@@ -117,5 +117,11 @@
             </div>
         </div>
 
+        <div class="uk-padding">
+            <p>
+                It's important to note that overpayment calculators are for guidance purposes only and the actual amount you save will depend on several factors. It's recommended to speak to a mortgage advisor or financial planner before making any decisions regarding mortgage overpayment.
+            </p>
+        </div>
+
     </div>
 </div>
