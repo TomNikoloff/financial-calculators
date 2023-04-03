@@ -56,6 +56,9 @@
                     <div class="title-border">
                         <h3>Overpayment Details</h3>
                     </div>
+                    <div class="uk-margin uk-padding-small">
+                        Typically you're only allowed to overpay by up to 10% of your outstanding mortgage balance per year. Bear this in mind in particular if you wish to make recurring overpayments more than once a year.
+                    </div>
                     <div class="uk-flex uk-flex-between">
                         <div>
                             <label>Regular Monthly Overpayment</label>

@@ -244,6 +244,22 @@ nav {
     padding: 10px 20px;
 }
 
+.fd--btns {
+    background-color: var(--fd-main-bg-color);
+    color: var(--fd-primary);
+}
+
+.ads--section {
+    padding: 0 20px;
+    text-align: center;
+}
+
+.ads--section div {
+    border: var(--fd-main-bg-color) solid 1px;
+    height: 200px;
+    background-color: #999;
+}
+
 /* New Slider - Using JS*/
 
 input[type=range].styled-slider {
