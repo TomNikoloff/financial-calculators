@@ -3,10 +3,10 @@
         Jump to:
     </h3>
     <div class="uk-margin-left">
-        <button class="uk-button fd--btns" type="button">Credit Card Info <span uk-icon="arrow-down"></span></button>
+        <a class="uk-button fd--btns" href="#fd_credit_card_info" uk-scroll>Credit Card Info <span uk-icon="arrow-down"></span></a>
     </div>
     <div class="uk-margin-left">
-        <button class="uk-button fd--btns" type="button">Loan Info <span uk-icon="arrow-down"></span></button>
+        <a class="uk-button fd--btns" href="#fd_loan_info" uk-scroll>Loan Info <span uk-icon="arrow-down"></span></a>
     </div>
 </div>
 
@@ -16,15 +16,17 @@
     </div>
 </div>
 
-<div class="uk-padding">
-    <h2>Basic Credit Card Information</h2>
+<div id="fd_credit_card_info" class="uk-padding">
+    <div class="fd--section-heading">
+        <h2>Basic Credit Card Information</h2>
+    </div>    
     <p>
         A credit card is a type of financial product that allows you to borrow money up to a certain limit, known as your credit limit. You can use the card to make purchases or withdraw cash, up to the credit limit, and then repay the amount you've borrowed over time.
     </p>
     <p>
         Here are some key points to keep in mind when it comes to credit cards in the UK:
     </p>
-    <ul>
+    <ul class="info--lists">
         <li>
             Credit cards allow you to borrow money up to a certain limit and repay it over time.
         </li>
@@ -60,7 +62,7 @@
                 <p>
                     There are several types of credit cards available in the UK, each with their own unique features and benefits. Here are some of the most common credit card types in the UK:
                 </p>
-                <ul>
+                <ul class="info--lists">
                     <li>
                         Balance transfer credit cards: With a balance transfer credit card, you can transfer your existing credit card balance to a new card with a lower interest rate. This can help you save money on interest and pay off your debt faster.
                     </li>
@@ -94,15 +96,17 @@
     </div>
 </div>
 
-<div class="uk-padding">
-    <h2>Basic Loan Information</h2>
+<div id="fd_loan_info" class="uk-padding">
+    <div class="fd--section-heading">
+        <h2>Basic Loan Information</h2>
+    </div>
     <p>
         A loan is a type of financial product that allows you to borrow money and repay it over time with interest. Loans are offered by a variety of lenders, including banks, building societies, and online lenders.
     </p>
     <p>
         Here are some key points to keep in mind when it comes to loans in the UK:
     </p>
-    <ul>
+    <ul class="info--lists">
         <li>
             A loan is a type of financial product that allows you to borrow a specific amount of money and repay it over time, usually with interest.
         </li>
@@ -138,7 +142,7 @@
                 <p>
                     There are different types of loans available in the UK, including:
                 </p>
-                <ul>
+                <ul class="info--lists">
                     <li>
                         Personal loans: These are unsecured loans that allow you to borrow a fixed amount of money over a fixed period of time. The interest rate and loan term will vary depending on the lender and your creditworthiness. Personal loans are typically used for things like home improvements, car purchases, or consolidating debt.
                     </li>
@@ -163,7 +167,7 @@
                 <p>
                     If you decide to make overpayments on your loan, there are a few things to keep in mind:
                 </p>
-                <ul>
+                <ul class="info--lists">
                     <li>
                         Check with your lender: Before making any overpayments, check with your lender to see if there are any penalties or fees for early repayment.
                     </li>

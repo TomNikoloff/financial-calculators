@@ -181,6 +181,15 @@ nav {
     padding-left: 20px;
 }
 
+.fd--section-heading {
+    width: 100%;
+    border-bottom: 2px solid var(--fd-main-bg-color);
+}
+
+.fd--section-heading h2 {
+    margin-bottom: 10px;
+}
+
 .fd--custom--slash {
     font-size: 40px;
     margin: 7px 10px 0 10px;
@@ -258,6 +267,10 @@ nav {
     border: var(--fd-main-bg-color) solid 1px;
     height: 200px;
     background-color: #999;
+}
+
+.info--lists li{
+    margin-bottom: 10px;
 }
 
 /* New Slider - Using JS*/
@@ -461,5 +474,37 @@ input[type=range].styled-slider.slider-progress::-ms-fill-lower {
 footer {
     background-color: var(--fd-main-bg-color);
     border-top: 4px solid var(--fd-primary);
+}
+
+.fd--footer--infoBox {
+    padding: 60px 0 60px 0;
+}
+
+.fd--footer--bar {
+    background-color: #2c2b35;
+}
+
+.fd--footer--bar div {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: var(--fd-secondary);
+    font-size: 12px;
+    line-height: 20px;
+}
+
+.fd--footer-heading {
+    width: 100%;
+    border-bottom: 2px solid var(--fd-primary);
+}
+
+.fd--footer--heading h3 {
+    margin-bottom: 10px;
+}
+
+.fd--footer--logo {
+    border-radius: 50%;
+    border: 4px solid var(--fd-primary);
+    width: 200px;
     height: 200px;
+    background-color: var(--fd-secondary);
 }

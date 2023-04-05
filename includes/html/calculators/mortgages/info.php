@@ -5,14 +5,16 @@
 </div>
 
 <div class="uk-padding">
-    <h2>Basic Mortgage Information</h2>
+    <div class="fd--section-heading">
+        <h2>Basic Mortgage Information</h2>
+    </div>
     <p>
         In the UK, a mortgage is a loan taken out to purchase a property, typically a house or flat. The loan is secured against the property, which means that if you fail to keep up with your mortgage payments, your lender can repossess your home to recover their money.
     </p>
     <p>
         Here are some key points to know about mortgages in the UK:
     </p>
-    <ul>
+    <ul class="info--lists">
         <li>
             Mortgage interest rates in the UK can be fixed or variable. Fixed-rate mortgages have an interest rate that remains the same for a set period, while variable-rate mortgages have an interest rate that can change over time.
         </li>
@@ -91,7 +93,7 @@
                 <p>
                     Here are some key points to know about mortgage overpayment in the UK:
                 </p>
-                <ul>
+                <ul class="info--lists">
                     <li>
                         Many mortgage lenders in the UK allow overpayment up to a certain limit, typically around 10% of the outstanding mortgage balance per year. If you want to overpay more than this limit, you may need to pay an early repayment charge (ERC).
                     </li>
@@ -120,9 +122,12 @@
             <a class="uk-accordion-title fd--accordian--title" href="#">What mortgage products are available?</a>
             <div class="uk-accordion-content uk-padding-small">
                 <p>
-                    In the UK, there are several different types of mortgage products available, each with its own unique features and benefits. Here are some of the most common mortgage products in the UK:
+                    In the UK, there are several different types of mortgage products available, each with its own unique features and benefits. 
                 </p>
-                <ul>
+                <p>
+                    Here are some of the most common mortgage products in the UK:
+                </p>
+                <ul class="info--lists">
                     <li>
                         Fixed-rate mortgages: With a fixed-rate mortgage, the interest rate stays the same for a set period of time, usually between 2-10 years. This can provide stability and predictability in your monthly mortgage payments.
                     </li>
