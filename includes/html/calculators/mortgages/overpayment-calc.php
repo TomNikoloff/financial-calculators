@@ -20,20 +20,20 @@
                     </div>
                     <div uk-grid class="uk-child-width-1-2@s uk-child-width-1-4@m uk-grid-small">
                         <div>
-                            <label>Mortgage Balance</label>
+                            <label class="uk-margin-small">Mortgage Balance</label>
                             <div class="uk-position-relative" data-prefix="£">
                                 <input id="OVERPAYMENT-CALC_mortgage_balance" class="uk-input" type="text" vaLue="180000">
                             </div>
                         </div>
                         <div>
-                            <label>Term - Years</label>
-                            <div>
+                            <label>Mortgage Term</label>
+                            <div class="uk-position-relative" data-suffix="Years">
                                 <input id="OVERPAYMENT-CALC_mortgage_term_years" class="uk-input" type="text" vaLue="28">
                             </div>
                         </div>
                         <div>
-                            <label>Term - Months</label>
-                            <div>
+                            <label>&nbsp</label>
+                            <div class="uk-position-relative" data-suffix="Months">
                                 <input id="OVERPAYMENT-CALC_mortgage_term_months" class="uk-input" type="text" vaLue="0">
                             </div>
                         </div>
@@ -62,7 +62,7 @@
                     <div class="uk-flex uk-flex-between">
                         <div>
                             <label>Regular Monthly Overpayment</label>
-                            <div>
+                            <div class="uk-position-relative" data-prefix="£">
                                 <input id="OVERPAYMENT-CALC_regular_overpayment" class="uk-input" value="0">
                             </div>
                         </div>
@@ -71,7 +71,7 @@
                         </div>
                         <div>
                             <label>Lump Sum Overpayment</label>
-                            <div>
+                            <div class="uk-position-relative" data-prefix="£">
                                 <input id="OVERPAYMENT-CALC_lump_sum_overpayment" class="uk-input" value="0">
                             </div>
                         </div>

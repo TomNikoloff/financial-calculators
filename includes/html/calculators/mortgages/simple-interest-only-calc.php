@@ -28,8 +28,8 @@
                     </h4>
                     -->
                     <div class="uk-flex uk-flex-center">
-                        <div class="uk-position-relative" data-suffix="Years" style="width: 140px">
-                            <input data-calculator-field="SIMPLE-MORTGAGE-CALC-io-interest-rate-text" class="uk-input" min="0.25" max="15" step="0.25" type="number">
+                        <div class="uk-position-relative" data-suffix="%" style="width: 100px">
+                            <input data-calculator-field="SIMPLE-MORTGAGE-CALC-io-interest-rate-text" class="uk-input" min="0.25" max="15" type="number">
                         </div>
                     </div>
                     <input data-calculator-field="SIMPLE-MORTGAGE-CALC-io-interest-rate" type="range" min="0.25" max="15" value="4.25" step="0.25" class="styled-slider slider-progress">

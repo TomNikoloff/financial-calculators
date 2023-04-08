@@ -23,8 +23,8 @@
 
     <!-- JS -->
     <script src="./library/js/core.js?<?php echo(time()); ?>"></script>
-    <script src="./library/js/calculators/overpayment.js?<?php echo(time()); ?>"></script>
-    <script src="./library/js/calculators/simple-mortgage.js?<?php echo(time()); ?>"></script>
+    <script src="./library/js/calculators/mortgages/overpayment.js?<?php echo(time()); ?>"></script>
+    <script src="./library/js/calculators/mortgages/simple-mortgage.js?<?php echo(time()); ?>"></script>
 
     <!--Load Google Charts API-->
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>

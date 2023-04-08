@@ -141,21 +141,24 @@
                                 <div id="fd_credit_calcs_menu" uk-grid class="uk-grid uk-child-width-1-2@s uk-grid-match fd--calcs--menu" uk-switcher="connect: #fd_credit_calcs_switcher">
                                     <?php 
                                         # Credit Card Calculator Menu
-                                        include($_SERVER['DOCUMENT_ROOT']."/financial-dashboard/includes/html/calculators/credit-cards/menu.php");
+                                        include($_SERVER['DOCUMENT_ROOT']."/financial-dashboard/includes/html/calculators/loans/menu.php");
                                     ?>
                                 </div>
                                 <ul id="fd_credit_calcs_switcher" class="uk-switcher uk-animation-scale-up fd--calcs--list hide">
                                     <li>
                                         <?php 
                                             # Credit Card Calculator
-                                            include($_SERVER['DOCUMENT_ROOT']."/financial-dashboard/includes/html/calculators/credit-cards/credit-card-calc.php");
+                                            include($_SERVER['DOCUMENT_ROOT']."/financial-dashboard/includes/html/calculators/loans/credit-card-calc.php");
                                         ?>
                                     </li>
                                     <li>
 
                                     </li>
                                     <li>
-
+                                        <?php 
+                                            # Loan Calculator
+                                            include($_SERVER['DOCUMENT_ROOT']."/financial-dashboard/includes/html/calculators/loans/simple-loan.php");
+                                        ?>
                                     </li>
                                     <li>
 
@@ -168,7 +171,7 @@
                         <div class="uk-margin-large-top">
                             <?php
                                 # Credit Card Info Section 
-                                include($_SERVER['DOCUMENT_ROOT']."/financial-dashboard/includes/html/calculators/credit-cards/info.php");
+                                include($_SERVER['DOCUMENT_ROOT']."/financial-dashboard/includes/html/calculators/loans/info.php");
                             ?>
                         </div>
 
@@ -182,7 +185,7 @@
                                 </div>
                                 <div id="fd_savings_calcs_menu" uk-grid class="uk-grid uk-child-width-1-2@s uk-grid-match fd--calcs--menu" uk-switcher="connect: #fd_savings_calcs_switcher">
                                     <?php 
-                                        # Credit Card Calculator Menu
+                                        # Savings Calculator Menu
                                         include($_SERVER['DOCUMENT_ROOT']."/financial-dashboard/includes/html/calculators/savings/menu.php");
                                     ?>
                                 </div>

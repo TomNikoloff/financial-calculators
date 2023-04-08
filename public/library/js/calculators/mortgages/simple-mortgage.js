@@ -89,8 +89,8 @@
 				_CORE.refs["SIMPLE-MORTGAGE-CALC-io-interest-rate"].value = '4.25';
 
 				_CORE.refs["SIMPLE-MORTGAGE-CALC-io-interest-rate"].oninput = function(){
-					_CORE.simple_mortgage.funcs.monthlyCalculation();
 					_CORE.simple_mortgage.funcs.updateSlider('slider', this, _CORE.refs["SIMPLE-MORTGAGE-CALC-io-interest-rate-text"]);
+					_CORE.simple_mortgage.funcs.monthlyCalculation();
 				}
 
 				_CORE.simple_mortgage.funcs.monthlyCalculation();
@@ -99,7 +99,7 @@
 			monthlyCalculation: function(){
 
 				// Interest-Only
-				let ioInterestRate = parseFloat(_CORE.refs["SIMPLE-MORTGAGE-CALC-io-interest-rate"].value.replaceAll(",", ""));
+				let ioInterestRate = parseFloat(_CORE.refs["SIMPLE-MORTGAGE-CALC-io-interest-rate-text"].value.replaceAll(",", ""));
 				let interestOnlyValue;
 
 				interestOnlyValue = parseFloat(_CORE.refs["SIMPLE-MORTGAGE-CALC-io-balance"].value.replaceAll(",", ""));
