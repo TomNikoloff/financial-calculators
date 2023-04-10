@@ -345,6 +345,7 @@ _CORE={
 
             _CORE.overpayment.funcs.init();
             _CORE.simple_mortgage.funcs.init();
+            _CORE.simple_credit.funcs.init();
             _CORE.funcs.slidersSetup();
         },
         slidersSetup: function(){
@@ -353,6 +354,26 @@ _CORE={
                 e.style.setProperty('--min', e.min == '' ? '0' : e.min);
                 e.style.setProperty('--max', e.max == '' ? '100' : e.max);
                 e.addEventListener('input', () => e.style.setProperty('--value', e.value));
+            }
+        },
+        updateSlider: function(type, slider, input){
+            if(type == "input"){
+                let val;
+                if(input.value){
+                    val = input.value;
+                } else {
+                    val = 0;
+                }
+
+                if(input.value.slice(-1) == '.'){
+                    let split = val.split('.')[0];
+                    slider.value = split;
+                } else {
+                    slider.value = val;
+                }
+                _CORE.funcs.slidersSetup();
+            } else {
+                input.value = slider.value;
             }
         },
         buildElementReferences: function(type){

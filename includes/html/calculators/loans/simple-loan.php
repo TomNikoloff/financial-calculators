@@ -50,7 +50,7 @@
                             <input data-calculator-field="SIMPLE-LOAN-CALC-term-text" class="uk-input" min="1" max="7" type="number">
                         </div>
                     </div>
-                    <input data-calculator-field="SIMPLE-MORTGAGE-CALC-rp-term" type="range" min="1" max="7" value="5" class="styled-slider slider-progress">
+                    <input data-calculator-field="SIMPLE-LOAN-CALC-term" type="range" min="1" max="7" value="5" class="styled-slider slider-progress">
                     <div class="uk-flex uk-flex-between">
                         <div>1 Years</div>
                         <div>7 Years</div>

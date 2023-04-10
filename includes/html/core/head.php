@@ -21,10 +21,15 @@
     <link rel="stylesheet" href="./library/css/calculators.css?<?php echo(time()); ?>">
     <link rel="stylesheet" href="./library/css/responsive.css?<?php echo(time()); ?>">
 
-    <!-- JS -->
+    <!-- CORE JS -->
     <script src="./library/js/core.js?<?php echo(time()); ?>"></script>
+
+    <!-- Mortgage JS -->
     <script src="./library/js/calculators/mortgages/overpayment.js?<?php echo(time()); ?>"></script>
     <script src="./library/js/calculators/mortgages/simple-mortgage.js?<?php echo(time()); ?>"></script>
+
+    <!-- Credit / Loans JS -->
+    <script src="./library/js/calculators/loan/credit-card.js?<?php echo(time()); ?>"></script>
 
     <!--Load Google Charts API-->
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>

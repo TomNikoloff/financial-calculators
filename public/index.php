@@ -6,7 +6,7 @@
 ?>
 <body>
     <div class="fd--site--wrapper">
-        <nav id="fd_sticky_navbar" class>
+        <nav id="fd_sticky_navbar" class="hide">
             <div class="uk-container">
                 <div class="fd--nav uk-flex uk-width-1-1">
                     <div class="fd--nav--logo--container uk-flex uk-flex-middle">
@@ -47,7 +47,7 @@
         </div>
         <main class="uk-container uk-margin-large-top">
             <div class="uk-flex uk-flex-center">
-                <h1 class="uk-text-center fd--title">Calculators</h1>
+                <h1 class="uk-text-center fd--title">Financial Calculators</h1>
             </div>
             <div class="uk-margin-top">
                 <div class="uk-card uk-card-default">
@@ -243,7 +243,7 @@
                             <div class="uk-width-1-3 uk-visible@m uk-first-column">
                             </div>
                             <div class="uk-width-2-3@m uk-flex uk-flex-middle uk-flex-center">
-                                <div class="fd--footer--logo uk-flex uk-flex-middle">
+                                <div class="fd--footer--logo uk-flex uk-flex-middle uk-margin-remove@s">
                                     <img class="" src="./images/logo-remove-bg.png">
                                 </div>
                             </div>

@@ -9,7 +9,7 @@
 
 <div id="INTEREST-ONLY" class="uk-margin-medium-top">
     <div class="">
-        <div class="uk-padding uk-padding-remove-vertical">
+        <div class="fd--calc--title uk-padding uk-padding-remove-vertical">
             <h2 class="fd--title--border uk-margin-bottom">Mortgage Interest-Only Calculator</h2>
         </div>
         <div class="uk-card-body">

@@ -9,7 +9,7 @@
 
 <div id="REPAYMENT" class="uk-margin-medium-top">
     <div class="">
-        <div class="uk-padding uk-padding-remove-vertical">
+        <div class="fd--calc--title uk-padding uk-padding-remove-vertical">
             <h2 class="uk-margin-bottom fd--title--border">Mortgage Repayment Calculator</h2>
         </div>
         <div class="uk-card-body">
@@ -22,11 +22,6 @@
                 </div>
                 <div class="uk-margin-medium uk-position-relative">
                     <h4 class="slider-label" style="margin-bottom: -34px">Interest rate is</h4>
-                    <!--
-                    <h4 class="uk-flex uk-flex-center uk-margin-remove">
-                        <span data-calculator-field="SIMPLE-MORTGAGE-CALC-rp-interest-rate-text" class="uk-text-bold">4.25</span> %
-                    </h4>
-                    -->
                     <div class="uk-flex uk-flex-center">
                         <div class="uk-position-relative" data-suffix="%" style="width: 100px">
                             <input data-calculator-field="SIMPLE-MORTGAGE-CALC-rp-interest-rate-text" class="uk-input" min="0.25" max="15" type="number">
@@ -40,11 +35,6 @@
                 </div>
                 <div class="uk-margin-medium uk-position-relative">
                     <h4 class="slider-label" style="margin-bottom: -34px">Mortgage term is</h4>
-                    <!--
-                    <h4 class="uk-flex uk-flex-center uk-margin-remove">
-                        <span data-calculator-field="SIMPLE-MORTGAGE-CALC-rp-term-text" class="uk-text-bold">25</span>  Years
-                    </h4>
-                    -->
                     <div class="uk-flex uk-flex-center">
                         <div class="uk-position-relative" data-suffix="Years" style="width: 140px">
                             <input data-calculator-field="SIMPLE-MORTGAGE-CALC-rp-term-text" class="uk-input" min="1" max="40" type="number">

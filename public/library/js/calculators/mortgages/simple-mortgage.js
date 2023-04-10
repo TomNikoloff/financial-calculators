@@ -9,26 +9,6 @@
             init: function(){	
 				_CORE.simple_mortgage.funcs.setupInputs();
             },
-			updateSlider: function(type, slider, input){
-				if(type == "input"){
-					let val;
-					if(input.value){
-						val = input.value;
-					} else {
-						val = 0;
-					}
-
-					if(input.value.slice(-1) == '.'){
-						let split = val.split('.')[0];
-						slider.value = split;
-					} else {
-						slider.value = val;
-					}
-					_CORE.funcs.slidersSetup();
-				} else {
-					input.value = slider.value;
-				}
-			},
 			setupInputs: function() {
 
 				// Repayment
@@ -44,28 +24,28 @@
 				_CORE.refs["SIMPLE-MORTGAGE-CALC-rp-interest-rate-text"].value = '2.25';
 
 				_CORE.refs["SIMPLE-MORTGAGE-CALC-rp-interest-rate-text"].oninput = function(){
-					_CORE.simple_mortgage.funcs.updateSlider('input', _CORE.refs["SIMPLE-MORTGAGE-CALC-rp-interest-rate"], this);
+					_CORE.funcs.updateSlider('input', _CORE.refs["SIMPLE-MORTGAGE-CALC-rp-interest-rate"], this);
 					_CORE.simple_mortgage.funcs.monthlyCalculation();
 				}
 
 				_CORE.refs["SIMPLE-MORTGAGE-CALC-rp-interest-rate"].value = '2.25';
 
 				_CORE.refs["SIMPLE-MORTGAGE-CALC-rp-interest-rate"].oninput = function(){
-					_CORE.simple_mortgage.funcs.updateSlider('slider', this, _CORE.refs["SIMPLE-MORTGAGE-CALC-rp-interest-rate-text"]);
+					_CORE.funcs.updateSlider('slider', this, _CORE.refs["SIMPLE-MORTGAGE-CALC-rp-interest-rate-text"]);
 					_CORE.simple_mortgage.funcs.monthlyCalculation();
 				}
 
 				_CORE.refs["SIMPLE-MORTGAGE-CALC-rp-term-text"].value = '28';
 
 				_CORE.refs["SIMPLE-MORTGAGE-CALC-rp-term-text"].oninput = function(){
-					_CORE.simple_mortgage.funcs.updateSlider('input', _CORE.refs["SIMPLE-MORTGAGE-CALC-rp-term"], this);
+					_CORE.funcs.updateSlider('input', _CORE.refs["SIMPLE-MORTGAGE-CALC-rp-term"], this);
 					_CORE.simple_mortgage.funcs.monthlyCalculation();
 				}
 				
 				_CORE.refs["SIMPLE-MORTGAGE-CALC-rp-term"].value = '28';
 
 				_CORE.refs["SIMPLE-MORTGAGE-CALC-rp-term"].oninput = function(){
-					_CORE.simple_mortgage.funcs.updateSlider('slider', this, _CORE.refs["SIMPLE-MORTGAGE-CALC-rp-term-text"]);
+					_CORE.funcs.updateSlider('slider', this, _CORE.refs["SIMPLE-MORTGAGE-CALC-rp-term-text"]);
 					_CORE.simple_mortgage.funcs.monthlyCalculation();
 				}
 
@@ -82,14 +62,14 @@
 				_CORE.refs["SIMPLE-MORTGAGE-CALC-io-interest-rate-text"].value = '4.25';
 
 				_CORE.refs["SIMPLE-MORTGAGE-CALC-io-interest-rate-text"].oninput = function(){
-					_CORE.simple_mortgage.funcs.updateSlider('input', _CORE.refs["SIMPLE-MORTGAGE-CALC-io-interest-rate"], this);
+					_CORE.funcs.updateSlider('input', _CORE.refs["SIMPLE-MORTGAGE-CALC-io-interest-rate"], this);
 					_CORE.simple_mortgage.funcs.monthlyCalculation();
 				}
 
 				_CORE.refs["SIMPLE-MORTGAGE-CALC-io-interest-rate"].value = '4.25';
 
 				_CORE.refs["SIMPLE-MORTGAGE-CALC-io-interest-rate"].oninput = function(){
-					_CORE.simple_mortgage.funcs.updateSlider('slider', this, _CORE.refs["SIMPLE-MORTGAGE-CALC-io-interest-rate-text"]);
+					_CORE.funcs.updateSlider('slider', this, _CORE.refs["SIMPLE-MORTGAGE-CALC-io-interest-rate-text"]);
 					_CORE.simple_mortgage.funcs.monthlyCalculation();
 				}
 
