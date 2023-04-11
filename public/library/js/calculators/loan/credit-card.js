@@ -19,6 +19,8 @@
 					_CORE.simple_credit.funcs.interestOnlyCalc();
 				}
 
+                _CORE.utils.numberInputFormatter(_CORE.refs["CREDIT-CARD-CALC-balance"]);
+
                 _CORE.refs["CREDIT-CARD-CALC-interest-rate-text"].value = '7.9';
 
                 _CORE.refs["CREDIT-CARD-CALC-interest-rate-text"].oninput = function(){
@@ -36,6 +38,8 @@
 				_CORE.refs["CREDIT-CARD-CALC-monthly-amount"].onchange = function(){
 					_CORE.simple_credit.funcs.interestOnlyCalc();
 				}
+
+                _CORE.utils.numberInputFormatter(_CORE.refs["CREDIT-CARD-CALC-monthly-amount"]);
 
 				_CORE.refs["CREDIT-CARD-CALC-amount-of-months"].onchange = function(){
 					_CORE.simple_credit.funcs.interestOnlyCalc();

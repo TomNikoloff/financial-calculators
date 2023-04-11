@@ -6,45 +6,47 @@
 ?>
 <body>
     <div class="fd--site--wrapper">
-        <nav id="fd_sticky_navbar" class="hide">
-            <div class="uk-container">
-                <div class="fd--nav uk-flex uk-width-1-1">
-                    <div class="fd--nav--logo--container uk-flex uk-flex-middle">
-                        <img id="fd_nav_logo" class="fd--nav--logo" src="./images/logo-remove-bg.png">
-                    </div>
-                    <div class="uk-flex uk-flex-middle">
-                        <div class="fd--nav--divider"></div>
-                    </div>
-                    <div class="fd--nav--menu--container uk-width-expand uk-padding uk-padding-remove-left">
-                        <ul class="fd--nav--menu" uk-switcher>
-                            <li>
-                                <a href="#">Calculators</a>
-                            </li>
-                            <li>
-                                <a href="#">Graphs</a>
-                            </li>
-                            <li>
-                                <a href="#">Diagrams</a>
-                            </li>
-                            <li>
-                                <a href="#">Info</a>
-                            </li>
-                            <li>
-                                <a href="#">Contact</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="uk-width-auto uk-flex uk-flex-middle">
-                        <a href="" class="fd--nav--social" uk-icon="icon: instagram; ratio: 0.9"></a>  
-                        <div class="fd--social--divider"></div>
-                        <a href="" class="fd--nav--social" uk-icon="icon: facebook; ratio: 0.9"></a>  
+        <header class="hide">
+            <nav id="fd_sticky_navbar" >
+                <div class="uk-container">
+                    <div class="fd--nav uk-flex uk-width-1-1">
+                        <div class="fd--nav--logo--container uk-flex uk-flex-middle">
+                            <img id="fd_nav_logo" class="fd--nav--logo" src="./images/logo-remove-bg.png">
+                        </div>
+                        <div class="uk-flex uk-flex-middle">
+                            <div class="fd--nav--divider"></div>
+                        </div>
+                        <div class="fd--nav--menu--container uk-width-expand uk-padding uk-padding-remove-left">
+                            <ul class="fd--nav--menu" uk-switcher>
+                                <li>
+                                    <a href="#">Calculators</a>
+                                </li>
+                                <li>
+                                    <a href="#">Graphs</a>
+                                </li>
+                                <li>
+                                    <a href="#">Diagrams</a>
+                                </li>
+                                <li>
+                                    <a href="#">Info</a>
+                                </li>
+                                <li>
+                                    <a href="#">Contact</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="uk-width-auto uk-flex uk-flex-middle">
+                            <a href="" class="fd--nav--social" uk-icon="icon: instagram; ratio: 0.9"></a>  
+                            <div class="fd--social--divider"></div>
+                            <a href="" class="fd--nav--social" uk-icon="icon: facebook; ratio: 0.9"></a>  
+                        </div>
                     </div>
                 </div>
-            </div>
-        </nav>
-        <div style="height: 54px">
+            </nav>
+            <div style="height: 54px">
 
-        </div>
+            </div>
+        </header>
         <main class="uk-container uk-margin-large-top">
             <div class="uk-flex uk-flex-center">
                 <h1 class="uk-text-center fd--title">Financial Calculators</h1>
@@ -221,47 +223,12 @@
             </div>
 
         </main>
-        <footer class="uk-margin-large-top">
-            <div class="fd--footer--infoBox">
-                <div class="uk-container">
-                    <div uk-grid class="uk-grid">
-                        <div class="uk-width-2-3@s uk-width-1-2@m">
-                            <div class="fd--footer-heading">
-                                <h3 class="fd--text--secondary">
-                                    Financial-Calculators
-                                </h3>
-                            </div>
-                            <p class="fd--text--primary uk-flex">
-                                <span class="uk-margin-small-right" uk-icon="mail"></span>
-                                <a class="fd--text--primary" href="mailto:info@financial-calculators.co.uk">info@financial-calculators.co.uk</a>
-                            </p>
-                            <p class="fd--text--secondary">Disclaimer: Information provided on this site is for illustrative purposes only.
-                                Do not make any major financial decisions without consulting a qualified specialist.
-                            </p>
-                        </div>
-                        <div uk-grid class="uk-width-1-3@s uk-width-1-2@m uk-margin-remove uk-grid-collapse uk-padding-remove uk-grid">
-                            <div class="uk-width-1-3 uk-visible@m uk-first-column">
-                            </div>
-                            <div class="uk-width-2-3@m uk-flex uk-flex-middle uk-flex-center">
-                                <div class="fd--footer--logo uk-flex uk-flex-middle uk-margin-remove@s">
-                                    <img class="" src="./images/logo-remove-bg.png">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="fd--footer--bar">
-                <div class="uk-container uk-flex uk-flex-between">
-                    <div>
-                        © 2023  |  All Rights Reserved
-                    </div>
-                    <div>
-                        financial-calculators.co.uk
-                    </div>
-                </div>
-            </div>
-        </footer>
+        <?php
+            # FOOTER
+            include($_SERVER['DOCUMENT_ROOT']."/financial-dashboard/includes/html/core/footer.php");
+
+            ## Root will need changing. This root is for use on my virtual server test area.
+        ?>
     </div>
 </body>
 </html>

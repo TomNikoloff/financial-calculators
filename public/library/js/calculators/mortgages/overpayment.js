@@ -18,7 +18,6 @@
 				_CORE.overpayment.refs.mortgageTermMonths = document.getElementById('OVERPAYMENT-CALC_mortgage_term_months');
 
 				// Current Monthly Payment
-				_CORE.overpayment.refs.currentPayment = document.getElementById('OVERPAYMENT-CALC_current_monthly_payment');
 				_CORE.overpayment.refs.currentPaymentValue;
 
 				// Overpayment Details - inputs
@@ -26,7 +25,6 @@
 				_CORE.overpayment.refs.lumpSumOverpayment = document.getElementById('OVERPAYMENT-CALC_lump_sum_overpayment');
 
 				// Current Monthly Payment
-				_CORE.overpayment.refs.newPayment = document.getElementById('OVERPAYMENT-CALC_new_monthly_payment');
 				_CORE.overpayment.refs.newPaymentValue;
 
 				// Overpayment Message
@@ -74,11 +72,15 @@
 					_CORE.overpayment.funcs.currentPaymentCalc();
 				}
 
+				_CORE.utils.numberInputFormatter(_CORE.overpayment.refs.regularOverpayments);
+
 				_CORE.overpayment.refs.lumpSumOverpayment.value = '0';
 
 				_CORE.overpayment.refs.lumpSumOverpayment.onchange = function(){
 					_CORE.overpayment.funcs.currentPaymentCalc();
 				}
+
+				_CORE.utils.numberInputFormatter(_CORE.overpayment.refs.lumpSumOverpayment);
 
 				_CORE.overpayment.funcs.currentPaymentCalc();
 
@@ -127,10 +129,10 @@
 
 				let result = pmt.toFixed(2);
 
-				_CORE.overpayment.refs.currentPayment.textContent = '£' + result.toLocaleString();
+				_CORE.refs["mortgage-current-monthly-payment"].textContent = '£' + result.toLocaleString();
 				_CORE.overpayment.refs.currentPaymentValue = result;
 
-				_CORE.overpayment.refs.newPayment.textContent = '£' + result.toLocaleString();
+				_CORE.refs["mortgage-new-monthly-payment"].textContent = '£' + result.toLocaleString();
 				_CORE.overpayment.funcs.newPaymentCalc(result);
 			},
 			newPaymentCalc: function(currentPayment){
@@ -146,11 +148,11 @@
 					overpaymentAmount = parseFloat(_CORE.overpayment.refs.regularOverpayments.value.replaceAll(",", ""));
 					newPayment = overpaymentAmount + currentPayment;
 
-					_CORE.overpayment.refs.newPayment.textContent = '£' + newPayment.toLocaleString();
+					_CORE.refs["mortgage-new-monthly-payment"].textContent = '£' + newPayment.toLocaleString();
 					_CORE.overpayment.refs.newPaymentValue = newPayment;		
 					
 				} else {
-					_CORE.overpayment.refs.newPayment.textContent = '£' + currentPayment.toLocaleString();
+					_CORE.refs["mortgage-new-monthly-payment"].textContent = '£' + currentPayment.toLocaleString();
 				}
 
 				let balance = parseFloat(_CORE.overpayment.refs.mortgageBalance.value.replaceAll(",", ""));
@@ -177,23 +179,28 @@
 
 					let interestSaved = totalInterest - newInterest - paymentInterest;
 
-					if(overpaymentAmount > 0 && lumpSumAmount > 0) {
+					if(overpaymentAmount > 0 || lumpSumAmount > 0 ){
 
-						let bothText = "Paying an extra <span class='text-highlight'>£" + overpaymentAmount.toLocaleString() + "</span> per month for the remaining mortgage term and a lump sum of <span class='text-highlight'>£" + lumpSumAmount.toLocaleString() + "</span> could mean you'd save <span class='text-highlight'>£" + Math.round(interestSaved).toLocaleString() + "</span> in interest. These results assume the interest rate stays at <span class='text-highlight'>" + interestRate + "%" + "</span> over the whole remaining mortgage term.";
+						if(overpaymentAmount > 0 && lumpSumAmount > 0) {
 
-						_CORE.overpayment.refs.overpaymentMessage.innerHTML = bothText;
-
-					} else if(overpaymentAmount > 0 && lumpSumAmount <= 0 ){
-
-						let monthlyText = "Paying an extra <span class='text-highlight'>£" + overpaymentAmount.toLocaleString() + "</span> per month for the remaining mortgage term could mean you'd save <span class='text-highlight'>£" + Math.round(interestSaved).toLocaleString() + "</span> in interest. These results assume the interest rate stays at <span class='text-highlight'>" + interestRate + "%" + "</span> over the whole remaining mortgage term.";
-
-						_CORE.overpayment.refs.overpaymentMessage.innerHTML = monthlyText;
-
-					} else if(lumpSumAmount > 0 && overpaymentAmount <= 0){
-
-						let lumpSumText = "Paying a lump sum of <span class='text-highlight'>£" + lumpSumAmount.toLocaleString() + "</span> could mean you'd save <span class='text-highlight'>£" + Math.round(interestSaved).toLocaleString() + "</span> in interest. These results assume the interest rate stays at <span class='text-highlight'>" + interestRate + "%" + "</span> over the whole remaining mortgage term.";
-
-						_CORE.overpayment.refs.overpaymentMessage.innerHTML = lumpSumText;
+							let bothText = "Paying an extra <span class='text-highlight'>£" + overpaymentAmount.toLocaleString() + "</span> per month for the remaining mortgage term and a lump sum of <span class='text-highlight'>£" + lumpSumAmount.toLocaleString() + "</span> could mean you'd save <span class='text-highlight'>£" + Math.round(interestSaved).toLocaleString() + "</span> in interest. These results assume the interest rate stays at <span class='text-highlight'>" + interestRate + "%" + "</span> over the whole remaining mortgage term.";
+	
+							_CORE.overpayment.refs.overpaymentMessage.innerHTML = bothText;
+	
+						} else if(overpaymentAmount > 0 && lumpSumAmount <= 0 ){
+	
+							let monthlyText = "Paying an extra <span class='text-highlight'>£" + overpaymentAmount.toLocaleString() + "</span> per month for the remaining mortgage term could mean you'd save <span class='text-highlight'>£" + Math.round(interestSaved).toLocaleString() + "</span> in interest. These results assume the interest rate stays at <span class='text-highlight'>" + interestRate + "%" + "</span> over the whole remaining mortgage term.";
+	
+							_CORE.overpayment.refs.overpaymentMessage.innerHTML = monthlyText;
+	
+						} else if(lumpSumAmount > 0 && overpaymentAmount <= 0){
+	
+							let lumpSumText = "Paying a lump sum of <span class='text-highlight'>£" + lumpSumAmount.toLocaleString() + "</span> could mean you'd save <span class='text-highlight'>£" + Math.round(interestSaved).toLocaleString() + "</span> in interest. These results assume the interest rate stays at <span class='text-highlight'>" + interestRate + "%" + "</span> over the whole remaining mortgage term.";
+	
+							_CORE.overpayment.refs.overpaymentMessage.innerHTML = lumpSumText;
+	
+						}
+					} else {
 
 					}
 				}

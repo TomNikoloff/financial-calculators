@@ -46,7 +46,7 @@
                     </div>
                 </div>
                 <div class="results-banner">
-                    <h3 class="uk-margin-remove">Current Monthly Payment: <span id="OVERPAYMENT-CALC_current_monthly_payment" style="color: #a4ccc6; font-weight: bold;">£0</span></h3>
+                    <h3 class="uk-margin-remove">Current Monthly Payment: <span data-calculator-field="mortgage-current-monthly-payment" style="color: #a4ccc6; font-weight: bold;">£0</span></h3>
                 </div>
             </div>
         </div>
@@ -78,12 +78,12 @@
                     </div>
                 </div>
                 <div class="results-banner">
-                    <h3 class="uk-margin-remove">New Monthly Payment: <span id="OVERPAYMENT-CALC_new_monthly_payment" style="color: #a4ccc6; font-weight: bold;">£0</span></h3>
+                    <h3 class="uk-margin-remove">New Monthly Payment: <span data-calculator-field="mortgage-new-monthly-payment" style="color: #a4ccc6; font-weight: bold;">£0</span></h3>
                 </div>
             </div>
         </div>
     
-        <div class="text-banner uk-padding">
+        <div class="text-banner uk-padding" data-calculator-field="mortgage-overpayment-message-container">
             <h3 id="OVERPAYMENT-CALC_overpayment_message" class="uk-margin-remove">
     
             </h3>
