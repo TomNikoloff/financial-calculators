@@ -12,6 +12,7 @@ _CORE={
             newNode[whatKey] = what[whatKey];
         }			
     },
+    info:{"title":"Financial-Calculator Functions","code":"financial-calculators.co.uk","copy":"Copyright (c) financial-calculators.co.uk","year":"2023"},
     cache:{},
     utils:{
         bcheck: function(regex){var agent = navigator.userAgent.toLowerCase();return (agent.match(regex) !== null);},
@@ -343,9 +344,10 @@ _CORE={
             console.log('JS Working');
             _CORE.funcs.buildElementReferences();
 
-            _CORE.overpayment.funcs.init();
             _CORE.simple_mortgage.funcs.init();
             _CORE.simple_credit.funcs.init();
+            _CORE.overpayment.funcs.init();
+            _CORE.complex_mortgage.funcs.init();
             _CORE.funcs.slidersSetup();
         },
         slidersSetup: function(){

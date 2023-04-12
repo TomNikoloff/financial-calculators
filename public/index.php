@@ -119,7 +119,10 @@
                                         ?>
                                     </li>
                                     <li>
-    
+                                        <?php 
+                                            # Mortgage Overpayment Calculator
+                                            include($_SERVER['DOCUMENT_ROOT']."/financial-dashboard/includes/html/calculators/mortgages/complex-calc.php");
+                                        ?>
                                     </li>
                                 </ul>
                             </div>

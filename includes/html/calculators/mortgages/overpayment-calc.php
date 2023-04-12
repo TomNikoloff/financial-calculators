@@ -22,31 +22,31 @@
                         <div>
                             <label class="uk-margin-small">Mortgage Balance</label>
                             <div class="uk-position-relative" data-prefix="£">
-                                <input id="OVERPAYMENT-CALC_mortgage_balance" class="uk-input" type="text" vaLue="180000">
+                                <input data-calculator-field="OVERPAYMENT-CALC_mortgage_balance" class="uk-input" type="text" vaLue="180000">
                             </div>
                         </div>
                         <div>
                             <label>Mortgage Term</label>
                             <div class="uk-position-relative" data-suffix="Years">
-                                <input id="OVERPAYMENT-CALC_mortgage_term_years" class="uk-input" type="text" vaLue="28">
+                                <input data-calculator-field="OVERPAYMENT-CALC_mortgage_term_years" class="uk-input" type="text" vaLue="28">
                             </div>
                         </div>
                         <div>
                             <label>&nbsp</label>
                             <div class="uk-position-relative" data-suffix="Months">
-                                <input id="OVERPAYMENT-CALC_mortgage_term_months" class="uk-input" type="text" vaLue="0">
+                                <input data-calculator-field="OVERPAYMENT-CALC_mortgage_term_months" class="uk-input" type="text" vaLue="0">
                             </div>
                         </div>
                         <div>
                             <label>Interest Rate</label>
                             <div class="uk-position-relative" data-suffix="%">
-                                <input id="OVERPAYMENT-CALC_mortgage_rate" class="uk-input" type="text" vaLue="2.17">
+                                <input data-calculator-field="OVERPAYMENT-CALC_mortgage_rate" class="uk-input" type="text" vaLue="2.17">
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="results-banner">
-                    <h3 class="uk-margin-remove">Current Monthly Payment: <span data-calculator-field="mortgage-current-monthly-payment" style="color: #a4ccc6; font-weight: bold;">£0</span></h3>
+                    <h3 class="uk-margin-remove">Current Monthly Payment: <span data-calculator-field="OVERPAYMENT-CALC_mortgage-current-monthly-payment" style="color: #a4ccc6; font-weight: bold;">£0</span></h3>
                 </div>
             </div>
         </div>
@@ -63,7 +63,7 @@
                         <div>
                             <label>Regular Monthly Overpayment</label>
                             <div class="uk-position-relative" data-prefix="£">
-                                <input id="OVERPAYMENT-CALC_regular_overpayment" class="uk-input" value="0">
+                                <input data-calculator-field="OVERPAYMENT-CALC_regular_overpayment" class="uk-input" value="0">
                             </div>
                         </div>
                         <div class="uk-flex uk-flex-bottom uk-flex-center">
@@ -72,19 +72,19 @@
                         <div>
                             <label>Lump Sum Overpayment</label>
                             <div class="uk-position-relative" data-prefix="£">
-                                <input id="OVERPAYMENT-CALC_lump_sum_overpayment" class="uk-input" value="0">
+                                <input data-calculator-field="OVERPAYMENT-CALC_lump_sum_overpayment" class="uk-input" value="0">
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="results-banner">
-                    <h3 class="uk-margin-remove">New Monthly Payment: <span data-calculator-field="mortgage-new-monthly-payment" style="color: #a4ccc6; font-weight: bold;">£0</span></h3>
+                    <h3 class="uk-margin-remove">New Monthly Payment: <span data-calculator-field="OVERPAYMENT-CALC_mortgage-new-monthly-payment" style="color: #a4ccc6; font-weight: bold;">£0</span></h3>
                 </div>
             </div>
         </div>
     
-        <div class="text-banner uk-padding" data-calculator-field="mortgage-overpayment-message-container">
-            <h3 id="OVERPAYMENT-CALC_overpayment_message" class="uk-margin-remove">
+        <div class="text-banner uk-padding" data-calculator-field="OVERPAYMENT-CALC_mortgage-overpayment-message-container">
+            <h3 data-calculator-field="OVERPAYMENT-CALC_overpayment_message" class="uk-margin-remove">
     
             </h3>
         </div>
@@ -92,7 +92,7 @@
         <div uk-grid class="uk-grid uk-grid-small uk-margin-top">
             <div class="uk-width-1-1">
                 <div class="chart-container uk-padding-small">
-                    <div id="chart_div" style="width:100%" class="uk-margin-top"></div>
+                    <div data-calculator-field="OVERPAYMENT-CALC_mortgage-chart-div" id="chart_div" style="width:100%" class="uk-margin-top"></div>
                 </div>
             </div>
             <div class="uk-width-1-1">
@@ -112,7 +112,7 @@
                                 With Overpayment
                             </div>
                         </div>
-                        <div id="mortgage_table_row_container">
+                        <div data-calculator-field="OVERPAYMENT-CALC_mortgage-table-row-container">
             
                         </div>
                     </div>

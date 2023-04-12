@@ -27,6 +27,7 @@
     <!-- Mortgage JS -->
     <script src="./library/js/calculators/mortgages/overpayment.js?<?php echo(time()); ?>"></script>
     <script src="./library/js/calculators/mortgages/simple-mortgage.js?<?php echo(time()); ?>"></script>
+    <script src="./library/js/calculators/mortgages/complex-mortgage.js?<?php echo(time()); ?>"></script>
 
     <!-- Credit / Loans JS -->
     <script src="./library/js/calculators/loan/credit-card.js?<?php echo(time()); ?>"></script>

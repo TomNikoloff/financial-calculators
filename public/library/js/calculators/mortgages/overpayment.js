@@ -11,27 +11,12 @@
             },
 			buildElementReferences: function(){
 
-				// Mortgage Details - inputs
-				_CORE.overpayment.refs.mortgageBalance = document.getElementById('OVERPAYMENT-CALC_mortgage_balance');
-				_CORE.overpayment.refs.mortgageRate = document.getElementById('OVERPAYMENT-CALC_mortgage_rate');
-				_CORE.overpayment.refs.mortgageTermYears = document.getElementById('OVERPAYMENT-CALC_mortgage_term_years');
-				_CORE.overpayment.refs.mortgageTermMonths = document.getElementById('OVERPAYMENT-CALC_mortgage_term_months');
-
 				// Current Monthly Payment
 				_CORE.overpayment.refs.currentPaymentValue;
-
-				// Overpayment Details - inputs
-				_CORE.overpayment.refs.regularOverpayments = document.getElementById('OVERPAYMENT-CALC_regular_overpayment');
-				_CORE.overpayment.refs.lumpSumOverpayment = document.getElementById('OVERPAYMENT-CALC_lump_sum_overpayment');
 
 				// Current Monthly Payment
 				_CORE.overpayment.refs.newPaymentValue;
 
-				// Overpayment Message
-
-				_CORE.overpayment.refs.overpaymentMessage = document.getElementById('OVERPAYMENT-CALC_overpayment_message');
-
-				_CORE.overpayment.refs.tableRow = document.getElementById('mortgage_table_row_container');
 				_CORE.overpayment.refs.tableYear = 0;
 				_CORE.overpayment.refs.tableWithOp;
 				_CORE.overpayment.refs.tableWithoutOp;
@@ -42,45 +27,47 @@
 			},
 			setupInputs: function() {
 
-				_CORE.overpayment.refs.mortgageBalance.value = '180,000';
+				_CORE.utils.numberInputFormatter(_CORE.refs["OVERPAYMENT-CALC_mortgage_balance"]);
 
-				_CORE.overpayment.refs.mortgageBalance.onchange = function(){
+				_CORE.refs["OVERPAYMENT-CALC_mortgage_balance"].value = '180,000';
+
+				_CORE.refs["OVERPAYMENT-CALC_mortgage_balance"].onchange = function(){
 					_CORE.overpayment.funcs.currentPaymentCalc();
 				}
 
-				_CORE.overpayment.refs.mortgageTermYears.value = '28';
+				_CORE.refs["OVERPAYMENT-CALC_mortgage_term_years"].value = '28';
 
-				_CORE.overpayment.refs.mortgageTermYears.onchange = function(){
+				_CORE.refs["OVERPAYMENT-CALC_mortgage_term_years"].onchange = function(){
 					_CORE.overpayment.funcs.currentPaymentCalc();
 				}
 
-				_CORE.overpayment.refs.mortgageTermMonths.value = '0';
+				_CORE.refs["OVERPAYMENT-CALC_mortgage_term_months"].value = '0';
 
-				_CORE.overpayment.refs.mortgageTermMonths.onchange = function(){
+				_CORE.refs["OVERPAYMENT-CALC_mortgage_term_months"].onchange = function(){
 					_CORE.overpayment.funcs.currentPaymentCalc();
 				}
 
-				_CORE.overpayment.refs.mortgageRate.value = '2.17';
+				_CORE.refs["OVERPAYMENT-CALC_mortgage_rate"].value = '2.17';
 
-				_CORE.overpayment.refs.mortgageRate.onchange = function(){
+				_CORE.refs["OVERPAYMENT-CALC_mortgage_rate"].onchange = function(){
 					_CORE.overpayment.funcs.currentPaymentCalc();
 				}
 
-				_CORE.overpayment.refs.regularOverpayments.value = '200';
+				_CORE.utils.numberInputFormatter(_CORE.refs["OVERPAYMENT-CALC_regular_overpayment"]);
 
-				_CORE.overpayment.refs.regularOverpayments.onchange = function(){
+				_CORE.refs["OVERPAYMENT-CALC_regular_overpayment"].value = '200';
+
+				_CORE.refs["OVERPAYMENT-CALC_regular_overpayment"].onchange = function(){
 					_CORE.overpayment.funcs.currentPaymentCalc();
 				}
 
-				_CORE.utils.numberInputFormatter(_CORE.overpayment.refs.regularOverpayments);
+				_CORE.utils.numberInputFormatter(_CORE.refs["OVERPAYMENT-CALC_lump_sum_overpayment"]);
 
-				_CORE.overpayment.refs.lumpSumOverpayment.value = '0';
+				_CORE.refs["OVERPAYMENT-CALC_lump_sum_overpayment"].value = '0';
 
-				_CORE.overpayment.refs.lumpSumOverpayment.onchange = function(){
+				_CORE.refs["OVERPAYMENT-CALC_lump_sum_overpayment"].onchange = function(){
 					_CORE.overpayment.funcs.currentPaymentCalc();
 				}
-
-				_CORE.utils.numberInputFormatter(_CORE.overpayment.refs.lumpSumOverpayment);
 
 				_CORE.overpayment.funcs.currentPaymentCalc();
 
@@ -110,16 +97,16 @@
                 return Math.abs((pv - fv) * (rate) / (1 - (Math.pow(1 + rate, -nper))));
             },
 			currentPaymentCalc: function(){
-				let interestRate = parseFloat(_CORE.overpayment.refs.mortgageRate.value.replaceAll(",", ""));
-				let mortgageBalance = parseFloat(_CORE.overpayment.refs.mortgageBalance.value.replaceAll(",", ""));
+				let interestRate = parseFloat(_CORE.refs["OVERPAYMENT-CALC_mortgage_rate"].value.replaceAll(",", ""));
+				let mortgageBalance = parseFloat(_CORE.refs["OVERPAYMENT-CALC_mortgage_balance"].value.replaceAll(",", ""));
 
-				let mortgageTerm = parseFloat(_CORE.overpayment.refs.mortgageTermYears.value.replaceAll(",", ""));
+				let mortgageTerm = parseFloat(_CORE.refs["OVERPAYMENT-CALC_mortgage_term_years"].value.replaceAll(",", ""));
 
 				// Nper = total number of payments
 				let nper = mortgageTerm * 12;
 
-				if(_CORE.overpayment.refs.mortgageTermMonths.value){
-					let mortgageTermMonths = parseFloat(_CORE.overpayment.refs.mortgageTermMonths.value.replaceAll(",", ""));
+				if(_CORE.refs["OVERPAYMENT-CALC_mortgage_term_months"].value){
+					let mortgageTermMonths = parseFloat(_CORE.refs["OVERPAYMENT-CALC_mortgage_term_months"].value.replaceAll(",", ""));
 					nper = nper + mortgageTermMonths;
 				}
 				
@@ -129,10 +116,10 @@
 
 				let result = pmt.toFixed(2);
 
-				_CORE.refs["mortgage-current-monthly-payment"].textContent = '£' + result.toLocaleString();
+				_CORE.refs["OVERPAYMENT-CALC_mortgage-current-monthly-payment"].textContent = '£' + result.toLocaleString();
 				_CORE.overpayment.refs.currentPaymentValue = result;
 
-				_CORE.refs["mortgage-new-monthly-payment"].textContent = '£' + result.toLocaleString();
+				_CORE.refs["OVERPAYMENT-CALC_mortgage-new-monthly-payment"].textContent = '£' + result.toLocaleString();
 				_CORE.overpayment.funcs.newPaymentCalc(result);
 			},
 			newPaymentCalc: function(currentPayment){
@@ -143,27 +130,25 @@
 
 				let newPayment = currentPayment;
 
-				if(_CORE.overpayment.refs.regularOverpayments.value){
+				if(_CORE.refs["OVERPAYMENT-CALC_regular_overpayment"].value){
 
-					overpaymentAmount = parseFloat(_CORE.overpayment.refs.regularOverpayments.value.replaceAll(",", ""));
+					overpaymentAmount = parseFloat(_CORE.refs["OVERPAYMENT-CALC_regular_overpayment"].value.replaceAll(",", ""));
 					newPayment = overpaymentAmount + currentPayment;
 
-					_CORE.refs["mortgage-new-monthly-payment"].textContent = '£' + newPayment.toLocaleString();
+					_CORE.refs["OVERPAYMENT-CALC_mortgage-new-monthly-payment"].textContent = '£' + newPayment.toLocaleString();
 					_CORE.overpayment.refs.newPaymentValue = newPayment;		
 					
 				} else {
-					_CORE.refs["mortgage-new-monthly-payment"].textContent = '£' + currentPayment.toLocaleString();
+					_CORE.refs["OVERPAYMENT-CALC_mortgage-new-monthly-payment"].textContent = '£' + currentPayment.toLocaleString();
 				}
 
-				let balance = parseFloat(_CORE.overpayment.refs.mortgageBalance.value.replaceAll(",", ""));
-				let interestRate = parseFloat(_CORE.overpayment.refs.mortgageRate.value.replaceAll(",", ""));
+				let balance = parseFloat(_CORE.refs["OVERPAYMENT-CALC_mortgage_balance"].value.replaceAll(",", ""));
+				let interestRate = parseFloat(_CORE.refs["OVERPAYMENT-CALC_mortgage_rate"].value.replaceAll(",", ""));
 				let rate = (interestRate / 100) / 12;
 
-				console.log('dsfgdsf')
+				if(_CORE.refs["OVERPAYMENT-CALC_regular_overpayment"].value && _CORE.refs["OVERPAYMENT-CALC_lump_sum_overpayment"].value){
 
-				if(_CORE.overpayment.refs.regularOverpayments.value && _CORE.overpayment.refs.lumpSumOverpayment.value){
-
-					lumpSumAmount = parseFloat(_CORE.overpayment.refs.lumpSumOverpayment.value.replaceAll(",", ""));
+					lumpSumAmount = parseFloat(_CORE.refs["OVERPAYMENT-CALC_lump_sum_overpayment"].value.replaceAll(",", ""));
 
 					let currentMonthsResult = _CORE.overpayment.funcs.NPER(rate, -currentPayment, balance);
 					let totalInterest = (currentMonthsResult * currentPayment) - balance;
@@ -181,58 +166,60 @@
 
 					if(overpaymentAmount > 0 || lumpSumAmount > 0 ){
 
+						_CORE.refs["OVERPAYMENT-CALC_mortgage-overpayment-message-container"].classList.remove('hide');
+
 						if(overpaymentAmount > 0 && lumpSumAmount > 0) {
 
 							let bothText = "Paying an extra <span class='text-highlight'>£" + overpaymentAmount.toLocaleString() + "</span> per month for the remaining mortgage term and a lump sum of <span class='text-highlight'>£" + lumpSumAmount.toLocaleString() + "</span> could mean you'd save <span class='text-highlight'>£" + Math.round(interestSaved).toLocaleString() + "</span> in interest. These results assume the interest rate stays at <span class='text-highlight'>" + interestRate + "%" + "</span> over the whole remaining mortgage term.";
 	
-							_CORE.overpayment.refs.overpaymentMessage.innerHTML = bothText;
+							_CORE.refs["OVERPAYMENT-CALC_overpayment_message"].innerHTML = bothText;
 	
 						} else if(overpaymentAmount > 0 && lumpSumAmount <= 0 ){
 	
 							let monthlyText = "Paying an extra <span class='text-highlight'>£" + overpaymentAmount.toLocaleString() + "</span> per month for the remaining mortgage term could mean you'd save <span class='text-highlight'>£" + Math.round(interestSaved).toLocaleString() + "</span> in interest. These results assume the interest rate stays at <span class='text-highlight'>" + interestRate + "%" + "</span> over the whole remaining mortgage term.";
 	
-							_CORE.overpayment.refs.overpaymentMessage.innerHTML = monthlyText;
+							_CORE.refs["OVERPAYMENT-CALC_overpayment_message"].innerHTML = monthlyText;
 	
 						} else if(lumpSumAmount > 0 && overpaymentAmount <= 0){
 	
 							let lumpSumText = "Paying a lump sum of <span class='text-highlight'>£" + lumpSumAmount.toLocaleString() + "</span> could mean you'd save <span class='text-highlight'>£" + Math.round(interestSaved).toLocaleString() + "</span> in interest. These results assume the interest rate stays at <span class='text-highlight'>" + interestRate + "%" + "</span> over the whole remaining mortgage term.";
 	
-							_CORE.overpayment.refs.overpaymentMessage.innerHTML = lumpSumText;
+							_CORE.refs["OVERPAYMENT-CALC_overpayment_message"].innerHTML = lumpSumText;
 	
 						}
 					} else {
-
+						_CORE.refs["OVERPAYMENT-CALC_mortgage-overpayment-message-container"].classList.add('hide');
 					}
 				}
 				_CORE.overpayment.funcs.calculateTableValues();
 			},
 			calculateTableValues: function(){
-				_CORE.overpayment.refs.tableRow.innerHTML = "";
+				_CORE.refs["OVERPAYMENT-CALC_mortgage-table-row-container"].innerHTML = "";
 
 				_CORE.overpayment.refs.balanceResults = [];
 				_CORE.overpayment.refs.balanceResults.push(['Year', 'Without Overpayment', 'With Overpayment']);
 
 				_CORE.overpayment.refs.tableYear = 0;
 
-				let mortgageBalance = parseFloat(_CORE.overpayment.refs.mortgageBalance.value.replaceAll(",", ""));
-				let interestRate = parseFloat(_CORE.overpayment.refs.mortgageRate.value.replaceAll(",", ""));
+				let mortgageBalance = parseFloat(_CORE.refs["OVERPAYMENT-CALC_mortgage_balance"].value.replaceAll(",", ""));
+				let interestRate = parseFloat(_CORE.refs["OVERPAYMENT-CALC_mortgage_rate"].value.replaceAll(",", ""));
 				let rate = (interestRate / 100) / 12;
-				let mortgageTerm = parseFloat(_CORE.overpayment.refs.mortgageTermYears.value.replaceAll(",", ""));
+				let mortgageTerm = parseFloat(_CORE.refs["OVERPAYMENT-CALC_mortgage_term_years"].value.replaceAll(",", ""));
 
 				_CORE.overpayment.refs.balanceResults.push([0,Math.trunc(Number(mortgageBalance)),  Math.trunc(Number(mortgageBalance))]);
 
-				if(_CORE.overpayment.refs.mortgageTermMonths.value){
+				if(_CORE.refs["OVERPAYMENT-CALC_mortgage_term_months"].value){
 					mortgageTerm = mortgageTerm + 1;
 				}
 
 				let overpaymentAmount = '';
-				if(_CORE.overpayment.refs.regularOverpayments.value){
-					overpaymentAmount = parseFloat(_CORE.overpayment.refs.regularOverpayments.value.replaceAll(",", ""));
+				if(_CORE.refs["OVERPAYMENT-CALC_regular_overpayment"].value){
+					overpaymentAmount = parseFloat(_CORE.refs["OVERPAYMENT-CALC_regular_overpayment"].value.replaceAll(",", ""));
 				}
 
 				let lumpSumAmount = '';
-				if(_CORE.overpayment.refs.lumpSumOverpayment.value){
-					lumpSumAmount = parseFloat(_CORE.overpayment.refs.lumpSumOverpayment.value.replaceAll(",", ""));
+				if(_CORE.refs["OVERPAYMENT-CALC_lump_sum_overpayment"].value){
+					lumpSumAmount = parseFloat(_CORE.refs["OVERPAYMENT-CALC_lump_sum_overpayment"].value.replaceAll(",", ""));
 				}
 
 				let paymentInterest;
@@ -338,12 +325,12 @@
 				gridDiv.appendChild(div2);
 				gridDiv.appendChild(div3);
 
-				_CORE.overpayment.refs.tableRow.appendChild(gridDiv);
+				_CORE.refs["OVERPAYMENT-CALC_mortgage-table-row-container"].appendChild(gridDiv);
 				
 			},
 			drawBalanceChart: function(){
 
-				console.log(_CORE.overpayment.refs.balanceResults);
+				//console.log(_CORE.overpayment.refs.balanceResults);
 				// Load the Visualization API and the corechart package.
 				google.charts.load('current', {'packages':['corechart']});
 
@@ -378,7 +365,7 @@
 								};
 				
 					// Instantiate and draw our chart, passing in some options.
-					var container = document.getElementById('chart_div');
+					var container = _CORE.refs["OVERPAYMENT-CALC_mortgage-chart-div"];
 					var chart = new google.visualization.LineChart(container);
 
 					google.visualization.events.addListener(chart, 'onmouseover', function (props) {
