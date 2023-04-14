@@ -91,7 +91,7 @@
                         <div class="uk-card uk-card-default uk-padding">
                             <div class="uk-animation-scale-up">
                                 <div class="fd--calcs--list--title">
-                                    <h2>Mortgages</h2>
+                                    <h2 class="uk-text-uppercase">Mortgages</h2>
                                 </div>
                                 <div id="fd_mortgage_calcs_menu" uk-grid class="uk-grid uk-child-width-1-2@s uk-grid-match fd--calcs--menu" uk-switcher="connect: #fd_mortgage_calcs_switcher">
                                     <?php 
@@ -141,7 +141,7 @@
                         <div class="uk-card uk-card-default uk-padding">
                             <div class="uk-animation-scale-up">
                                 <div class="fd--calcs--list--title">
-                                    <h2>Credit Cards / Loans</h2>
+                                    <h2 class="uk-text-uppercase">Credit Cards / Loans</h2>
                                 </div>
                                 <div id="fd_credit_calcs_menu" uk-grid class="uk-grid uk-child-width-1-2@s uk-grid-match fd--calcs--menu" uk-switcher="connect: #fd_credit_calcs_switcher">
                                     <?php 
@@ -186,7 +186,7 @@
                         <div class="uk-card uk-card-default uk-padding">
                             <div class="uk-animation-scale-up">
                                 <div class="fd--calcs--list--title">
-                                    <h2>Savings / Investments</h2>
+                                    <h2 class="uk-text-uppercase">Savings / Investments</h2>
                                 </div>
                                 <div id="fd_savings_calcs_menu" uk-grid class="uk-grid uk-child-width-1-2@s uk-grid-match fd--calcs--menu" uk-switcher="connect: #fd_savings_calcs_switcher">
                                     <?php 

@@ -54,22 +54,17 @@
 
 				_CORE.refs["COMPLEX-CALC_mortgage_term_years"].onchange = function(){
 					_CORE.complex_mortgage.funcs.inputValidation(this);
+					_CORE.complex_mortgage.funcs.inputValidation(document.querySelector('[data-calculator-field="COMPLEX-CALC_mortgage-product-expiry-date"]'));
 					_CORE.complex_mortgage.funcs.currentPaymentCalc();
 				}
 
-				/*
-				_CORE.refs["mortgage-product-term"].onchange = function(){
+				_CORE.refs["COMPLEX-CALC_mortgage_term_months"].onchange = function(){
+					_CORE.complex_mortgage.funcs.inputValidation(this);
 					_CORE.complex_mortgage.funcs.currentPaymentCalc();
 				}
-
-				_CORE.refs["mortgage-term"]Months.value = '0';
-
-				_CORE.refs["mortgage-term"]Months.onchange = function(){
-					_CORE.complex_mortgage.funcs.currentPaymentCalc();
-				}
-				*/
 
 				_CORE.refs["COMPLEX-CALC_mortgage_rate"].onchange = function(){
+					_CORE.complex_mortgage.funcs.inputValidation(this);
 					_CORE.complex_mortgage.funcs.currentPaymentCalc();
 				}
 
@@ -124,7 +119,7 @@
 				let type = input.getAttribute('data-calculator-field');	
 
 				let val;
-				if(type == 'mortgage-product-expiry-date'){
+				if(type == 'COMPLEX-CALC_mortgage-product-expiry-date'){
 					val = _CORE.refs["COMPLEX-CALC_mortgage-product-expiry-date"].value;
 				} else {
 					val = parseFloat(input.value.replaceAll(",", ""));
@@ -133,19 +128,12 @@
 				let errorContainer = _CORE.refs["mortgage-details-error-text"];
 				let errorText = _CORE.refs["mortgage-details-error-text"].querySelector('h4');
 
-				/*
-				let overpaymentErrorContainer = _OVERPAYMENT.refs["mortgage-overpayment-error-text"];
-				let overpaymentErrorText = _OVERPAYMENT.refs["mortgage-overpayment-error-text"].querySelector('h4');
-				*/
-
 				errorContainer.classList.add('uk-hidden');
 
 				let resultsContainer = _CORE.refs["mortgage-results-container"];
 				resultsContainer.classList.remove('uk-hidden');
 
-				if(type == 'property-value'){
-
-				} else if(type == 'mortgage-term'){
+ 				if(type == 'COMPLEX-CALC_mortgage_term_years'){
 					if(isNaN(val) || !Number.isInteger(val) || val > 40 || val == 0){
 						//console.log('fail');
 						if(val > 40){
@@ -153,7 +141,7 @@
 
 							errorText.textContent = "The remaining duration must be atleast 1 year and not exceed 40 years.";
 							errorContainer.classList.remove("uk-hidden");
-						} else {
+						} else if(!_CORE.refs["COMPLEX-CALC_mortgage_term_months"].value) {
 							input.value = 1;
 
 							errorText.textContent = "The remaining duration must be atleast 1 year and not exceed 40 years.";
@@ -162,7 +150,19 @@
 					} else {
 						//console.log('success');
 					}
-				} else if(type == 'mortgage-balance'){
+				} else if(type == 'COMPLEX-CALC_mortgage_term_months'){
+					if(isNaN(val) || !Number.isInteger(val) || val > 11){
+						//console.log('fail');
+						if(val > 11){
+							input.value = 11;
+
+							errorText.textContent = "The remaining months must not exceed 11. Please use the remaining years field.";
+							errorContainer.classList.remove("uk-hidden");
+						}
+					} else {
+						//console.log('success');
+					}
+				} else if(type == 'COMPLEX-CALC_mortgage_balance'){
 					if(isNaN(val) || !Number.isInteger(val) || val == 0){
 						//console.log('fail');
 
@@ -173,7 +173,7 @@
 					} else {
 						//console.log('success');
 					}
-				} else if(type == 'mortgage-interest-rate'){
+				} else if(type == 'COMPLEX-CALC_mortgage_rate'){
 					if(isNaN(val) || !Number.isInteger(val) || val == 0 || val > 15){
 						//console.log('fail');
 						if(val > 15){
@@ -181,7 +181,7 @@
 
 							errorText.textContent = "The interest rate cannot exceed 15%.";
 							errorContainer.classList.remove("uk-hidden");
-						} else if(val == 0){
+						} else if(val == 0 || isNaN(val)){
 
 							resultsContainer.classList.add('uk-hidden');
 
@@ -191,8 +191,10 @@
 					} else {
 						//console.log('success');
 					}
-				} else if(type == 'mortgage-product-expiry-date'){
-					/*
+				} else if(type == 'COMPLEX-CALC_mortgage-product-expiry-date'){
+
+					console.log(val);
+					
 					let split = val.split('-');
 	
 					let todaysDate = new Date(); 
@@ -202,52 +204,83 @@
 						return date;
 					}
 	
-					let mortgageTerm = parseFloat(_CORE.refs["mortgage-term"].value.replaceAll(",", ""));
-					let termEndDate = (addYears(todaysDate, mortgageTerm)).toLocaleDateString('en-GB');
-					let fullFormattedDate = split[2] + '/' + split[1] + '/' + split[0];
+					let mortgageTerm = parseFloat(_CORE.refs["COMPLEX-CALC_mortgage_term_years"].value.replaceAll(",", ""));
+					let termEndDate = (addYears(todaysDate, mortgageTerm));
+					let fullFormattedDate = split[1] + '/' + split[2] + '/' + split[0];
+									
+					let resultsContainer = _CORE.refs["_COMPLEX-CALC_mortgage-product_expiry_results_container"];
+					let errorContainer = _CORE.refs["_COMPLEX-CALC_mortgage-product_expiry_error_container"];
 	
 					if(Date.parse(fullFormattedDate) < Date.parse(termEndDate)){
+
+						resultsContainer.classList.remove('uk-hidden');
+						errorContainer.classList.add('uk-hidden');
+
 						console.log('before end');
+
 					 } else {
+
 						console.log('after end');
-						let endDateSplit = termEndDate.split('/');
+						let endDateSplit = (termEndDate.toLocaleDateString('en-GB')).split('/');
 						
 						let formattedEndDate = endDateSplit[2] + '-' + endDateSplit[1] + '-' + endDateSplit[0];
-						input.value = formattedEndDate;
+						//input.value = formattedEndDate;
 
+						resultsContainer.classList.add('uk-hidden');
+						errorContainer.classList.remove('uk-hidden');
 						
-						UIkit.notification('Product Expiry Date cannot be beyond the mortgage end date.');
-						input.value = termEndDate;
+						//UIkit.notification('Product Expiry Date cannot be beyond the mortgage end date.');
+						//input.value = termEndDate;
 						
 					}
-					*/
+					
 				}
-				/*
-				else if(type == 'mortgage-overpayment-regular' || type == 'mortgage-overpayment-lump-sum'){
-					if(val > parseFloat(_OVERPAYMENT.refs["mortgage-balance"].value.replaceAll(",", ""))){
-						overpaymentErrorText.textContent = "The mortgage overpayments must be less than the total mortgage balance!";
-						overpaymentErrorContainer.classList.remove('uk-hidden');
-
-						input.value = 0;
-					}
-				} 
-				*/
 			},
 			currentPaymentCalc: function(){
 				let interestRate = parseFloat(_CORE.refs["COMPLEX-CALC_mortgage_rate"].value.replaceAll(",", ""));
 				let mortgageBalance = parseFloat(_CORE.refs["COMPLEX-CALC_mortgage_balance"].value.replaceAll(",", ""));
 
-				let mortgageTerm = parseFloat(_CORE.refs["COMPLEX-CALC_mortgage_term_years"].value.replaceAll(",", ""));
 
 				// Nper = total number of payments
-				let nper = mortgageTerm * 12;
+				let nper = 12;
+				let mortgageTerm;
+				let mortgageTermMonths;
 
-				/*
-				if(_CORE.refs["mortgage-term"]Months.value){
-					let mortgageTermMonths = parseFloat(_CORE.refs["mortgage-term"]Months.value.replaceAll(",", ""));
-					nper = nper + mortgageTermMonths;
+				if(_CORE.refs["COMPLEX-CALC_mortgage_term_years"].value){
+					mortgageTerm = parseFloat(_CORE.refs["COMPLEX-CALC_mortgage_term_years"].value.replaceAll(",", ""));
+				} else {
+					_CORE.refs["COMPLEX-CALC_mortgage_term_years"].value = 0;
 				}
-				*/
+
+				if(_CORE.refs["COMPLEX-CALC_mortgage_term_months"].value){
+					mortgageTermMonths = parseFloat(_CORE.refs["COMPLEX-CALC_mortgage_term_months"].value.replaceAll(",", ""));
+
+					if(mortgageTermMonths > 11 ){
+						// Display Error Message - Value cannot be greater than 11. Showing results for 11 months.
+						_CORE.refs["COMPLEX-CALC_mortgage_term_months"].value = 11;
+						mortgageTermMonths = 11;
+					}
+				} else {
+					_CORE.refs["COMPLEX-CALC_mortgage_term_months"].value = 0;
+				}
+
+				if(mortgageTerm > 0 || mortgageTermMonths > 0){
+
+					if(mortgageTerm > 0){
+						nper = mortgageTerm * 12;
+					}
+
+					if(mortgageTermMonths > 0 && mortgageTerm > 0){
+						nper = nper + mortgageTermMonths;
+					} else if(mortgageTermMonths > 0 || mortgageTerm <= 0){
+						nper =  mortgageTermMonths;
+					}
+
+				} else {
+
+					_CORE.refs["COMPLEX-CALC_mortgage_term_years"].value = 1;
+					mortgageTerm = 1;
+				}
 
 				let rate = (interestRate / 100) / 12;
 
@@ -255,10 +288,10 @@
 
 				let result = pmt.toFixed(2);
 
-				_CORE.refs["COMPLEX-CALC_mortgage-current-monthly-payment"].textContent = '£' + result.toLocaleString();
+				_CORE.refs["COMPLEX-CALC_mortgage-current-monthly-payment"].textContent = '£' + Number(result).toLocaleString();
 				_CORE.refs.currentPaymentValue = result;
 
-				_CORE.refs["COMPLEX-CALC_mortgage-new-monthly-payment"].textContent = '£' + result.toLocaleString();
+				_CORE.refs["COMPLEX-CALC_mortgage-new-monthly-payment"].textContent = '£' + Number(result).toLocaleString();
 
 				/*
 				let propertyValue = parseFloat(_CORE.refs["property-value"].value.replaceAll(",", ""));
@@ -371,12 +404,11 @@
 
 				_CORE.refs.balanceResults.push([0,Math.trunc(Number(mortgageBalance)),  Math.trunc(Number(mortgageBalance))]);
 
-				/*
-				if(_CORE.refs["mortgage-term"]Months.value){
+				
+				if(_CORE.refs["COMPLEX-CALC_mortgage_term_months"].value){
 					mortgageTerm = mortgageTerm + 1;
 				}
-				*/
-
+				
 				/*
 				let lumpSumAmount = '';
 				if(_CORE.refs.lumpSumOverpayment.value){
@@ -512,6 +544,8 @@
 								break;
 							} else {
 								if(i == 0 && y <= 10){
+									_CORE.complex_mortgage.funcs.buildTableRow(true);
+								} else if(parseFloat(_CORE.refs["COMPLEX-CALC_mortgage_term_years"].value.replaceAll(",", "")) == 0){
 									_CORE.complex_mortgage.funcs.buildTableRow(true);
 								} else {
 									_CORE.complex_mortgage.funcs.buildTableRow(false);
@@ -727,81 +761,83 @@
 			balanceProductExpiry: function(){
 				let date = _CORE.refs["COMPLEX-CALC_mortgage-product-expiry-date"].value;
 
-				let split = date.split('-');
-				let formattedDate = split[1] + '/' + split[0];
-
-				let todaysDate = new Date(); 
-
-				function addYears(date, years) {
-					date.setFullYear(date.getFullYear() + years);
-					return date;
-				}
-
-				let mortgageTerm = parseFloat(_CORE.refs["COMPLEX-CALC_mortgage_term_years"].value.replaceAll(",", ""));
-				let termEndDate = (addYears(todaysDate, mortgageTerm)).toLocaleDateString('en-GB');
-				let fullFormattedDate = split[2] + '/' + split[1] + '/' + split[0];
-
-				if(Date.parse(fullFormattedDate) < Date.parse(termEndDate)){
-					//console.log('before end');
-				 } else {
-					//console.log('after end');
-				 }
-
-				let paymentInterestValues = document.querySelectorAll('.table-payment-interest');
-				let paymentInterestTotal = 0;
-
-				let paymentCapitalValue = document.querySelectorAll('.table-payment-capital');
-				let paymentCapitalTotal = 0;
-
-				let paymentDates = document.querySelectorAll('.table-payment-date');
-
-				let balanceArr = document.querySelectorAll('.table-balance');
-
-				let productExpiryIndex;
-
-				function findIndex(){
-
-					_CORE.utils.forEach(paymentDates, function(index, item){
-
-						let splitItem = item.textContent.split('/');
-						let date = splitItem[1] + '/' + splitItem[2]; 
-
-						if(formattedDate == date){
-							productExpiryIndex = index;
-
-							_CORE.utils.forEach(paymentInterestValues, function(num, val){
-								if(num <= productExpiryIndex){
-									let num = val.textContent.split('£')[1];
-									if(num.includes(',')){
-									let commaRemoved = parseFloat(num.replaceAll(",", ""));
-										paymentInterestTotal += commaRemoved;
-									} else {
-										paymentInterestTotal += Number(num);
+				if(date){
+					let split = date.split('-');
+					let formattedDate = split[1] + '/' + split[0];
+	
+					let todaysDate = new Date(); 
+	
+					function addYears(date, years) {
+						date.setFullYear(date.getFullYear() + years);
+						return date;
+					}
+	
+					let mortgageTerm = parseFloat(_CORE.refs["COMPLEX-CALC_mortgage_term_years"].value.replaceAll(",", ""));
+					let termEndDate = (addYears(todaysDate, mortgageTerm)).toLocaleDateString('en-GB');
+					let fullFormattedDate = split[2] + '/' + split[1] + '/' + split[0];
+	
+					if(Date.parse(fullFormattedDate) < Date.parse(termEndDate)){
+						//console.log('before end');
+					 } else {
+						//console.log('after end');
+					 }
+	
+					let paymentInterestValues = document.querySelectorAll('.table-payment-interest');
+					let paymentInterestTotal = 0;
+	
+					let paymentCapitalValue = document.querySelectorAll('.table-payment-capital');
+					let paymentCapitalTotal = 0;
+	
+					let paymentDates = document.querySelectorAll('.table-payment-date');
+	
+					let balanceArr = document.querySelectorAll('.table-balance');
+	
+					let productExpiryIndex;
+	
+					function findIndex(){
+	
+						_CORE.utils.forEach(paymentDates, function(index, item){
+	
+							let splitItem = item.textContent.split('/');
+							let date = splitItem[1] + '/' + splitItem[2]; 
+	
+							if(formattedDate == date){
+								productExpiryIndex = index;
+	
+								_CORE.utils.forEach(paymentInterestValues, function(num, val){
+									if(num <= productExpiryIndex){
+										let num = val.textContent.split('£')[1];
+										if(num.includes(',')){
+										let commaRemoved = parseFloat(num.replaceAll(",", ""));
+											paymentInterestTotal += commaRemoved;
+										} else {
+											paymentInterestTotal += Number(num);
+										}
 									}
-								}
-							});
-
-							_CORE.utils.forEach(paymentCapitalValue, function(num, val){
-								if(num <= productExpiryIndex){
-									let num = val.textContent.split('£')[1];
-									if(num.includes(',')){
-									let commaRemoved = parseFloat(num.replaceAll(",", ""));
-									paymentCapitalTotal += commaRemoved;
-									} else {
-										paymentCapitalTotal += Number(num);
+								});
+	
+								_CORE.utils.forEach(paymentCapitalValue, function(num, val){
+									if(num <= productExpiryIndex){
+										let num = val.textContent.split('£')[1];
+										if(num.includes(',')){
+										let commaRemoved = parseFloat(num.replaceAll(",", ""));
+										paymentCapitalTotal += commaRemoved;
+										} else {
+											paymentCapitalTotal += Number(num);
+										}
 									}
-								}
-							});
-						}
-					});
-
+								});
+							}
+						});
+	
+					}
+	
+					findIndex();
+	
+					_CORE.refs["COMPLEX-CALC_mortgage-product_expiry_interest"].textContent = paymentInterestTotal.toLocaleString("en-GB", {style:"currency", currency:"GBP"});
+					_CORE.refs["COMPLEX-CALC_mortgage-product_expiry_capital"].textContent = paymentCapitalTotal.toLocaleString("en-GB", {style:"currency", currency:"GBP"});
+					_CORE.refs["COMPLEX-CALC_mortgage-product_expiry_outstanding"].textContent = balanceArr[productExpiryIndex].innerHTML;
 				}
-
-				findIndex();
-
-				_CORE.refs["COMPLEX-CALC_mortgage-product_expiry_interest"].textContent = paymentInterestTotal.toLocaleString("en-GB", {style:"currency", currency:"GBP"});
-				_CORE.refs["COMPLEX-CALC_mortgage-product_expiry_capital"].textContent = paymentCapitalTotal.toLocaleString("en-GB", {style:"currency", currency:"GBP"});
-				_CORE.refs["COMPLEX-CALC_mortgage-product_expiry_outstanding"].textContent = balanceArr[productExpiryIndex].innerHTML;
 	
 			},
 			fullAmortization: function(){
