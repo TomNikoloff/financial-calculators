@@ -22,11 +22,6 @@
                 </div>
                 <div class="uk-margin-medium uk-position-relative">
                     <h4 class="slider-label" style="margin-bottom: -34px">Interest rate is</h4>
-                    <!--
-                    <h4 class="uk-flex uk-flex-center uk-margin-remove">
-                        <span data-calculator-field="SIMPLE-MORTGAGE-CALC-rp-interest-rate-text" class="uk-text-bold">4.25</span> %
-                    </h4>
-                    -->
                     <div class="uk-flex uk-flex-center">
                         <div class="uk-position-relative" data-suffix="%" style="width: 100px">
                             <input data-calculator-field="SIMPLE-LOAN-CALC-interest-rate-text" class="uk-input" min="0.25" max="15" type="number">
@@ -40,11 +35,6 @@
                 </div>
                 <div class="uk-margin-medium uk-position-relative">
                     <h4 class="slider-label" style="margin-bottom: -34px">Pay it back over</h4>
-                    <!--
-                    <h4 class="uk-flex uk-flex-center uk-margin-remove">
-                        <span data-calculator-field="SIMPLE-MORTGAGE-CALC-rp-term-text" class="uk-text-bold">25</span>  Years
-                    </h4>
-                    -->
                     <div class="uk-flex uk-flex-center">
                         <div class="uk-position-relative" data-suffix="Years" style="width: 140px">
                             <input data-calculator-field="SIMPLE-LOAN-CALC-term-text" class="uk-input" min="1" max="7" type="number">
@@ -59,7 +49,21 @@
                 <div class="uk-position-relative">
                     <h2 class="uk-text-center" data-results-suffix="a month">This will cost <span data-calculator-field="SIMPLE-LOAN-CALC-monthly-result"class="uk-text-bold">£602.38</span></h2>
                 </div>
+                <hr class="uk-divider-icon">
+                <div class="uk-position-relative">
+                    <h2 class="uk-text-center" data-results-suffix="Total Repayable"><span data-calculator-field="SIMPLE-LOAN-CALC-total-repayable"class="uk-text-bold">£16,585.00</span></h2>
+                </div>
+                <div class="uk-position-relative">
+                    <h2 class="uk-text-center" data-results-suffix="Total Interest Paid"><span data-calculator-field="SIMPLE-LOAN-CALC-total-interest"class="uk-text-bold">£1,585.00</span></h2>
+                </div>
             </div>
+
+            <div class="uk-margin-large-top">
+                <p class="uk-margin-remove">
+                    It's important to note that the calculators are for guidance purposes only and the actual amounts will depend on several factors. It's recommended to speak to an advisor or financial planner before making any decisions regarding a loan.
+                </p>
+            </div>
+
         </div>
     </div>
 </div>

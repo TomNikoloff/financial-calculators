@@ -924,7 +924,7 @@
 					var options = {'title':'',
 									curveType: 'function',
 									legend: { position: 'top' },
-									colors: ['rgb(82, 82, 116)', '#F39000'],
+									colors: ['#608b84', '#373542'],
 									/*lineWidth: 2,*/
 									pointShape: 'circle',
 									pointSize: 5,
@@ -934,11 +934,21 @@
 									},
 									vAxis: {title: "Mortgage Balance (£)", minValue: 0, format: 'short', viewWindow:{min:0}},
 									hAxis: {title: "Term (Years)", minValue: 0, viewWindow:{min:0}},
-									tooltip: {isHtml: true}
+									tooltip: {isHtml: true},
+									chartArea: {
+										height: '100%',
+										width: '100%',
+										top: 30,
+										left: 60,
+										right: 16,
+										bottom: 30
+									},
+									height: '100%',
+									width: '100%',
 								};
 				
 					// Instantiate and draw our chart, passing in some options.
-					var container = document.getElementById('chart_div');
+					var container = _CORE.refs["OVERPAYMENT-CALC_mortgage-chart-div"];
 					var chart = new google.visualization.LineChart(container);
 
 					google.visualization.events.addListener(chart, 'onmouseover', function (props) {
@@ -959,8 +969,17 @@
 						}
 					});
 				
+					window.addEventListener('resize', function(event){
+						console.log('resizing')
+						redrawChart();
+					});
 
-					chart.draw(data, options);
+					redrawChart();
+				
+					function redrawChart(){
+						chart.clearChart();
+						chart.draw(data, options);
+					}
 				}
 			},
 			expandShrinkExtendedRows: function(btn){

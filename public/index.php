@@ -88,12 +88,12 @@
                 <ul id="fd_calc_category_switcher" class="uk-switcher">
                     <li>
                         <!-- Mortgage Calcs Menu -->
-                        <div class="uk-card uk-card-default uk-padding">
+                        <div class="uk-card uk-card-default">
                             <div class="uk-animation-scale-up">
-                                <div class="fd--calcs--list--title">
+                                <div class="fd--calcs--list--title uk-padding uk-padding-remove-bottom">
                                     <h2 class="uk-text-uppercase">Mortgages</h2>
                                 </div>
-                                <div id="fd_mortgage_calcs_menu" uk-grid class="uk-grid uk-child-width-1-2@s uk-grid-match fd--calcs--menu" uk-switcher="connect: #fd_mortgage_calcs_switcher">
+                                <div id="fd_mortgage_calcs_menu" uk-grid class="uk-grid uk-child-width-1-2@s uk-grid-match fd--calcs--menu uk-padding uk-padding-remove-top" uk-switcher="connect: #fd_mortgage_calcs_switcher">
                                     <?php 
                                         # Mortgage Calculator Menu
                                         include($_SERVER['DOCUMENT_ROOT']."/financial-dashboard/includes/html/calculators/mortgages/menu.php");

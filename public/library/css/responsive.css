@@ -9,12 +9,22 @@
     .fd--calc--title h2{
         font-size: 20px;
     }
+    .mortgage-table-content {
+        padding: 10px;
+    }
+    
 }
 
 /* Small devices (portrait tablets and large phones, 640px and up) */
 @media only screen and (min-width: 640px) {
     .slider-label {
         margin-bottom: -34px;
+    }
+    .fd--title--secondary {
+        font-size: 1.7rem;
+    }
+    .fd--calc--custom--container {
+        padding: 30px;
     }
 }
 

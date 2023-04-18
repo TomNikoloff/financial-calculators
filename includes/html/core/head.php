@@ -31,6 +31,7 @@
 
     <!-- Credit / Loans JS -->
     <script src="./library/js/calculators/loan/credit-card.js?<?php echo(time()); ?>"></script>
+    <script src="./library/js/calculators/loan/simple-loan.js?<?php echo(time()); ?>"></script>
 
     <!--Load Google Charts API-->
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>

@@ -11,10 +11,9 @@
     <div class="fd--calc--title uk-padding uk-padding-remove-vertical">
         <h2 class="fd--title--border uk-margin-bottom">Credit Card Calculator</h2>
     </div>
-    <div class="uk-card-body">
-        <div uk-grid class="uk-grid">
-
-            <div class="uk-width-1-1">
+    <div class="">
+        <div class="uk-card-body">
+            <div class="">
                 <div class="uk-margin">
                     <h4 class="uk-margin-small">Card Balance</h4>
                     <div class="uk-position-relative" data-prefix="£">
@@ -22,7 +21,7 @@
                     </div>
                 </div>
                 <div class="uk-margin-medium uk-position-relative">
-                    <h4 class="slider-label" style="margin-bottom: -34px">Interest rate is</h4>
+                    <h4 class="slider-label">Interest rate is</h4>
                     <div class="uk-flex uk-flex-center">
                         <div class="uk-position-relative" data-suffix="%" style="width: 100px">
                             <input data-calculator-field="CREDIT-CARD-CALC-interest-rate-text" class="uk-input" min="0.25" max="40" type="number">

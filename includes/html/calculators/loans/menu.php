@@ -5,7 +5,7 @@
         </div>
         <div class="fd--card--body uk-padding">
             <p>
-                A calculator for credit cards.
+                A credit card calculator is a tool that helps you estimate the cost of borrowing money on a credit card. It calculates the interest charges and the total cost of credit based on the balance on the card, the interest rate, and the minimum payment required each month.
             </p>
         </div>
         <div class="fd--card--footer uk-card-footer">
@@ -24,7 +24,7 @@
         </div>
         <div class="fd--card--body uk-padding">
             <p>
-                A calculator for credit cards.
+                More to come
             </p>
         </div>
         <div class="fd--card--footer uk-card-footer">
@@ -43,7 +43,7 @@
         </div>
         <div class="fd--card--body uk-padding">
             <p>
-                A calculator for Loans.
+                A loan calculator is a tool that helps you estimate the cost of borrowing money. It calculates the monthly payments and the total amount of interest you will pay on a loan, based on the loan amount, interest rate, and loan duration.
             </p>
         </div>
         <div class="fd--card--footer uk-card-footer">

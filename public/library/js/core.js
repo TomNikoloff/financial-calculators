@@ -344,11 +344,10 @@ _CORE={
             console.log('JS Working');
             _CORE.funcs.buildElementReferences();
 
-            _CORE.simple_mortgage.funcs.init();
             _CORE.simple_credit.funcs.init();
-            _CORE.overpayment.funcs.init();
-            _CORE.complex_mortgage.funcs.init();
+            _CORE.simple_loan.funcs.init();
             _CORE.funcs.slidersSetup();
+            
         },
         slidersSetup: function(){
             for (let e of document.querySelectorAll('input[type="range"].slider-progress')) {
@@ -383,7 +382,8 @@ _CORE={
                 let fieldType = field.getAttribute('data-calculator-field');
                 
                 _CORE.refs[fieldType] = field;
-            });			
+            });		
+            
         },
         switchCalcCategory: function(category){
 
@@ -420,6 +420,17 @@ _CORE={
 
             mortgageCalcsMenu.classList.add('hide');
             mortgageCalcsList.classList.remove('hide');
+
+            if(type == 'simple-repayment' || type == 'simple-interest-only'){
+                _CORE.simple_mortgage.funcs.init();
+            } else if(type == 'overpayment'){
+                _CORE.overpayment.funcs.init();
+            } else if(type == 'complex'){
+                _CORE.complex_mortgage.funcs.init();
+            }
+            _CORE.funcs.slidersSetup();
+
+            UIkit.scroll(document.getElementById('fd_calc_category_switcher')).scrollTo(document.getElementById('fd_calc_category_switcher'));;
 
         },
         switchLoanCalc: function(type){

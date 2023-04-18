@@ -33,8 +33,6 @@
 				_CORE.refs.tableWithOp;
 				_CORE.refs.tableWithoutOp;
 
-				_CORE.refs.balanceResults = [];
-
 				_CORE.cache.mortgage_data = [{}];
 
 				_CORE.complex_mortgage.funcs.setupInputs();
@@ -234,7 +232,15 @@
 						
 					}
 					
-				}
+				} else if(type == "COMPLEX-CALC_mortgage-regular-overpayment" || type == 'COMPLEX-CALC_mortgage-annual-overpayment'){
+					if(val > parseFloat(_CORE.complex_mortgage.refs["mortgage-balance"].value.replaceAll(",", ""))){
+						/*
+						overpaymentErrorText.textContent = "The mortgage overpayments must be less than the total mortgage balance!";
+						overpaymentErrorContainer.classList.remove('uk-hidden');
+						*/
+						input.value = 0;
+					}
+				} 
 			},
 			currentPaymentCalc: function(){
 				let interestRate = parseFloat(_CORE.refs["COMPLEX-CALC_mortgage_rate"].value.replaceAll(",", ""));
@@ -332,52 +338,52 @@
 				_CORE.refs["COMPLEX-CALC_mortgage-total-interest-default"].innerHTML = 'Total Interest Of <span class="uk-text-bold">' + Number(totalInterest).toLocaleString("en-GB", {style:"currency", currency:"GBP"}) + '</span>';
 				_CORE.refs.totalInterestDefaultVal = totalInterest;
 
-				/*
-				if(_CORE.refs["COMPLEX-CALC_mortgage-regular-overpayment"].value && _CORE.refs.lumpSumOverpayment.value){
+				_CORE.complex_mortgage.funcs.calculateStandardMortgageBalance();
+				_CORE.complex_mortgage.funcs.calculateTableValues();
+			},
+			calculateStandardMortgageBalance: function(){
+				let mortgageBalance = parseFloat(_CORE.refs["COMPLEX-CALC_mortgage_balance"].value.replaceAll(",", ""));
+				let interestRate = parseFloat(_CORE.refs["COMPLEX-CALC_mortgage_rate"].value.replaceAll(",", ""));
+				let rate = (interestRate / 100) / 12;
+				let mortgageTerm = parseFloat(_CORE.refs["COMPLEX-CALC_mortgage_term_years"].value.replaceAll(",", ""));
 
-					lumpSumAmount = parseFloat(_CORE.refs.lumpSumOverpayment.value.replaceAll(",", ""));
+				_CORE.complex_mortgage.cache.balanceResults = [];
+				_CORE.complex_mortgage.cache.balanceResults.push(['Year', 'Without Overpayment', 'With Overpayment']);
+				_CORE.complex_mortgage.cache.balanceResults.push([0,Math.trunc(Number(mortgageBalance)),  Math.trunc(Number(mortgageBalance))]);
 
-					let paymentInterest = rate * balance;
+				_CORE.complex_mortgage.cache.standardBalance = mortgageBalance;
 
-					let paymentCapital = _CORE.refs.currentPaymentValue - paymentInterest;
+				function calulateNewBalance(i){
 
-					let firstMonthBalance = balance - (paymentCapital + overpaymentAmount + lumpSumAmount);
+					for(let y = 1; y < 13; y++){
 
-					let newMonthlyResult = _CORE.complex_mortgage.funcs.NPER(rate, -newPayment, firstMonthBalance);
-					let newInterest = (newMonthlyResult * newPayment) - firstMonthBalance;
+						let newMortgageBalance = _CORE.complex_mortgage.cache.standardBalance;
+						let paymentInterest = rate * newMortgageBalance;
+						let paymentCapital = _CORE.refs.currentPaymentValue - paymentInterest;
 
-					let interestSaved = totalInterest - newInterest - paymentInterest;
+						_CORE.complex_mortgage.cache.standardBalance = newMortgageBalance - paymentCapital;
 
-					if(overpaymentAmount > 0 && lumpSumAmount > 0) {
+						if(y == 12){
+							
+							_CORE.complex_mortgage.cache.balanceResults.push([(i + 1),Math.trunc(Number(_CORE.complex_mortgage.cache.standardBalance)),  Math.trunc(Number(_CORE.complex_mortgage.cache.standardBalance))]);
+						}
+					}
+				}	
 
-						let bothText = "Paying an extra <span class='text-highlight'>£" + overpaymentAmount.toLocaleString() + "</span> per month for the remaining mortgage term and a lump sum of <span class='text-highlight'>£" + lumpSumAmount.toLocaleString() + "</span> could mean you'd save <span class='text-highlight'>£" + Math.round(interestSaved).toLocaleString() + "</span> in interest. These results assume the interest rate stays at <span class='text-highlight'>" + interestRate + "%" + "</span> over the whole remaining mortgage term.";
+				for(let i = 0; i <  mortgageTerm; i++){
 
-						_CORE.refs.overpaymentMessage.innerHTML = bothText;
+					calulateNewBalance(i);
 
-					} else if(overpaymentAmount > 0 && lumpSumAmount <= 0 ){
-
-						let monthlyText = "Paying an extra <span class='text-highlight'>£" + overpaymentAmount.toLocaleString() + "</span> per month for the remaining mortgage term could mean you'd save <span class='text-highlight'>£" + Math.round(interestSaved).toLocaleString() + "</span> in interest. These results assume the interest rate stays at <span class='text-highlight'>" + interestRate + "%" + "</span> over the whole remaining mortgage term.";
-
-						_CORE.refs.overpaymentMessage.innerHTML = monthlyText;
-
-					} else if(lumpSumAmount > 0 && overpaymentAmount <= 0){
-
-						let lumpSumText = "Paying a lump sum of <span class='text-highlight'>£" + lumpSumAmount.toLocaleString() + "</span> could mean you'd save <span class='text-highlight'>£" + Math.round(interestSaved).toLocaleString() + "</span> in interest. These results assume the interest rate stays at <span class='text-highlight'>" + interestRate + "%" + "</span> over the whole remaining mortgage term.";
-
-						_CORE.refs.overpaymentMessage.innerHTML = lumpSumText;
-
+					if(i == (mortgageTerm - 1)){
+						_CORE.complex_mortgage.cache.balanceResults.push([(mortgageTerm + 1), 0,  0]);
 					}
 				}
-				*/
-				_CORE.complex_mortgage.funcs.calculateTableValues();
+
 			},
 			calculateTableValues: function(){
 
 				_CORE.refs["COMPLEX-CALC_mortgage-table-row-container"].innerHTML = "";
 				_CORE.refs["COMPLEX-CALC_mortgage-table-row-container-extended"].innerHTML = "";
-
-				_CORE.refs.balanceResults = [];
-				_CORE.refs.balanceResults.push(['Year', 'Without Overpayment', 'With Overpayment']);
 
 				_CORE.refs.tableYear = 0;
 				_CORE.refs.tableCount = 0;
@@ -401,25 +407,14 @@
 				let interestRate = parseFloat(_CORE.refs["COMPLEX-CALC_mortgage_rate"].value.replaceAll(",", ""));
 				let rate = (interestRate / 100) / 12;
 				let mortgageTerm = parseFloat(_CORE.refs["COMPLEX-CALC_mortgage_term_years"].value.replaceAll(",", ""));
-
-				_CORE.refs.balanceResults.push([0,Math.trunc(Number(mortgageBalance)),  Math.trunc(Number(mortgageBalance))]);
-
 				
 				if(_CORE.refs["COMPLEX-CALC_mortgage_term_months"].value){
 					mortgageTerm = mortgageTerm + 1;
 				}
 				
-				/*
-				let lumpSumAmount = '';
-				if(_CORE.refs.lumpSumOverpayment.value){
-					lumpSumAmount = parseFloat(_CORE.refs.lumpSumOverpayment.value.replaceAll(",", ""));
-				}
-				*/
-
 				let paymentInterest;
 				let paymentCapital;
 
-				let withoutOpBalance;
 				let withOpBalance;
 
 				let lastRow = false;
@@ -436,8 +431,6 @@
 
 							paymentInterest = rate * mortgageBalance;
 							paymentCapital = _CORE.refs.currentPaymentValue - paymentInterest;
-
-							withoutOpBalance = mortgageBalance - paymentCapital;
 
 							_CORE.refs.totalOverpaymentAmount = 0;
 							_CORE.refs.regularOverpaymentAmount = 0;
@@ -466,7 +459,6 @@
 
 							_CORE.refs.tableDueDate = formattedDate;
 							_CORE.refs.tableWithOp = withOpBalance;
-							_CORE.refs.tableWithoutOp = withoutOpBalance;
 
 							_CORE.complex_mortgage.funcs.buildTableRow(true);
 
@@ -514,10 +506,6 @@
 
 							let newBalance = updatedBalance - totalPaymentCapital;
 
-							if(newBalance < 0 ){
-								withoutOpBalance = 0;
-							}
-
 							_CORE.refs.tablePaymentInterest = paymentInterest;
 							_CORE.refs.tablePaymentCapital = paymentCapital + _CORE.refs.totalOverpaymentAmount;
 
@@ -528,7 +516,6 @@
 							_CORE.refs.tableDueDate = formattedDate;
 
 							_CORE.refs.tableWithOp = newBalance;
-							_CORE.refs.tableWithoutOp = withoutOpBalance;
 
 							if(newBalance < 0 ){
 								newBalance = 0;
@@ -538,9 +525,20 @@
 								_CORE.refs.regularOverpaymentAmount = 0;
 								_CORE.refs.tablePaymentCapital = updatedBalance;
 								_CORE.refs.tableWithOp = 0;
+
 								_CORE.complex_mortgage.funcs.buildTableRow(false);
 								_CORE.complex_mortgage.funcs.fullAmortization();
 								_CORE.complex_mortgage.funcs.balanceProductExpiry();
+
+								function updateBalanceResults(){
+									for(let x = i + 2; x < (mortgageTerm + 2); x++){
+										_CORE.complex_mortgage.cache.balanceResults[x][2] = 0
+									}
+								}
+
+								updateBalanceResults();
+								_CORE.complex_mortgage.funcs.drawBalanceChart();
+
 								break;
 							} else {
 								if(i == 0 && y <= 10){
@@ -552,6 +550,11 @@
 								}
 							}
 						}
+
+						if(y == 12){
+							_CORE.complex_mortgage.cache.balanceResults[i + 2][2] = Math.trunc(Number(_CORE.refs.tableWithOp));
+						}
+
 					}
 				}
 
@@ -590,22 +593,18 @@
 					_CORE.cache.mortgage_data[_CORE.refs.tableCount] = data;
 				}
 
-				let year = _CORE.refs.tableYear;
 				let newBalance = _CORE.refs.tableWithOp.toFixed(2);
 				let withOp = Number(newBalance).toLocaleString("en-GB", {style:"currency", currency:"GBP"});
-				let withoutOp = Math.trunc(Number(_CORE.refs.tableWithoutOp));
 
 				let count = _CORE.refs.tableCount;
 				let dueDate = _CORE.refs.tableDueDate;
 				let payment = Number(_CORE.refs.currentPaymentValue).toLocaleString("en-GB", {style:"currency", currency:"GBP"});
 				let overpaymentAmount = Number(_CORE.refs.regularOverpaymentAmount).toLocaleString("en-GB", {style:"currency", currency:"GBP"});
-				let adhocPayment = 0;
+
 				let interest = Number(_CORE.refs.tablePaymentInterest).toLocaleString("en-GB", {style:"currency", currency:"GBP"})
 
 				let capital = _CORE.refs.tablePaymentCapital.toFixed(2);
 				let capitalText = Number(capital).toLocaleString("en-GB", {style:"currency", currency:"GBP"});
-
-				let withoutOpText = withoutOp.toLocaleString();
 
 				let gridDiv = document.createElement('div');
 				gridDiv.classList.add('table-results-row', 'uk-grid', 'uk-margin-remove', 'uk-grid-row-collapse', 'uk-grid-collapse');
@@ -660,10 +659,6 @@
 
 				adhocInputContainer.appendChild(adhocInput);
 				adhocOverpaymentsDiv.appendChild(adhocInputContainer);
-				/*
-				let adhocOverpaymentsDivContent =  document.createTextNode(adhocPayment);
-				adhocOverpaymentsDiv.appendChild(adhocOverpaymentsDivContent);
-				*/
 
 				let interestDiv = document.createElement('div');
 				interestDiv.classList.add('uk-text-center', 'uk-width-expand', 'table-payment-interest');
@@ -697,7 +692,7 @@
 			},
 			drawBalanceChart: function(){
 
-				console.log(_CORE.refs.balanceResults);
+				console.log(_CORE.complex_mortgage.cache.balanceResults);
 				// Load the Visualization API and the corechart package.
 				google.charts.load('current', {'packages':['corechart']});
 
@@ -712,13 +707,13 @@
 			
 					// Create the data table.
 					var data = new google.visualization.DataTable();
-					var data = google.visualization.arrayToDataTable(_CORE.refs.balanceResults);
+					var data = google.visualization.arrayToDataTable(_CORE.complex_mortgage.cache.balanceResults);
 				
 					// Set chart options
 					var options = {'title':'',
 									curveType: 'function',
 									legend: { position: 'top' },
-									colors: ['rgb(82, 82, 116)', '#F39000'],
+									colors: ['#608b84', '#373542'],
 									/*lineWidth: 2,*/
 									pointShape: 'circle',
 									pointSize: 5,
@@ -728,11 +723,21 @@
 									},
 									vAxis: {title: "Mortgage Balance (£)", minValue: 0, format: 'short', viewWindow:{min:0}},
 									hAxis: {title: "Term (Years)", minValue: 0, viewWindow:{min:0}},
-									tooltip: {isHtml: true}
+									tooltip: {isHtml: true},
+									chartArea: {
+										height: '100%',
+										width: '100%',
+										top: 30,
+										left: 60,
+										right: 16,
+										bottom: 30
+									},
+									height: '100%',
+									width: '100%',
 								};
 				
 					// Instantiate and draw our chart, passing in some options.
-					var container = document.getElementById('chart_div');
+					var container = _CORE.refs["COMPLEX-CALC_mortgage-chart-div"];
 					var chart = new google.visualization.LineChart(container);
 
 					google.visualization.events.addListener(chart, 'onmouseover', function (props) {
@@ -749,13 +754,21 @@
 
 							let balance = tooltipLabel[2].textContent;
 							let newBalanceText = '£' + balance;
-							console.log(balance)
 							tooltipLabel[2].textContent = newBalanceText;
 						}
 					});
 				
+					window.addEventListener('resize', function(event){
+						console.log('resizing')
+						redrawChart();
+					});
 
-					chart.draw(data, options);
+					redrawChart();
+				
+					function redrawChart(){
+						chart.clearChart();
+						chart.draw(data, options);
+					}
 				}
 			},
 			balanceProductExpiry: function(){

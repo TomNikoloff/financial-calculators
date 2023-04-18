@@ -86,7 +86,9 @@
 				let interestResult = interestOnlyValue*ioInterestRate/1200;
 
 				let ioResultText = _CORE.refs["SIMPLE-MORTGAGE-CALC-io-monthly-result"];
-				ioResultText.textContent = "£" + interestResult.toFixed(2);
+				ioResultText.textContent = interestResult.toLocaleString("en-GB", {style:"currency", currency:"GBP"});
+
+				//_CORE.simple_mortgage.funcs.calculateTotalInterestAndRepayable(interestResult, 'interest-only');
 
 				// Repayment 
 				let rpInterestRate = parseFloat(_CORE.refs["SIMPLE-MORTGAGE-CALC-rp-interest-rate-text"].value.replaceAll(",", ""));
@@ -103,11 +105,55 @@
 
 				let rpResultText = _CORE.refs["SIMPLE-MORTGAGE-CALC-rp-monthly-result"];
 				if(repaymentResult){
-					repaymentResult = repaymentResult.toFixed(2)
+					//repaymentResult = repaymentResult.toFixed(2)
 				} else {
 					repaymentResult = 0.00;
 				}
-				rpResultText.textContent = "£" + repaymentResult;
+				rpResultText.textContent = repaymentResult.toLocaleString("en-GB", {style:"currency", currency:"GBP"});
+
+				_CORE.simple_mortgage.funcs.calculateTotalInterestAndRepayable(repaymentResult, 'repayment');
+			},
+			calculateTotalInterestAndRepayable: function(monthlyPayment, type){
+				let loanAmount;
+				let interestRate;
+				let loanTerm;
+
+				if(type == 'interest-only'){
+					interestRate = parseFloat(_CORE.refs["SIMPLE-MORTGAGE-CALC-io-interest-rate-text"].value.replaceAll(",", ""));
+				} else if(type == 'repayment'){
+					loanAmount = parseFloat(_CORE.refs["SIMPLE-MORTGAGE-CALC-rp-balance"].value.replaceAll(",", ""));
+					interestRate = parseFloat(_CORE.refs["SIMPLE-MORTGAGE-CALC-rp-interest-rate-text"].value.replaceAll(",", ""));
+					loanTerm = parseFloat(_CORE.refs["SIMPLE-MORTGAGE-CALC-rp-term"].value.replaceAll(",", ""));
+
+					let monthlyInterestRate = (interestRate / 100) / 12;
+					let balance = loanAmount;
+	
+					let totalInterest = 0;
+	
+					function calculateTotalInterest(){
+						for(let i = 0; i < loanTerm; i++){
+	
+							for(let y = 0; y < 12; y++){
+
+								let interest = balance * monthlyInterestRate;
+								totalInterest += interest;
+		
+								let capital = monthlyPayment - interest;
+								balance = balance - capital;
+								
+							}
+						}
+					}
+	
+					calculateTotalInterest();
+	
+					_CORE.refs["SIMPLE-MORTGAGE-CALC-total-interest"].innerHTML = totalInterest.toLocaleString("en-GB", {style:"currency", currency:"GBP"});
+	
+					const totalRepayable = loanAmount + totalInterest;
+	
+					_CORE.refs["SIMPLE-MORTGAGE-CALC-total-repayable"].innerHTML = totalRepayable.toLocaleString("en-GB", {style:"currency", currency:"GBP"});
+				}
+
 			}
 		}
 		// End of extend	

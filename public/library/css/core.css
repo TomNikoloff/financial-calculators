@@ -21,7 +21,7 @@ body {
     --fd-main:#0e0e0e;
     --fd-lighter-main: #1a1a1a;
     --fd-primary: #a4ccc6;
-    --fd-primary-darker: #d66e32;
+    --fd-primary-darker: #608b84;
     --fd-primary-dull: #be863e;
     --fd-secondary: #fff;
     --fd-mid-grey: #666;
@@ -284,6 +284,26 @@ nav {
     margin-bottom: 10px;
 }
 
+.uk-modal-header {
+    background-color: #f0f0f0 !important;
+}
+
+.uk-modal-footer {
+    background-color: var(--fd-primary);
+}
+
+.fd--modal--close--btn {
+    background-color: rgb(57, 57, 80);
+    border-radius: 50%;
+    padding: 10px;
+    color: #fff;
+}
+
+.fd--modal--close--btn:hover {
+    background-color: rgb(75 75 100);
+    color: #fff;
+}
+
 /* New Slider - Using JS*/
 
 input[type=range].styled-slider {
@@ -519,4 +539,19 @@ footer {
     width: 200px;
     height: 200px;
     background-color: var(--fd-secondary);
+}
+
+.uk-icon-button {
+    color: var(--fd-main);
+}
+
+.fd--modal--close--btn {
+    color: var(--fd-secondary);
+    background-color: var(--fd-main-bg-color);
+    padding: 10px;
+    border-radius: 50%;
+}
+
+.fd--modal--close--btn:hover {
+    background-color: var(--fd-mid-grey);
 }

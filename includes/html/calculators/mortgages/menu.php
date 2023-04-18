@@ -9,7 +9,7 @@
             </p>
         </div>
         <div class="fd--card--footer uk-card-footer">
-            <button class="uk-button" type="button" onclick="_CORE.funcs.switchMortgageCalc()">
+            <button class="uk-button" type="button" onclick="_CORE.funcs.switchMortgageCalc('simple-repayment')">
                 GO
                 <span uk-icon="icon: arrow-right; ratio: 1.8" class="uk-animation-slide-left"></span>
             </button>
@@ -29,7 +29,7 @@
             </p>
         </div>
         <div class="fd--card--footer uk-card-footer">
-            <button class="uk-button" type="button" onclick="_CORE.funcs.switchMortgageCalc()">
+            <button class="uk-button" type="button" onclick="_CORE.funcs.switchMortgageCalc('simple-interest-only')">
                 GO
                 <span uk-icon="icon: arrow-right; ratio: 1.8" class="uk-animation-slide-left"></span>
             </button>
@@ -47,7 +47,7 @@
             </p>
         </div>
         <div class="fd--card--footer uk-card-footer">
-            <button class="uk-button" type="button" onclick="_CORE.funcs.switchMortgageCalc()">
+            <button class="uk-button" type="button" onclick="_CORE.funcs.switchMortgageCalc('overpayment')">
                 GO
                 <span uk-icon="icon: arrow-right; ratio: 1.8" class="uk-animation-slide-left"></span>
             </button>
@@ -61,11 +61,11 @@
         </div>
         <div class="fd--card--body uk-padding">
             <p>
-                A much more complex and informative mortgage calculator. It expands greatly on the overpayment calculator. Adding extra features such as regular overpayment intervals, annual overpayments. The calculator can also be used to get the balance at the end of a mortgage fixed term. See the interest, capital split of every payment and much more.
+                A much more complex and informative mortgage calculator. It expands greatly on the overpayment calculator. Adding extra features such as regular overpayment intervals, adhoc overpayments. The calculator can also be used to get the balance at the end of a mortgage fixed term. See the interest, capital split of every payment and much more.
             </p>
         </div>
         <div class="fd--card--footer uk-card-footer">
-            <button class="uk-button" type="button" onclick="_CORE.funcs.switchMortgageCalc()">
+            <button class="uk-button" type="button" onclick="_CORE.funcs.switchMortgageCalc('complex')">
                 GO
                 <span uk-icon="icon: arrow-right; ratio: 1.8" class="uk-animation-slide-left"></span>
             </button>

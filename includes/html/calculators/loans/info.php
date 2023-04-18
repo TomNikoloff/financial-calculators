@@ -1,4 +1,4 @@
-<div class="uk-flex">
+<div class="uk-flex uk-margin-left">
     <h3 class="uk-text-capitalize">
         Jump to:
     </h3>
