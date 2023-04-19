@@ -19,7 +19,7 @@ body {
 :root {
     /* Colors */
     --fd-main:#0e0e0e;
-    --fd-lighter-main: #1a1a1a;
+    --fd-lighter-main: #525158;
     --fd-primary: #a4ccc6;
     --fd-primary-darker: #608b84;
     --fd-primary-dull: #be863e;
@@ -539,6 +539,17 @@ footer {
     width: 200px;
     height: 200px;
     background-color: var(--fd-secondary);
+}
+
+.fd--btns {
+    border: 3px solid black;
+    font-weight: 500;
+    background-color: var(--fd-lighter-main);
+    color: #fff;
+}
+
+.fd--btns:hover {
+    background-color: #65646c !important;
 }
 
 .uk-icon-button {

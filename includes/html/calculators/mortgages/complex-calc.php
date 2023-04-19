@@ -152,7 +152,7 @@
                 <div data-calculator-field="COMPLEX-CALC_mortgage-table-container" class="uk-position-relative uk-width-1-1">
                     <div class="mortgage-table complex-calculator-table uk-margin-top uk-width-1-1">
                         <div class="mortgage-table-header uk-flex uk-flex-middle uk-flex-between uk-padding">
-                            <h3 class="uk-margin-remove" style="color: #fff">Mortgage Balance</h3>
+                            <h3 class="uk-margin-remove" style="color: #fff">Mortgage Info</h3>
                             <div>
                                 <button type="button" class="uk-icon-button" uk-icon="expand" style="color: #333" onclick="_CORE.complex_mortgage.funcs.expandShrinkExtendedRows(this)"></button>
                             </div>

@@ -692,7 +692,7 @@
 			},
 			drawBalanceChart: function(){
 
-				console.log(_CORE.complex_mortgage.cache.balanceResults);
+				//console.log(_CORE.complex_mortgage.cache.balanceResults);
 				// Load the Visualization API and the corechart package.
 				google.charts.load('current', {'packages':['corechart']});
 

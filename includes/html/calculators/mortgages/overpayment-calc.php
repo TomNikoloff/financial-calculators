@@ -108,7 +108,22 @@
                         <div data-calculator-field="OVERPAYMENT-CALC_mortgage-chart-div" style="width:100%" class="uk-margin-top"></div>
                     </div>
                 </div>
-                <div class="uk-width-1-1">
+
+                <div class="uk-flex uk-margin-medium-top uk-margin-bottom">
+                    <div class="uk-flex uk-flex-middle uk-margin-small-right">
+                        <h3 class="uk-margin-remove">Show:</h3>
+                    </div>
+                    <div class="uk-flex">
+                        <div class="">
+                            <button class="uk-button fd--table--toggle--monthly" onclick="_CORE.overpayment.funcs.tableToggle('monthly')">Monthly Balance</button>
+                        </div>
+                        <div class="">
+                            <button class="uk-button fd--table--toggle--yearly active" onclick="_CORE.overpayment.funcs.tableToggle('yearly')">Yearly Balance</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="uk-width-1-1 uk-margin-remove">
                     <div class="uk-position-relative uk-width-1-1" style="overflow-y: auto; height: 790px;">
                         <div class="mortgage-table uk-margin-small-top uk-position-relative" style="position: absolute;">
                             <div class="mortgage-table-header uk-flex uk-flex-middle uk-flex-between uk-padding">
@@ -119,7 +134,7 @@
                             </div>
                             <div class="mortgage-table-content">
                                 <div uk-grid class="mortgage-table-content-header uk-grid uk-grid-row-collapse uk-grid-collapse uk-margin-remove">
-                                    <div class="uk-text-center uk-width-1-5 uk-width-1-3">
+                                    <div id="fd_overpayment_period_name" class="uk-text-center uk-width-1-5 uk-width-1-3">
                                         Year
                                     </div>
                                     <div class="uk-text-center uk-width-2-5 uk-width-1-3">
