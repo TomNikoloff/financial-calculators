@@ -28,22 +28,18 @@
 
 				_CORE.refs["COMPLEX-CALC_mortgage-product-expiry-date"].value = correctDateFormat;
 
-				_CORE.refs.tableYear = 0;
-				_CORE.refs.tableMonth = 0;
 				_CORE.refs.tableWithOp;
 				_CORE.refs.tableWithoutOp;
 
-				_CORE.cache.mortgage_data = [{}];
+				_CORE.complex_mortgage.cache.table_view = 'monthly';
+
+				_CORE.complex_mortgage.cache.mortgage_data = [{}];
 
 				_CORE.complex_mortgage.funcs.setupInputs();
 			},
 			setupInputs: function() {
 
-				/*
-				_CORE.refs["property-value"].onchange = function(){
-					_CORE.complex_mortgage.funcs.currentPaymentCalc();
-				}
-				*/
+				_CORE.utils.numberInputFormatter(_CORE.refs["COMPLEX-CALC_mortgage_balance"]);
 
 				_CORE.refs["COMPLEX-CALC_mortgage_balance"].onchange = function(){
 					_CORE.complex_mortgage.funcs.inputValidation(this);
@@ -66,6 +62,8 @@
 					_CORE.complex_mortgage.funcs.currentPaymentCalc();
 				}
 
+				_CORE.utils.numberInputFormatter(_CORE.refs["COMPLEX-CALC_mortgage-regular-overpayment"]);
+
 				_CORE.refs["COMPLEX-CALC_mortgage-regular-overpayment"].onchange = function(){
 					_CORE.complex_mortgage.funcs.currentPaymentCalc();
 				}
@@ -73,8 +71,11 @@
 				_CORE.refs["COMPLEX-CALC_mortgage-overpayment-interval"].value = '1';
 
 				_CORE.refs["COMPLEX-CALC_mortgage-overpayment-interval"].onchange = function(){
+					_CORE.complex_mortgage.funcs.inputValidation(this);
 					_CORE.complex_mortgage.funcs.currentPaymentCalc();
 				}
+
+				_CORE.utils.numberInputFormatter(_CORE.refs["COMPLEX-CALC_mortgage-annual-overpayment"]);
 
 				_CORE.refs["COMPLEX-CALC_mortgage-annual-overpayment"].onchange = function(){
 					_CORE.complex_mortgage.funcs.currentPaymentCalc();
@@ -240,7 +241,13 @@
 						*/
 						input.value = 0;
 					}
-				} 
+				} else if(type == 'COMPLEX-CALC_mortgage-overpayment-interval'){
+					if(val > 12){
+						input.value = 11;
+					} else if(isNaN(val) || !Number.isInteger(val) || val == 0){
+						input.value = 1;
+					}
+				}
 			},
 			currentPaymentCalc: function(){
 				let interestRate = parseFloat(_CORE.refs["COMPLEX-CALC_mortgage_rate"].value.replaceAll(",", ""));
@@ -382,10 +389,6 @@
 			},
 			calculateTableValues: function(){
 
-				_CORE.refs["COMPLEX-CALC_mortgage-table-row-container"].innerHTML = "";
-				_CORE.refs["COMPLEX-CALC_mortgage-table-row-container-extended"].innerHTML = "";
-
-				_CORE.refs.tableYear = 0;
 				_CORE.refs.tableCount = 0;
 
 				let overpaymentAmount = 0;
@@ -417,8 +420,6 @@
 
 				let withOpBalance;
 
-				let lastRow = false;
-
 				function calulateNewBalance(i){
 
 					// Monthly Balance
@@ -435,9 +436,9 @@
 							_CORE.refs.totalOverpaymentAmount = 0;
 							_CORE.refs.regularOverpaymentAmount = 0;
 
-							if(_CORE.cache.mortgage_data[_CORE.refs.tableCount]){
-								if(_CORE.cache.mortgage_data[_CORE.refs.tableCount]["adhoc_op"]){
-									_CORE.refs.totalOverpaymentAmount += _CORE.cache.mortgage_data[_CORE.refs.tableCount]["adhoc_op"];
+							if(_CORE.complex_mortgage.cache.mortgage_data[_CORE.refs.tableCount]){
+								if(_CORE.complex_mortgage.cache.mortgage_data[_CORE.refs.tableCount]["adhoc_op"]){
+									_CORE.refs.totalOverpaymentAmount += _CORE.complex_mortgage.cache.mortgage_data[_CORE.refs.tableCount]["adhoc_op"];
 								}
 							}
 
@@ -459,8 +460,8 @@
 
 							_CORE.refs.tableDueDate = formattedDate;
 							_CORE.refs.tableWithOp = withOpBalance;
-
-							_CORE.complex_mortgage.funcs.buildTableRow(true);
+							
+							_CORE.complex_mortgage.funcs.addMonthData();
 
 						} else {
 
@@ -476,9 +477,9 @@
 							_CORE.refs.totalOverpaymentAmount = 0;
 							_CORE.refs.regularOverpaymentAmount = 0;
 
-							if(_CORE.cache.mortgage_data[_CORE.refs.tableCount]){
-								if(_CORE.cache.mortgage_data[_CORE.refs.tableCount]["adhoc_op"]){
-									_CORE.refs.totalOverpaymentAmount += _CORE.cache.mortgage_data[_CORE.refs.tableCount]["adhoc_op"];
+							if(_CORE.complex_mortgage.cache.mortgage_data[_CORE.refs.tableCount]){
+								if(_CORE.complex_mortgage.cache.mortgage_data[_CORE.refs.tableCount]["adhoc_op"]){
+									_CORE.refs.totalOverpaymentAmount += _CORE.complex_mortgage.cache.mortgage_data[_CORE.refs.tableCount]["adhoc_op"];
 								}
 							}
 
@@ -520,16 +521,17 @@
 							if(newBalance < 0 ){
 								newBalance = 0;
 								_CORE.refs.numberOfPayments = _CORE.refs.tableCount;
-								lastRow = true;
 								_CORE.refs.currentPaymentValue = updatedBalance + _CORE.refs.tablePaymentInterest;
 								_CORE.refs.regularOverpaymentAmount = 0;
 								_CORE.refs.tablePaymentCapital = updatedBalance;
 								_CORE.refs.tableWithOp = 0;
+								
+								_CORE.complex_mortgage.funcs.addMonthData();
 
-								_CORE.complex_mortgage.funcs.buildTableRow(false);
+								_CORE.complex_mortgage.funcs.buildTable();
 								_CORE.complex_mortgage.funcs.fullAmortization();
 								_CORE.complex_mortgage.funcs.balanceProductExpiry();
-
+								
 								function updateBalanceResults(){
 									for(let x = i + 2; x < (mortgageTerm + 2); x++){
 										_CORE.complex_mortgage.cache.balanceResults[x][2] = 0
@@ -541,16 +543,12 @@
 
 								break;
 							} else {
-								if(i == 0 && y <= 10){
-									_CORE.complex_mortgage.funcs.buildTableRow(true);
-								} else if(parseFloat(_CORE.refs["COMPLEX-CALC_mortgage_term_years"].value.replaceAll(",", "")) == 0){
-									_CORE.complex_mortgage.funcs.buildTableRow(true);
-								} else {
-									_CORE.complex_mortgage.funcs.buildTableRow(false);
-								}
+
+								_CORE.complex_mortgage.funcs.addMonthData();
+
 							}
 						}
-
+						
 						if(y == 12){
 							_CORE.complex_mortgage.cache.balanceResults[i + 2][2] = Math.trunc(Number(_CORE.refs.tableWithOp));
 						}
@@ -559,25 +557,22 @@
 				}
 
 				for(let i = 0; i <  mortgageTerm; i++){
-					if(lastRow == false){
-						calulateNewBalance(i);
-					} else {
-						break;
-					}
+
+					calulateNewBalance(i);
+	
 				}
-
 			},
-			buildTableRow: function(lessThan10){
+			addMonthData: function(end){
 
-				if(_CORE.cache.mortgage_data[_CORE.refs.tableCount]){
+				if(_CORE.complex_mortgage.cache.mortgage_data[_CORE.refs.tableCount]){
 
-					_CORE.cache.mortgage_data[_CORE.refs.tableCount]["count"] = _CORE.refs.tableCount;
-					_CORE.cache.mortgage_data[_CORE.refs.tableCount]["due_date"] = _CORE.refs.tableDueDate;
-					_CORE.cache.mortgage_data[_CORE.refs.tableCount]["payment"] = _CORE.refs.currentPaymentValue;
-					_CORE.cache.mortgage_data[_CORE.refs.tableCount]["regular_op"] = _CORE.refs.regularOverpaymentAmount;
-					_CORE.cache.mortgage_data[_CORE.refs.tableCount]["interest"] = _CORE.refs.tablePaymentInterest;
-					_CORE.cache.mortgage_data[_CORE.refs.tableCount]["capital"] = _CORE.refs.tablePaymentCapital;
-					_CORE.cache.mortgage_data[_CORE.refs.tableCount]["balance"] = _CORE.refs.tableWithOp.toFixed(2);
+					_CORE.complex_mortgage.cache.mortgage_data[_CORE.refs.tableCount]["count"] = _CORE.refs.tableCount;
+					_CORE.complex_mortgage.cache.mortgage_data[_CORE.refs.tableCount]["due_date"] = _CORE.refs.tableDueDate;
+					_CORE.complex_mortgage.cache.mortgage_data[_CORE.refs.tableCount]["payment"] = _CORE.refs.currentPaymentValue;
+					_CORE.complex_mortgage.cache.mortgage_data[_CORE.refs.tableCount]["regular_op"] = _CORE.refs.regularOverpaymentAmount;
+					_CORE.complex_mortgage.cache.mortgage_data[_CORE.refs.tableCount]["interest"] = _CORE.refs.tablePaymentInterest;
+					_CORE.complex_mortgage.cache.mortgage_data[_CORE.refs.tableCount]["capital"] = _CORE.refs.tablePaymentCapital;
+					_CORE.complex_mortgage.cache.mortgage_data[_CORE.refs.tableCount]["balance"] = _CORE.refs.tableWithOp.toFixed(2);
 
 				} else {
 					let data = {};
@@ -590,25 +585,146 @@
 					data["capital"] = _CORE.refs.tablePaymentCapital;
 					data["balance"] = _CORE.refs.tableWithOp.toFixed(2);
 
-					_CORE.cache.mortgage_data[_CORE.refs.tableCount] = data;
+					_CORE.complex_mortgage.cache.mortgage_data[_CORE.refs.tableCount] = data;
+					
+				}
+			},
+			tableToggle: function(type){
+
+				let yearlyBtn =  _CORE.refs["COMPLEX-CALC_mortgage-yearly-toggle"];
+				let monthlyBtn =  _CORE.refs["COMPLEX-CALC_mortgage-monthly-toggle"];
+
+				if(type == 'yearly'){
+
+					yearlyBtn.classList.add('active');
+					monthlyBtn.classList.remove('active');
+				} else if(type == 'monthly'){
+					yearlyBtn.classList.remove('active');
+					monthlyBtn.classList.add('active');
 				}
 
-				let newBalance = _CORE.refs.tableWithOp.toFixed(2);
+				_CORE.complex_mortgage.cache.table_view = type;
+
+				_CORE.complex_mortgage.funcs.buildTable();
+			},
+			buildTable: function(){
+
+				_CORE.refs["COMPLEX-CALC_mortgage-table-row-container"].innerHTML = "";
+				_CORE.refs["COMPLEX-CALC_mortgage-table-row-container-extended"].innerHTML = "";
+
+				let lastRow = false;
+
+				let data = {};
+
+				if(_CORE.complex_mortgage.cache.table_view == 'monthly'){
+
+					_CORE.utils.forEach(_CORE.complex_mortgage.cache.mortgage_data, function(index, item){
+						if(index !== 0 && lastRow == false){
+
+							if(item["balance"] <= 0){
+								lastRow = true;
+							}
+
+							data = item;
+
+							if(index <= 10){
+								_CORE.complex_mortgage.funcs.buildTableRow(true, data);
+							} else {
+								_CORE.complex_mortgage.funcs.buildTableRow(false, data);
+							}
+						}
+					});
+
+				} else if(_CORE.complex_mortgage.cache.table_view == 'yearly'){
+
+					let year = 0;
+
+					let annualBalance = 0; 
+					let annualCapital = 0;
+					let annualInterest = 0; 
+					let annualRegularOp = 0;
+					let annualPayment = 0;
+					let annualAdhocOp = 0;
+					let annualDueDate;
+
+					_CORE.utils.forEach(_CORE.complex_mortgage.cache.mortgage_data, function(index, item){
+						if(index !== 0 && lastRow == false){
+
+							if(item["balance"] <= 0){
+								lastRow = true;
+							}
+
+							if(index % 12 == 0){
+								year++;
+	
+								annualBalance += Number(item["balance"]);
+								annualCapital += item["capital"];
+								annualInterest += item["interest"];
+								annualRegularOp += item["regular_op"];
+								annualPayment += Number(item["payment"]);
+								annualDueDate = item["due_date"];
+	
+								if(item["adhoc_op"]){
+									annualAdhocOp = item["adhoc_op"];
+								} else {
+									annualAdhocOp += 0;
+								}
+
+								data["balance"] = annualBalance;
+								data["capital"] = annualCapital;
+								data["count"] = year;
+								data["due_date"] = annualDueDate;
+								data["interest"] = annualInterest;
+								data["payment"] = annualPayment;
+								data["regular_op"] = annualRegularOp;
+	
+								if(year <= 10){
+									_CORE.complex_mortgage.funcs.buildTableRow(true, data);
+								} else {
+									_CORE.complex_mortgage.funcs.buildTableRow(false, data);
+								}
+							} else {
+								annualBalance += Number(item["balance"]);
+								annualCapital += item["capital"];
+								annualInterest += item["interest"];
+								annualRegularOp += item["regular_op"];
+								annualPayment += Number(item["payment"]);
+
+							}
+						}
+					});
+				}
+				
+			},
+			buildTableRow: function(lessThan10, rowData){
+
+				let newBalance = rowData["balance"];
+
 				let withOp = Number(newBalance).toLocaleString("en-GB", {style:"currency", currency:"GBP"});
 
-				let count = _CORE.refs.tableCount;
-				let dueDate = _CORE.refs.tableDueDate;
-				let payment = Number(_CORE.refs.currentPaymentValue).toLocaleString("en-GB", {style:"currency", currency:"GBP"});
-				let overpaymentAmount = Number(_CORE.refs.regularOverpaymentAmount).toLocaleString("en-GB", {style:"currency", currency:"GBP"});
+				let count = rowData["count"];
+				let dueDate = rowData["due_date"];
+				let payment = Number(rowData["payment"]).toLocaleString("en-GB", {style:"currency", currency:"GBP"});
+				let overpaymentAmount = Number(rowData["regular_op"]).toLocaleString("en-GB", {style:"currency", currency:"GBP"});
 
-				let interest = Number(_CORE.refs.tablePaymentInterest).toLocaleString("en-GB", {style:"currency", currency:"GBP"})
+				let interest = Number(rowData["interest"]).toLocaleString("en-GB", {style:"currency", currency:"GBP"})
 
-				let capital = _CORE.refs.tablePaymentCapital.toFixed(2);
+				let capital = rowData["capital"].toFixed(2);
 				let capitalText = Number(capital).toLocaleString("en-GB", {style:"currency", currency:"GBP"});
 
 				let gridDiv = document.createElement('div');
 				gridDiv.classList.add('table-results-row', 'uk-grid', 'uk-margin-remove', 'uk-grid-row-collapse', 'uk-grid-collapse');
 				gridDiv.setAttribute('uk-grid', '');
+
+				if(_CORE.complex_mortgage.cache.table_view == 'monthly'){
+					if(count % 12 == 0){
+						gridDiv.classList.add('fd--year--row');
+					}
+				} else {
+					if(count == 0){
+						gridDiv.classList.add('fd--year--row');
+					}
+				}
 
 				let countDiv = document.createElement('div');
 				countDiv.classList.add('uk-text-center');
@@ -641,13 +757,14 @@
 				let adhocInput = document.createElement('input');
 				adhocInput.classList.add('uk-input', 'table-adhoc-overpayment');
 				adhocInput.style.height = "auto";
-				adhocInput.setAttribute('type', 'number');
-				adhocInput.dataset.format = "number";
-				adhocInput.dataset.kata ='';
+				//adhocInput.setAttribute('type', 'number');
 
-				if(_CORE.cache.mortgage_data[count]["adhoc_op"]){
+				_CORE.utils.numberInputFormatter(adhocInput);
 
-					adhocInput.value = _CORE.cache.mortgage_data[count]["adhoc_op"];
+				if(_CORE.complex_mortgage.cache.mortgage_data[count]["adhoc_op"]){
+
+					//adhocInput.value = _CORE.complex_mortgage.cache.mortgage_data[count]["adhoc_op"];
+					adhocInput.value  = Number(_CORE.complex_mortgage.cache.mortgage_data[count]["adhoc_op"]).toLocaleString("en-US");
 
 				} else {
 					adhocInput.value = 0;
@@ -689,6 +806,7 @@
 				} else {
 					_CORE.refs["COMPLEX-CALC_mortgage-table-row-container-extended"].appendChild(gridDiv);
 				}
+
 			},
 			drawBalanceChart: function(){
 
@@ -759,7 +877,6 @@
 					});
 				
 					window.addEventListener('resize', function(event){
-						console.log('resizing')
 						redrawChart();
 					});
 
@@ -922,7 +1039,8 @@
 				}
 			},
 			updateAdhocOverpayment: function(month, input){
-				_CORE.cache.mortgage_data[month]["adhoc_op"] = Number(input.value);
+				
+				_CORE.complex_mortgage.cache.mortgage_data[month]["adhoc_op"] = parseFloat(input.value.replaceAll(",", ""));
 
 				_CORE.complex_mortgage.funcs.currentPaymentCalc();
 			}

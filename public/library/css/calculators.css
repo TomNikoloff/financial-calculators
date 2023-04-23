@@ -33,12 +33,12 @@
 [data-calculator-field="COMPLEX-CALC_mortgage-table-container"] {
     padding-right: 30px;
     overflow-x: auto !important;
-    height: 740px;
+    height: 720px;
 }
 
 .complex-calculator-table {
     position: absolute;
-    min-width: 700px;
+    min-width: 750px;
 }
 
 .mortgage-table {
@@ -126,12 +126,14 @@
 }
 
 .fd--table--toggle--monthly {
-    color: black;
     background-color: #c2c2c2;
+    color: black;
     border: 3px solid black;
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-left: 0;
     font-weight: 500;
+
 }
 
 .fd--table--toggle--monthly:hover {
@@ -145,12 +147,11 @@
 }
 
 .fd--table--toggle--yearly {
-    background-color: #c2c2c2;
     color: black;
+    background-color: #c2c2c2;
     border: 3px solid black;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-    border-left: 0;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
     font-weight: 500;
 }
 
@@ -164,5 +165,12 @@
     color: #fff;
 }
 
+.fd--year--row {
+    background-color: grey;
+}
+
+.outstanding-balance:after {
+    left: -80px;
+}
 
 

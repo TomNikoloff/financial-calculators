@@ -19,7 +19,7 @@
 				// Current Monthly Payment
 				_CORE.overpayment.cache.newPaymentValue;
 
-				_CORE.overpayment.table_view = 'yearly';
+				_CORE.overpayment.cache.table_view = 'yearly';
 
 				_CORE.overpayment.funcs.setupInputs();
 			},
@@ -449,13 +449,32 @@
 				}
 
 			},
+			tableToggle: function(type){
+				_CORE.overpayment.cache.table_view = type;
+
+				let name = document.getElementById('fd_overpayment_period_name');
+				let yearlyBtn =  _CORE.refs["OVERPAYMENT-CALC_mortgage-yearly-toggle"];
+				let monthlyBtn =  _CORE.refs["OVERPAYMENT-CALC_mortgage-monthly-toggle"];
+
+				if(type == 'yearly'){
+					name.textContent = 'Year';
+					yearlyBtn.classList.add('active');
+					monthlyBtn.classList.remove('active');
+				} else if(type == 'monthly'){
+					name.textContent = 'Month';
+					yearlyBtn.classList.remove('active');
+					monthlyBtn.classList.add('active');
+				}
+
+				_CORE.overpayment.funcs.buildTable();
+			},
 			buildTable:function(mortgageTerm){
 
 				_CORE.refs["OVERPAYMENT-CALC_mortgage-table-row-container"].innerHTML = "";
 
 				_CORE.refs["OVERPAYMENT-CALC_mortgage-table-row-container-extended"].innerHTML = "";
 
-				if(_CORE.overpayment.table_view == 'yearly'){
+				if(_CORE.overpayment.cache.table_view == 'yearly'){
 					let results = _CORE.overpayment.cache.balanceResults;
 
 					_CORE.utils.forEach(results, function(index, arr){
@@ -471,7 +490,7 @@
 							_CORE.overpayment.funcs.buildTableRow(year, withOp, withoutOp);
 						}
 					});
-				} else if(_CORE.overpayment.table_view == 'monthly'){
+				} else if(_CORE.overpayment.cache.table_view == 'monthly'){
 					let results = _CORE.overpayment.cache.monthlyBalanceResults;
 
 					_CORE.utils.forEach(results, function(index, arr){
@@ -489,25 +508,6 @@
 					});
 				}
 			},
-			tableToggle: function(type){
-				_CORE.overpayment.table_view = type;
-
-				let name = document.getElementById('fd_overpayment_period_name');
-				let yearlyBtn =  document.querySelector('.fd--table--toggle--yearly');
-				let monthlyBtn =  document.querySelector('.fd--table--toggle--monthly');
-
-				if(type == 'yearly'){
-					name.textContent = 'Year';
-					yearlyBtn.classList.add('active');
-					monthlyBtn.classList.remove('active');
-				} else if(type == 'monthly'){
-					name.textContent = 'Month';
-					yearlyBtn.classList.remove('active');
-					monthlyBtn.classList.add('active');
-				}
-
-				_CORE.overpayment.funcs.buildTable();
-			},
 			buildTableRow: function(year, withOp, withoutOp){
 
 				let withOpText = withOp.toLocaleString();
@@ -516,6 +516,16 @@
 				let gridDiv = document.createElement('div');
 				gridDiv.classList.add('table-results-row', 'uk-grid', 'uk-margin-remove', 'uk-grid-row-collapse', 'uk-grid-collapse');
 				gridDiv.setAttribute('uk-grid', '');
+
+				if(_CORE.overpayment.cache.table_view == 'monthly'){
+					if(year % 12 == 0){
+						gridDiv.classList.add('fd--year--row');
+					}
+				} else {
+					if(year == 0){
+						gridDiv.classList.add('fd--year--row');
+					}
+				}
 
 				let div1 = document.createElement('div');
 				div1.classList.add('uk-text-center', 'uk-width-1-5', 'uk-width-1-3');

@@ -84,9 +84,9 @@
                                         <div class="uk-width-1-1">
                                             <div class="uk-flex uk-flex-around">
                                                 <div>
-                                                    <label>Overpayment Interval</label>
-                                                    <div class="uk-position-relative" data-prefix="Every">
-                                                        <input style="padding-left: 6em;" data-calculator-field="COMPLEX-CALC_mortgage-overpayment-interval" class="uk-input" value="1">
+                                                    <label>Overpayment Every</label>
+                                                    <div class="uk-position-relative" data-suffix="Months">
+                                                        <input data-calculator-field="COMPLEX-CALC_mortgage-overpayment-interval" class="uk-input" value="1">
                                                     </div>
                                                 </div>
                                                 <div class="uk-flex uk-flex-bottom">
@@ -131,7 +131,7 @@
                                 </div>
                                 <hr class="uk-divider-icon">
                                 <div class="uk-position-relative uk-margin-medium-top uk-text-center">
-                                    <h2 class="result-text" data-results-suffix="Outstanding Balance"><span data-calculator-field="COMPLEX-CALC_mortgage-product_expiry_outstanding" class="uk-text-bold">£62,783.17</span></h2>
+                                    <h2 class="result-text outstanding-balance" data-results-suffix="Outstanding Balance"><span data-calculator-field="COMPLEX-CALC_mortgage-product_expiry_outstanding" class="uk-text-bold">£62,783.17</span></h2>
                                 </div>
                             </div>
 
@@ -148,9 +148,23 @@
                 </div>
             </div>
 
+            <div class="uk-flex uk-margin-top uk-margin-bottom fd--table-toggle--container">
+                <div class="uk-flex uk-flex-middle uk-margin-small-right">
+                    <h3 class="uk-margin-remove">Show:</h3>
+                </div>
+                <div class="uk-flex">
+                    <div class="">
+                        <button data-calculator-field="COMPLEX-CALC_mortgage-yearly-toggle" class="uk-button fd--table--toggle--yearly" onclick="_CORE.complex_mortgage.funcs.tableToggle('yearly')">Yearly Info</button>
+                    </div>
+                    <div class="">
+                        <button data-calculator-field="COMPLEX-CALC_mortgage-monthly-toggle" class="uk-button fd--table--toggle--monthly active" onclick="_CORE.complex_mortgage.funcs.tableToggle('monthly')">Monthly Info</button>
+                    </div>
+                </div>
+            </div>
+
             <div class="uk-width-1-1">
                 <div data-calculator-field="COMPLEX-CALC_mortgage-table-container" class="uk-position-relative uk-width-1-1">
-                    <div class="mortgage-table complex-calculator-table uk-margin-top uk-width-1-1">
+                    <div class="mortgage-table complex-calculator-table uk-width-1-1">
                         <div class="mortgage-table-header uk-flex uk-flex-middle uk-flex-between uk-padding">
                             <h3 class="uk-margin-remove" style="color: #fff">Mortgage Info</h3>
                             <div>
@@ -199,7 +213,7 @@
                 </div>
             </div>
 
-            <div class="text-banner uk-padding uk-margin-medium-top">
+            <div class="text-banner uk-padding uk-margin-top">
                 <div class="title-border">
                     <h4>Totals Assuming No Overpayments Are Made</h4>
                 </div>

@@ -1,3 +1,15 @@
+@media only screen and (max-width: 500px) {
+    .fd--table-toggle--container {
+        flex-wrap: wrap;
+    }
+    .fd--table--toggle--yearly {
+        line-height: 7vw;
+    }
+    .fd--table--toggle--monthly {
+        line-height: 7vw;
+    }
+}
+
 /* Small devices (portrait tablets and large phones, 640px and up) */
 @media only screen and (max-width: 640px) {
     .uk-card-body {

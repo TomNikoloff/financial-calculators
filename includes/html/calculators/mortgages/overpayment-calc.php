@@ -109,16 +109,16 @@
                     </div>
                 </div>
 
-                <div class="uk-flex uk-margin-medium-top uk-margin-bottom">
+                <div class="uk-flex uk-margin-medium-top uk-margin-bottom fd--table-toggle--container">
                     <div class="uk-flex uk-flex-middle uk-margin-small-right">
                         <h3 class="uk-margin-remove">Show:</h3>
                     </div>
                     <div class="uk-flex">
                         <div class="">
-                            <button class="uk-button fd--table--toggle--monthly" onclick="_CORE.overpayment.funcs.tableToggle('monthly')">Monthly Balance</button>
+                            <button data-calculator-field="OVERPAYMENT-CALC_mortgage-yearly-toggle" class="uk-button fd--table--toggle--yearly active" onclick="_CORE.overpayment.funcs.tableToggle('yearly')">Yearly Balance</button>
                         </div>
                         <div class="">
-                            <button class="uk-button fd--table--toggle--yearly active" onclick="_CORE.overpayment.funcs.tableToggle('yearly')">Yearly Balance</button>
+                            <button data-calculator-field="OVERPAYMENT-CALC_mortgage-monthly-toggle" class="uk-button fd--table--toggle--monthly" onclick="_CORE.overpayment.funcs.tableToggle('monthly')">Monthly Balance</button>
                         </div>
                     </div>
                 </div>
