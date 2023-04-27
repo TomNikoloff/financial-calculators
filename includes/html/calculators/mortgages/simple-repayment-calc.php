@@ -57,12 +57,11 @@
                         <h2 class="uk-text-center" data-results-suffix="Total Interest Paid"><span data-calculator-field="SIMPLE-MORTGAGE-CALC-total-interest"class="uk-text-bold">£1,585.00</span></h2>
                     </div>
                 </div>
-            </div>
-
-            <div class="uk-margin-top">
-                <p class="uk-margin-remove uk-text-center">
-                    It's important to note that the calculators are for guidance purposes only and the actual amounts will depend on several factors. It's recommended to speak to a mortgage advisor or financial planner before making any decisions regarding a mortgage.
-                </p>
+                <div class="uk-margin-medium-top fd--calculator--disclaimer--container">
+                    <p class="uk-margin-remove uk-text-center">
+                        It's important to note that the calculators are for guidance purposes only and the actual amounts will depend on several factors. It's recommended to speak to a mortgage advisor or financial planner before making any decisions regarding a mortgage.
+                    </p>
+                </div>
             </div>
 
         </div>

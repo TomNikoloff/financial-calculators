@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Financial Calculators</title>
 
+    <link rel="icon" href="./images/favicon.png" type="image/x-icon" />
+
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/0ff32d8fcb.js" crossorigin="anonymous"></script>
 

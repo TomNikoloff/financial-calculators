@@ -245,7 +245,7 @@ nav {
 
 .fd--card--footer {
     align-self: flex-end;
-    background-color: var(--fd-main-bg-color);
+    /*background-color: var(--fd-main-bg-color);*/
 }
 
 .fd--card--footer button {
@@ -254,6 +254,12 @@ nav {
     font-size: 1.3em;
     color: var(--fd-primary);
     text-align: right;
+    padding: 15px 30px;
+}
+
+.fd--card--footer button:hover {
+    background-color: #373542eb;
+
 }
 
 .fd--accordian--title {
@@ -565,4 +571,16 @@ footer {
 
 .fd--modal--close--btn:hover {
     background-color: var(--fd-mid-grey);
+}
+
+.fd--grid--first--line {
+    border-right: 0;
+    border-bottom: 2px solid var(--fd-main-bg-color);
+    padding: 0;
+}
+
+.fd--grid--second--line {
+    border-left: 0;
+    border-top: 2px solid var(--fd-main-bg-color);
+    padding: 0;
 }

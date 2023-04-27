@@ -657,7 +657,7 @@
 							if(index % 12 == 0){
 								year++;
 	
-								annualBalance += Number(item["balance"]);
+								annualBalance = Number(item["balance"]);
 								annualCapital += item["capital"];
 								annualInterest += item["interest"];
 								annualRegularOp += item["regular_op"];
@@ -683,8 +683,13 @@
 								} else {
 									_CORE.complex_mortgage.funcs.buildTableRow(false, data);
 								}
+
+								annualCapital = 0;
+								annualInterest = 0;
+								annualRegularOp = 0;
+								annualPayment = 0;
+
 							} else {
-								annualBalance += Number(item["balance"]);
 								annualCapital += item["capital"];
 								annualInterest += item["interest"];
 								annualRegularOp += item["regular_op"];

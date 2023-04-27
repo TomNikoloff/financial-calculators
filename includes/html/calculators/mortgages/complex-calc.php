@@ -59,7 +59,7 @@
 
         <div data-calculator-field="mortgage-results-container">
 
-            <div uk-grid class="uk-grid uk-child-width-1-2@s uk-grid-match">
+            <div uk-grid class="uk-grid uk-child-width-1-1 uk-grid-match">
                 <div class="uk-margin-bottom">
                     <div class="uk-card uk-card-default fd--card">
                             <div class="uk-flex uk-flex-column uk-height-1-1">
@@ -72,8 +72,8 @@
                                             <h4></h4>
                                         </div>
                                     </div>
-                                    <div uk-grid class="uk-grid uk-margin-large-top">
-                                        <div class="uk-width-1-1">
+                                    <div uk-grid class="uk-grid uk-grid-small uk-child-width-1-3@s">
+                                        <div class="">
                                             <div>
                                                 <label>Regular Overpayment</label>
                                                 <div class="uk-position-relative" data-prefix="£">
@@ -81,7 +81,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="uk-width-1-1">
+                                        <div class="">
                                             <div class="uk-flex uk-flex-around">
                                                 <div>
                                                     <label>Overpayment Every</label>
@@ -94,7 +94,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="uk-width-1-1">
+                                        <div class="">
                                             <div>
                                                 <label>Annual Overpayment</label>
                                                 <div class="uk-position-relative" data-prefix="£">
@@ -110,42 +110,7 @@
                             </div>
                     </div>
                 </div>
-            
-                <div class="uk-margin-bottom">
-                    <div class="uk-card uk-card-default uk-padding-small fd--card">
-                        <div class="uk-padding-small">
-                            <div class="title-border">
-                                <h3>Balance At Product Expiry</h3>
-                            </div>
-
-                            <div>
-                                <input type="date" value class="uk-input" data-calculator-field="COMPLEX-CALC_mortgage-product-expiry-date">
-                            </div>
-
-                            <div data-calculator-field="_COMPLEX-CALC_mortgage-product_expiry_results_container">
-                                <div class="uk-position-relative uk-margin-medium-top uk-text-center">
-                                    <h2 class="result-text" data-results-suffix="Interest Paid"><span data-calculator-field="COMPLEX-CALC_mortgage-product_expiry_interest" class="uk-text-bold" >£19,752.17</span></h2>
-                                </div>
-                                <div class="uk-position-relative uk-margin-medium-top uk-text-center">
-                                    <h2 class="result-text" data-results-suffix="Capital Paid"><span data-calculator-field="COMPLEX-CALC_mortgage-product_expiry_capital" class="uk-text-bold">£5,711.83</span></h2>
-                                </div>
-                                <hr class="uk-divider-icon">
-                                <div class="uk-position-relative uk-margin-medium-top uk-text-center">
-                                    <h2 class="result-text outstanding-balance" data-results-suffix="Outstanding Balance"><span data-calculator-field="COMPLEX-CALC_mortgage-product_expiry_outstanding" class="uk-text-bold">£62,783.17</span></h2>
-                                </div>
-                            </div>
-
-                            <div data-calculator-field="_COMPLEX-CALC_mortgage-product_expiry_error_container" class="uk-hidden uk-margin-large-top">
-                                <div class="uk-alert-danger uk-text-center uk-alert">
-                                    <h4>
-                                        Product Expiry Date cannot be beyond the mortgage end date.
-                                    </h4>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
+        
             </div>
 
             <div class="uk-flex uk-margin-top uk-margin-bottom fd--table-toggle--container">
@@ -228,28 +193,69 @@
                     <div data-calculator-field="COMPLEX-CALC_mortgage-chart-div" style="width:100%" class="uk-margin-top"></div>
                 </div>
             </div>
-        
-            <div class="uk-margin text-banner">
-                <div class="uk-padding-small">
-                    <div class="uk-padding-small">
-                        <div class="title-border">
-                            <h3>Full Amortization</h3>
+
+            <div class="text-banner">
+                <div uk-grid class="uk-grid uk-child-width-1-2@m uk-margin-remove uk-grid-row-collapse">
+
+                    <div class="fd--grid--first--line">
+                        <div class="uk-padding-small">
+                            <div class="uk-padding-small">
+                                <div class="title-border">
+                                    <h3>Balance At Product Expiry</h3>
+                                </div>
+
+                                <div>
+                                    <input type="date" value class="uk-input" data-calculator-field="COMPLEX-CALC_mortgage-product-expiry-date">
+                                </div>
+
+                                <div data-calculator-field="_COMPLEX-CALC_mortgage-product_expiry_results_container">
+                                    <div class="uk-position-relative uk-margin-medium-top uk-text-center">
+                                        <h2 class="result-text" data-results-suffix="Interest Paid"><span data-calculator-field="COMPLEX-CALC_mortgage-product_expiry_interest" class="uk-text-bold" >£19,752.17</span></h2>
+                                    </div>
+                                    <div class="uk-position-relative uk-margin-medium-top uk-text-center">
+                                        <h2 class="result-text" data-results-suffix="Capital Paid"><span data-calculator-field="COMPLEX-CALC_mortgage-product_expiry_capital" class="uk-text-bold">£5,711.83</span></h2>
+                                    </div>
+                                    <hr class="uk-divider-icon">
+                                    <div class="uk-position-relative uk-margin-medium-top uk-text-center">
+                                        <h2 class="result-text outstanding-balance" data-results-suffix="Outstanding Balance"><span data-calculator-field="COMPLEX-CALC_mortgage-product_expiry_outstanding" class="uk-text-bold">£62,783.17</span></h2>
+                                    </div>
+                                </div>
+
+                                <div data-calculator-field="_COMPLEX-CALC_mortgage-product_expiry_error_container" class="uk-hidden uk-margin-large-top">
+                                    <div class="uk-alert-danger uk-text-center uk-alert">
+                                        <h4>
+                                            Product Expiry Date cannot be beyond the mortgage end date.
+                                        </h4>
+                                    </div>
+                                </div>
+
+                            </div>
                         </div>
-                        <div class="uk-position-relative uk-margin-top uk-text-center">
-                            <h2 class="result-text" data-results-suffix="">Total Payment Amount <span data-calculator-field="COMPLEX-CALC_mortgage-amortization-payment" class="uk-text-bold">£140,052.69</span></h2>
-                        </div>
-                        <div class="uk-position-relative uk-margin-top uk-text-center">
-                            <h2 class="result-text" data-results-suffix="">Total Interest Paid <span data-calculator-field="COMPLEX-CALC_mortgage-amortization-interest" class="uk-text-bold">£71,557.69</span></h2>
-                        </div>
-                        <div class="uk-position-relative uk-margin-top uk-text-center">
-                            <h2 class="result-text" data-results-suffix="months">Number Of Payments <span data-calculator-field="COMPLEX-CALC_mortgage-amortization-months" class="uk-text-bold">264</span></h2>
-                        </div>
-                        <div class="uk-position-relative uk-margin-top uk-text-center">
-                            <h2 class="result-text" data-results-suffix="">Last Payment Date <span data-calculator-field="COMPLEX-CALC_mortgage-amortization-final-date" class="uk-text-bold">01/08/2044</span></h2>
-                        </div>
-                        <hr class="uk-divider-icon">
-                        <div class="uk-position-relative uk-margin-top uk-text-center">
-                            <h2 class="result-text" data-results-suffix="">Interest Saved <span data-calculator-field="COMPLEX-CALC_mortgage-amortization-interest-saved" class="uk-text-bold">£0.00</span></h2>
+                    </div>
+
+                    <div class="fd--grid--second--line">
+                        <div class="uk-padding-small">
+                            <div class="uk-padding-small">
+                                <div class="title-border">
+                                    <h3>Full Amortization</h3>
+                                </div>
+                                <div class="uk-position-relative uk-margin-top uk-text-center">
+                                    <h3 class="result-text" data-results-suffix="">Total Payment Amount <span data-calculator-field="COMPLEX-CALC_mortgage-amortization-payment" class="uk-text-bold">£140,052.69</span></h3>
+                                </div>
+                                <div class="uk-position-relative uk-margin-top uk-text-center">
+                                    <h3 class="result-text" data-results-suffix="">Total Interest Paid <span data-calculator-field="COMPLEX-CALC_mortgage-amortization-interest" class="uk-text-bold">£71,557.69</span></h3>
+                                </div>
+                                <div class="uk-position-relative uk-margin-top uk-text-center">
+                                    <h3 class="result-text" data-results-suffix="months">Number Of Payments <span data-calculator-field="COMPLEX-CALC_mortgage-amortization-months" class="uk-text-bold">264</span></h3>
+                                </div>
+                                <div class="uk-position-relative uk-margin-top uk-text-center">
+                                    <h3 class="result-text" data-results-suffix="">Last Payment Date <span data-calculator-field="COMPLEX-CALC_mortgage-amortization-final-date" class="uk-text-bold">01/08/2044</span></h3>
+                                </div>
+                                <hr class="uk-divider-icon uk-margin-medium">
+                                <div class="uk-position-relative uk-margin-top uk-text-center">
+                                    <h3 class="result-text" data-results-suffix="">Interest Saved <span data-calculator-field="COMPLEX-CALC_mortgage-amortization-interest-saved" class="uk-text-bold">£0.00</span></h3>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

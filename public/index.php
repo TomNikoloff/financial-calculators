@@ -156,9 +156,11 @@
                                             include($_SERVER['DOCUMENT_ROOT']."/financial-dashboard/includes/html/calculators/loans/credit-card-calc.php");
                                         ?>
                                     </li>
+                                    <!--
                                     <li>
 
                                     </li>
+                                    -->
                                     <li>
                                         <?php 
                                             # Loan Calculator
@@ -201,9 +203,33 @@
                                     <li>
 
                                     </li>
-                                    <li>
+                                </ul>
+                            </div>
+                        </div>
 
-                                    </li>
+                        <!-- Savings/ Investments Info -->
+                        <div class="uk-margin-large-top">
+                            <?php
+                                # Savings / investments Info Section 
+                                include($_SERVER['DOCUMENT_ROOT']."/financial-dashboard/includes/html/calculators/savings/info.php");
+                            ?>
+                        </div>
+
+                    </li>
+                    <li class="uk-animation-scale-up">
+                        <!-- Salary Calcs Menu -->
+                        <div class="uk-card uk-card-default uk-padding">
+                            <div class="uk-animation-scale-up">
+                                <div class="fd--calcs--list--title">
+                                    <h2 class="uk-text-uppercase">Savings / Investments</h2>
+                                </div>
+                                <div id="fd_savings_calcs_menu" uk-grid class="uk-grid uk-child-width-1-2@s uk-grid-match fd--calcs--menu" uk-switcher="connect: #fd_savings_calcs_switcher">
+                                    <?php 
+                                        # Savings Calculator Menu
+                                        include($_SERVER['DOCUMENT_ROOT']."/financial-dashboard/includes/html/calculators/salary/menu.php");
+                                    ?>
+                                </div>
+                                <ul id="fd_salary_calcs_switcher" class="uk-switcher uk-animation-scale-up fd--calcs--list hide">
                                     <li>
 
                                     </li>
@@ -211,15 +237,12 @@
                             </div>
                         </div>
 
-                        <!-- Savings/ Investments Info -->
+                        <!-- Salary Info -->
                         <div class="uk-margin-large-top">
-
-                        </div>
-
-                    </li>
-                    <li class="uk-animation-scale-up">
-                        <div>
-                            Salary
+                            <?php
+                                # Salary Info Section 
+                                include($_SERVER['DOCUMENT_ROOT']."/financial-dashboard/includes/html/calculators/salary/info.php");
+                            ?>
                         </div>
                     </li>
                 </ul>

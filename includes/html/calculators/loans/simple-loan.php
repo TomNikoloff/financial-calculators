@@ -9,10 +9,10 @@
 
 <div id="SIMPLE-LOAN" class="uk-margin-medium-top">
     <div class="">
-        <div class="uk-padding uk-padding-remove-vertical">
+        <div class="fd--calc--title uk-padding uk-padding-remove-vertical">
             <h2 class="uk-margin-bottom fd--title--border">Loan Calculator</h2>
         </div>
-        <div class="uk-card-body">
+        <div class="uk-card-body uk-padding-remove-bottom">
             <div>
                 <div class="uk-margin">
                     <h4 class="uk-margin-small">Loan Balance</h4>
@@ -58,7 +58,7 @@
                 </div>
             </div>
 
-            <div class="uk-margin-large-top">
+            <div class="uk-margin-large-top fd--calculator--disclaimer--container">
                 <p class="uk-margin-remove">
                     It's important to note that the calculators are for guidance purposes only and the actual amounts will depend on several factors. It's recommended to speak to an advisor or financial planner before making any decisions regarding a loan.
                 </p>

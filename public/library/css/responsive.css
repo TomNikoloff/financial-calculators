@@ -47,7 +47,17 @@
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
-
+    .fd--grid--first--line {
+        border-right: 2px solid var(--fd-main-bg-color);
+        border-bottom: 0;
+        margin: 20px 0;
+    }
+    
+    .fd--grid--second--line {
+        border-left: 2px solid var(--fd-main-bg-color);
+        border-top: 0;
+        margin: 20px 0;
+    }
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */

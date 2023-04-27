@@ -173,4 +173,9 @@
     left: -80px;
 }
 
+.fd--calculator--disclaimer--container {
+    background-color: #eee;
+    border-radius: 10px;
+    padding: 10px;
+}
 

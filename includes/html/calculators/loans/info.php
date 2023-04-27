@@ -1,12 +1,14 @@
-<div class="uk-flex uk-margin-left">
-    <h3 class="uk-text-capitalize">
+<div class="uk-flex uk-margin-left uk-margin-right uk-margin-bottom uk-flex-wrap">
+    <h3 class="uk-text-capitalize uk-margin-bottom-remove uk-margin-right">
         Jump to:
     </h3>
-    <div class="uk-margin-left">
-        <a class="uk-button fd--btns" href="#fd_credit_card_info" uk-scroll>Credit Card Info <span uk-icon="arrow-down"></span></a>
-    </div>
-    <div class="uk-margin-left">
-        <a class="uk-button fd--btns" href="#fd_loan_info" uk-scroll>Loan Info <span uk-icon="arrow-down"></span></a>
+    <div uk-grid class="uk-grid uk-child-width-1-2@s uk-width-expand@s uk-width-1-1 uk-grid-small">
+        <div class="" style="padding-left: 30px;">
+            <a class="uk-button fd--btns uk-width-1-1" href="#fd_credit_card_info" uk-scroll>Credit Info <span uk-icon="arrow-down"></span></a>
+        </div>
+        <div class="" style="padding-left: 30px;">
+            <a class="uk-button fd--btns uk-width-1-1" href="#fd_loan_info" uk-scroll>Loan Info <span uk-icon="arrow-down"></span></a>
+        </div>
     </div>
 </div>
 
