@@ -21,7 +21,7 @@
                     </div>
                 </div>
                 <div class="uk-margin-medium uk-position-relative">
-                    <h4 class="slider-label" style="margin-bottom: -34px">Interest rate is</h4>
+                    <h4 class="slider-label">Interest rate is</h4>
                     <div class="uk-flex uk-flex-center">
                         <div class="uk-position-relative" data-suffix="%" style="width: 100px">
                             <input data-calculator-field="SIMPLE-LOAN-CALC-interest-rate-text" class="uk-input" min="0.25" max="15" type="number">
@@ -34,7 +34,7 @@
                     </div>
                 </div>
                 <div class="uk-margin-medium uk-position-relative">
-                    <h4 class="slider-label" style="margin-bottom: -34px">Pay it back over</h4>
+                    <h4 class="slider-label">Pay it back over</h4>
                     <div class="uk-flex uk-flex-center">
                         <div class="uk-position-relative" data-suffix="Years" style="width: 140px">
                             <input data-calculator-field="SIMPLE-LOAN-CALC-term-text" class="uk-input" min="1" max="7" type="number">

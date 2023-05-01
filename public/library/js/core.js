@@ -346,6 +346,7 @@ _CORE={
 
             _CORE.simple_credit.funcs.init();
             _CORE.simple_loan.funcs.init();
+            _CORE.simple_savings.funcs.init();
             _CORE.funcs.slidersSetup();
             
         },
@@ -408,6 +409,9 @@ _CORE={
             let creditLoansList = document.getElementById('fd_credit_calcs_switcher');
             creditLoansList.classList.add('hide');
 
+            let savingsCalcsList =  document.getElementById('fd_savings_calcs_switcher');
+            savingsCalcsList.classList.add('hide');
+            
         },
         switchMortgageCalc: function(type){
             let calcTitles =  document.querySelectorAll('.fd--calcs--list--title');
@@ -444,6 +448,19 @@ _CORE={
 
             loanCalcsMenu.classList.add('hide');
             loanCalcsList.classList.remove('hide');
+
+        },
+        switchSavingsCalc: function(type){
+            let calcTitles =  document.querySelectorAll('.fd--calcs--list--title');
+            _CORE.utils.forEach(calcTitles, function(index, title){
+                title.classList.add('hide');
+            });
+
+            let savingsCalcsMenu =  document.getElementById('fd_savings_calcs_menu');
+            let savingsCalcsList =  document.getElementById('fd_savings_calcs_switcher');
+
+            savingsCalcsMenu.classList.add('hide');
+            savingsCalcsList.classList.remove('hide');
 
         }
     }

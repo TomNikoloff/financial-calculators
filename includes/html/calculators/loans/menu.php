@@ -57,6 +57,9 @@
 
 <div class="uk-animation-slide-left-small">
     <div class="uk-card uk-card-default fd--calc--list--cards">
+        <div class="fd--temp--overlay">
+            <div class="fd--temp--overlay--text">Coming Soon</div>
+        </div>
         <div class="fd--card--header uk-padding-small">
             <h4>Loan Overpayment Calculator</h4>
         </div>
@@ -66,7 +69,7 @@
             </p>
         </div>
         <div class="fd--card--footer uk-animation-toggle">
-            <button class="uk-button" type="button" onclick="_CORE.funcs.switchLoanCalc()">
+            <button class="uk-button" type="button" onclick="">
                 GO
                 <span uk-icon="icon: arrow-right; ratio: 1.8" class="uk-animation-slide-left"></span>
             </button>

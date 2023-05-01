@@ -584,3 +584,24 @@ footer {
     border-top: 2px solid var(--fd-main-bg-color);
     padding: 0;
 }
+
+.fd--temp--overlay {
+    position: fixed;
+    width: calc(100% - 40px) !important;
+    height: 81%;
+    background-color: rgba(0,0,0,0.46);
+    z-index: 2;
+}
+
+.fd--temp--overlay--text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 30px;
+    color: white;
+    transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    background-color: var(--fd-main-bg-color);
+    padding: 10px;
+    border-radius: 10px;
+}

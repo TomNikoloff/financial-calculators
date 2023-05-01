@@ -33,7 +33,7 @@
 <div>
     <ul uk-accordion="multiple: true">
         <li>
-            <a class="uk-accordion-title fd--accordian--title" href="#">What are easy access savings accounts?</a>
+            <a class="uk-accordion-title fd--accordian--title" href="#">What is an easy access savings accounts?</a>
             <div class="uk-accordion-content uk-padding-small">
                 <p>
                     Easy access savings accounts are a type of savings account where you can withdraw your money whenever you need it without penalty. They offer a variable interest rate, which means that the interest rate can change over time. These accounts are usually offered by banks, building societies, and other financial institutions.
@@ -50,7 +50,7 @@
             </div>
         </li>
         <li>
-            <a class="uk-accordion-title fd--accordian--title" href="#">What are fixed-term savings accounts?</a>
+            <a class="uk-accordion-title fd--accordian--title" href="#">What is a fixed-term savings accounts?</a>
             <div class="uk-accordion-content uk-padding-small">
                 <p>
                     Fixed-term savings accounts are a type of savings account where you deposit a set amount of money for a fixed period of time, usually from 1 to 5 years. These accounts offer a fixed interest rate for the entire term, which means that the interest rate will not change during this time. Fixed-term savings accounts are usually offered by banks, building societies, and other financial institutions.
@@ -63,6 +63,23 @@
                 </p>
                 <p>
                     Overall, fixed-term savings accounts can be a good choice for individuals who want to earn a higher interest rate on their savings and who do not need immediate access to their money. However, it's important to consider the terms and conditions of the account carefully before making a deposit.
+                </p>
+            </div>
+        </li>
+        <li>
+            <a class="uk-accordion-title fd--accordian--title" href="#">What is a notice savings accounts?</a>
+            <div class="uk-accordion-content uk-padding-small">
+                <p>
+                    A notice savings account is a type of savings account where you must give notice to withdraw your money. The notice period can range from 30 days to several months, depending on the account. Notice savings accounts offer a variable interest rate, which means that the interest rate can change over time. These accounts are usually offered by banks, building societies, and other financial institutions.
+                </p>
+                <p>
+                    Notice savings accounts can be a good option for individuals who want to earn a higher interest rate than they would with an easy access savings account, but who still want some flexibility with their money. These accounts are particularly useful if you have savings that you don't need to access immediately and can plan ahead for expenses.
+                </p>
+                <p>
+                    When choosing a notice savings account, it's important to compare different options to find the one that offers the best interest rate and notice period that works for you. Some accounts may require a minimum balance or charge fees for withdrawals or other transactions. It's also important to consider the Financial Services Compensation Scheme (FSCS) protection, which protects eligible deposits up to a certain amount in case the financial institution goes bust.
+                </p>
+                <p>
+                    Overall, notice savings accounts can be a good choice for individuals who want to earn a higher interest rate on their savings, but who still want some flexibility with their money. However, it's important to plan ahead for expenses and consider the terms and conditions of the account carefully before making a deposit.
                 </p>
             </div>
         </li>
@@ -92,101 +109,75 @@
     </div>
 </div>
 
-<div id="fd_loan_info" class="uk-padding">
+<div class="uk-padding">
     <div class="fd--section-heading">
-        <h2>Basic Loan Information</h2>
+        <h2>Basic Compounding Information</h2>
     </div>
     <p>
-        A loan is a type of financial product that allows you to borrow money and repay it over time with interest. Loans are offered by a variety of lenders, including banks, building societies, and online lenders.
+        Compounding is a term used to describe the process of earning interest on both the initial principal amount and the interest that has accumulated on that amount over time. In other words, when you invest money or save money in an account that compounds interest, you earn interest on your original investment as well as on the interest that has been added to the account over time.
     </p>
     <p>
-        Here are some key points to keep in mind when it comes to loans in the UK:
+        Here are some bullet points summarizing the key points about compounding:
     </p>
     <ul class="info--lists">
         <li>
-            A loan is a type of financial product that allows you to borrow a specific amount of money and repay it over time, usually with interest.
+            Compound interest is typically expressed as an annual percentage rate (APR) that takes into account the frequency of compounding. For example, an account that compounds interest daily will have a higher APR than an account that compounds interest monthly or annually.
         </li>
         <li>
-            There are different types of loans available, such as personal loans, secured loans, and guarantor loans. For more info, see the "What types if loans are available?" section below.
+            The power of compounding can be illustrated with an example. Let's say you invest £1,000 in a savings account with a 5% interest rate that compounds annually. After one year, you will have earned £50 in interest, bringing your total balance to £1,050. If you leave that money in the account for another year, you will earn interest not only on your initial £1,000 investment, but also on the £50 in interest you earned in the first year. After two years, your balance will have grown to £1,102.50.
         </li>
         <li>
-            Loans typically charge interest on the amount borrowed, with the interest rate varying based on the lender and your creditworthiness.
+            Compounding can work against you when you borrow money because interest charges can add up over time. For example, if you have a credit card balance of £1,000 with a 20% interest rate that compounds monthly, your balance will grow to £1,221 after one year if you make no payments. This means you will end up paying £221 in interest charges over the course of the year.
         </li>
         <li>
-            The loan term, or the length of time you have to repay the loan, can also vary.
+            To benefit from compounding, it's important to choose accounts that compound interest more frequently, such as savings accounts that compound daily or money market accounts. However, it's also important to be aware of any fees or restrictions associated with these accounts, as they can eat into your earnings.
         </li>
         <li>
-            When considering a loan, it's important to shop around and compare rates and terms from different lenders to find the best deal.
+            Compounding can work against you when you borrow money because interest charges can add up over time. For example, if you have a credit card balance of £1,000 with a 20% interest rate that compounds monthly, your balance will grow to £1,221 after one year if you make no payments. This means you will end up paying £221 in interest charges over the course of the year.
         </li>
-        <li>
-            Your credit score will impact your eligibility for certain loans and the interest rate you're offered.
-        </li>
-        <li>
-            Failing to make payments on time or defaulting on a loan can negatively impact your credit score and lead to financial difficulties.
-        </li>
-    </ul>
+    </ul> 
     <p>
-        It's important to only borrow what you can afford to repay and to make payments on time to avoid negative impacts on your credit score and financial difficulties.
+        Finally, it's important to be patient when it comes to compounding. While the effects of compounding can be powerful over the long term, it may take time for your savings to grow significantly. The key is to start early, make regular contributions, and be consistent over time.
     </p>
-</div>
-
-<div>
-    <ul uk-accordion="multiple: true">
-        <li>
-            <a class="uk-accordion-title fd--accordian--title" href="#">What types of loans are available?</a>
-            <div class="uk-accordion-content uk-padding-small">
-                <p>
-                    There are different types of loans available in the UK, including:
-                </p>
-                <ul class="info--lists">
-                    <li>
-                        Personal loans: These are unsecured loans that allow you to borrow a fixed amount of money over a fixed period of time. The interest rate and loan term will vary depending on the lender and your creditworthiness. Personal loans are typically used for things like home improvements, car purchases, or consolidating debt.
-                    </li>
-                    <li>
-                        Secured loans: These loans are secured against an asset, such as your home or car. Because the loan is secured, you may be able to borrow larger amounts of money and get lower interest rates than with an unsecured personal loan. However, if you're unable to repay the loan, the lender may be able to repossess the asset.
-                    </li>
-                    <li>
-                        Guarantor loans: These loans require someone else to act as a guarantor, agreeing to repay the loan if you're unable to. Guarantor loans can be useful for people with bad credit who may not be able to get a personal loan on their own.
-                    </li>
-                </ul>
-            </div>
-        </li>
-        <li>
-            <a class="uk-accordion-title fd--accordian--title" href="#">How do loan overpayments work?</a>
-            <div class="uk-accordion-content uk-padding-small">
-                <p>
-                    Loan overpayment refers to the process of paying off more than the required minimum monthly payments on a loan. Overpaying a loan can help you pay it off faster and reduce the amount of interest you'll pay over the life of the loan.
-                </p>
-                <p>
-                    In the UK, most loans allow for overpayments. However, some loans may have penalties or fees for early repayment, so it's important to check with your lender before making any overpayments.
-                </p>
-                <p>
-                    If you decide to make overpayments on your loan, there are a few things to keep in mind:
-                </p>
-                <ul class="info--lists">
-                    <li>
-                        Check with your lender: Before making any overpayments, check with your lender to see if there are any penalties or fees for early repayment.
-                    </li>
-                    <li>
-                        Consider your budget: Only make overpayments that you can afford. While overpaying a loan can save you money in interest, you don't want to overstretch your finances and end up struggling to make your monthly payments.
-                    </li>
-                    <li>
-                        Decide how much to overpay: Decide how much you want to overpay each month. You can either make a one-time lump sum payment or increase your monthly payments.
-                    </li>
-                    <li>
-                        Track your progress: Keep track of how much you're overpaying and how it's affecting the balance and interest on your loan. This can help you stay motivated and see the progress you're making.
-                    </li>
-                </ul>
-                <p>
-                    Overpaying a loan can be a smart financial move, but it's important to do so responsibly and within your means. By making overpayments, you can pay off your loan faster and save money on interest over the life of the loan.
-                </p>
-            </div>
-        </li>
-    </ul>
 </div>
 
 <div class="ads--section">
     <div>
         Ads Here
     </div>
+</div>
+
+<div class="uk-padding">
+    <div class="fd--section-heading">
+        <h2>Basic Investing Information</h2>
+    </div>
+    <p>
+        Investing is the act of committing money or capital to an endeavor with the expectation of obtaining an additional income or profit. 
+    </p>
+    <p>
+        Here are some key points about investing:
+    </p>
+    <ul class="info--lists">
+        <li>
+            There are many different types of investments, including stocks, bonds, mutual funds, real estate, and commodities.
+        </li>
+        <li>
+            The goal of investing is to generate a return on your investment, either through capital gains (i.e., an increase in the value of your investment) or through income (i.e., dividends, interest payments, or rental income).
+        </li>
+        <li>
+            Investing involves risk, as there is always a chance that you may lose some or all of your investment. However, different types of investments carry different levels of risk, and the potential rewards often correspond to the level of risk involved.
+        </li>
+        <li>
+            Diversification is a key strategy for managing risk when investing. By spreading your investments across different asset classes, sectors, and geographic regions, you can reduce the impact of any one investment on your overall portfolio.
+        </li>
+        <li>
+            Time horizon is another important consideration when investing. Generally speaking, investments that are held for longer periods of time have a greater chance of generating a positive return.
+        </li>
+        <li>
+            It's important to understand your investment goals, risk tolerance, and time horizon before making investment decisions. Working with a financial advisor or investment professional can help you develop a personalized investment plan that aligns with your goals and helps you manage risk.
+        </li>
+    </ul> 
+    <p>
+        Finally, it's important to be disciplined and patient when it comes to investing. While there is always a temptation to try to time the market or chase hot investments, the most successful investors are those who stick to a long-term plan, make regular contributions to their investments, and avoid making emotional decisions based on short-term market movements.
+    </p>
 </div>
