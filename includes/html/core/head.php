@@ -38,6 +38,9 @@
     <!-- Savings JS -->
     <script src="./library/js/calculators/savings/simple-savings.js?<?php echo(time()); ?>"></script>
 
+    <!-- Salary JS -->
+    <script src="./library/js/calculators/salary/simple-salary.js?<?php echo(time()); ?>"></script>
+
     <!--Load Google Charts API-->
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 

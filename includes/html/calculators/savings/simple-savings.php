@@ -7,7 +7,7 @@
     <li><a href="#">Simple Savings</a></li>
 </ul>
 
-<div id="SIMPLE-LOAN" class="uk-margin-medium-top">
+<div id="SIMPLE-SAVINGS" class="uk-margin-medium-top">
     <div class="">
         <div class="fd--calc--title uk-padding uk-padding-remove-vertical">
             <h2 class="uk-margin-bottom fd--title--border">Simple Savings Calculator</h2>
@@ -25,25 +25,25 @@
                             <div>
                                 <label class="uk-margin-small">Current Savings Balance</label>
                                 <div class="uk-position-relative" data-prefix="£">
-                                    <input data-calculator-field="SIMPLE-SAVINGS-CALC-savings-balance" class="uk-input" value="3000" onchange="">
+                                    <input data-calculator-field="SIMPLE-SAVINGS-CALC-savings-balance" class="uk-input">
                                 </div>
                             </div>
                             <div>
                                 <label class="uk-margin-small">Monthly Savings</label>
                                 <div class="uk-position-relative" data-prefix="£">
-                                    <input data-calculator-field="SIMPLE-SAVINGS-CALC-monthly-savings" class="uk-input" value="100" onchange="">
+                                    <input data-calculator-field="SIMPLE-SAVINGS-CALC-monthly-savings" class="uk-input">
                                 </div>
                             </div>
                             <div>
                                 <label>Savings Term</label>
                                 <div class="uk-position-relative" data-suffix="Years">
-                                    <input data-calculator-field="SIMPLE-SAVINGS-CALC_savings-term-years" class="uk-input" type="text" vaLue="1">
+                                    <input data-calculator-field="SIMPLE-SAVINGS-CALC_savings-term-years" class="uk-input" type="text">
                                 </div>
                             </div>
                             <div>
                                 <label>&nbsp</label>
                                 <div class="uk-position-relative" data-suffix="Months">
-                                    <input data-calculator-field="SIMPLE-SAVINGS-CALC_savings-term-months" class="uk-input" type="text" vaLue="0">
+                                    <input data-calculator-field="SIMPLE-SAVINGS-CALC_savings-term-months" class="uk-input" type="text">
                                 </div>
                             </div>
                         </div>

@@ -347,6 +347,7 @@ _CORE={
             _CORE.simple_credit.funcs.init();
             _CORE.simple_loan.funcs.init();
             _CORE.simple_savings.funcs.init();
+            _CORE.simple_salary.funcs.init();
             _CORE.funcs.slidersSetup();
             
         },
@@ -438,6 +439,7 @@ _CORE={
 
         },
         switchLoanCalc: function(type){
+
             let calcTitles =  document.querySelectorAll('.fd--calcs--list--title');
             _CORE.utils.forEach(calcTitles, function(index, title){
                 title.classList.add('hide');
@@ -451,6 +453,7 @@ _CORE={
 
         },
         switchSavingsCalc: function(type){
+
             let calcTitles =  document.querySelectorAll('.fd--calcs--list--title');
             _CORE.utils.forEach(calcTitles, function(index, title){
                 title.classList.add('hide');
@@ -461,6 +464,20 @@ _CORE={
 
             savingsCalcsMenu.classList.add('hide');
             savingsCalcsList.classList.remove('hide');
+
+        },
+        switchSalaryCalc: function(type){
+
+            let calcTitles =  document.querySelectorAll('.fd--calcs--list--title');
+            _CORE.utils.forEach(calcTitles, function(index, title){
+                title.classList.add('hide');
+            });
+
+            let salaryCalcsMenu =  document.getElementById('fd_salary_calcs_menu');
+            let salaryCalcsList =  document.getElementById('fd_salary_calcs_switcher');
+
+            salaryCalcsMenu.classList.add('hide');
+            salaryCalcsList.classList.remove('hide');
 
         }
     }

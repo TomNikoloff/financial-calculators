@@ -226,7 +226,7 @@
                                 <div class="fd--calcs--list--title">
                                     <h2 class="uk-text-uppercase">Salary</h2>
                                 </div>
-                                <div id="fd_savings_calcs_menu" uk-grid class="uk-grid uk-child-width-1-2@s uk-grid-match fd--calcs--menu" uk-switcher="connect: #fd_savings_calcs_switcher">
+                                <div id="fd_salary_calcs_menu" uk-grid class="uk-grid uk-child-width-1-2@s uk-grid-match fd--calcs--menu" uk-switcher="connect: #fd_salary_calcs_switcher">
                                     <?php 
                                         # Savings Calculator Menu
                                         include($_SERVER['DOCUMENT_ROOT']."/financial-dashboard/includes/html/calculators/salary/menu.php");
@@ -234,7 +234,12 @@
                                 </div>
                                 <ul id="fd_salary_calcs_switcher" class="uk-switcher uk-animation-scale-up fd--calcs--list hide">
                                     <li>
-
+                                        <?php 
+                                            # Simple Salary Calculator
+                                            include($_SERVER['DOCUMENT_ROOT']."/financial-dashboard/includes/html/calculators/salary/simple-salary.php");
+                                        ?>
+                                    </li>
+                                    <li>
                                     </li>
                                 </ul>
                             </div>
