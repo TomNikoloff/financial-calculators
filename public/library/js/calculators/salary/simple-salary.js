@@ -25,6 +25,8 @@
 					_CORE.simple_salary.funcs.calculateSalary();
 				}
 
+        _CORE.utils.numberInputFormatter(_CORE.refs["SIMPLE-SALARY-CALC-monthly-pension-contributions"]);
+
 				_CORE.simple_salary.funcs.calculateSalary();
 			},
       calculateSalary: function() {

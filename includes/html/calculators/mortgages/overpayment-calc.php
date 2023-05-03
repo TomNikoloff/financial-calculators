@@ -133,7 +133,7 @@
                                 </div>
                             </div>
                             <div class="mortgage-table-content">
-                                <div uk-grid class="mortgage-table-content-header uk-grid uk-grid-row-collapse uk-grid-collapse uk-margin-remove">
+                                <div uk-grid class="mortgage-table-content-header uk-grid uk-grid-row-collapse uk-grid-collapse uk-margin-remove" style="padding-left: 5px;">
                                     <div id="fd_overpayment_period_name" class="uk-text-center uk-width-1-5 uk-width-1-3">
                                         Year
                                     </div>

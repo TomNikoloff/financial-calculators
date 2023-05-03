@@ -100,7 +100,7 @@
                 let yearsTaken = _CORE.refs["CREDIT-CARD-years-to-payoff"];
                 let totalInterest = _CORE.refs["CREDIT-CARD-chosen-payment-total-interest"];
     
-                if(chosenMonthlyAmount == 0){
+                if(!chosenMonthlyAmount){
                     monthsTaken.textContent = "-";
                     totalInterest.textContent = "-";
                 } else {
@@ -137,7 +137,7 @@
                 let monthlyPayments = _CORE.refs["CREDIT-CARD-monthly-payment"];
                 let totalInterest = _CORE.refs["CREDIT-CARD-chosen-months-total-interest"]; 
     
-                if(numOfMonths == 0){
+                if(!numOfMonths){
                     monthlyPayments.textContent = "-";
                     totalInterest.textContent = "-";
                 } else {
