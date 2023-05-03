@@ -6,6 +6,7 @@
         <div class="fd--card--body uk-padding">
             <p>
                 A simple calculator that provides a quick and easy way to find out what your take home pay and deductions are.
+                It only requires your gross annual income and pension contribution percentage. It uses the standard personal allowance of £12,570.
             </p>
         </div>
         <div class="fd--card--footer uk-animation-toggle">
@@ -16,7 +17,7 @@
         </div>
     </div>
 </div>
-
+<!--
 <div class="uk-animation-slide-left-small">
     <div class="uk-card uk-card-default fd--calc--list--cards">
         <div class="fd--temp--overlay">
@@ -38,3 +39,4 @@
         </div>
     </div>
 </div>
+-->

@@ -86,10 +86,10 @@
             20% on income between £12,571 and £50,270
         </li>
         <li>
-            40% on income between £50,271 and £150,000
+            40% on income between £50,271 and £125,140
         </li>
         <li>
-            45% on income over £150,000
+            45% on income over £125,140
         </li>
     </ul> 
     <p>

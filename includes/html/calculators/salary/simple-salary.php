@@ -3,7 +3,7 @@
     <!--
     <li><a href="">Calculators</a></li>
     -->
-    <li><a href=""> Salary</a></li>
+    <li><a href="#" onclick="_CORE.funcs.handleBreadcrumbs('salary')"> Salary</a></li>
     <li><a href="#">Simple Salary</a></li>
 </ul>
 
@@ -31,7 +31,7 @@
                             <div>
                                 <label class="uk-margin-small">Monthly Pension Contributions</label>
                                 <div class="uk-position-relative" data-prefix="%">
-                                    <input data-calculator-field="SIMPLE-SALARY-CALC-monthly-pension-contributions" class="uk-input" onchange="">
+                                    <input data-calculator-field="SIMPLE-SALARY-CALC-monthly-pension-contributions" class="uk-input" style="padding-left: 3em;">
                                 </div>
                             </div>
                         </div>
@@ -43,14 +43,14 @@
                     <h2 class="uk-text-center" data-results-suffix="a year">You'll take home <span data-calculator-field="SIMPLE-SALARY-CALC-CALC-annual-take-home"class="uk-text-bold"></span></h2>
                 </div>
                 <div class="uk-position-relative">
-                    <h2 class="uk-text-center" data-results-suffix="a month">& <span data-calculator-field="SIMPLE-SALARY-CALC-CALC-monthly-take-home"class="uk-text-bold"></span></h2>
+                    <h2 class="uk-text-center" data-results-suffix="a month">or <span data-calculator-field="SIMPLE-SALARY-CALC-CALC-monthly-take-home"class="uk-text-bold"></span></h2>
                 </div>
                 <hr class="uk-divider-icon">
                 <div class="uk-position-relative">
-                    <h2 class="uk-text-center" data-results-suffix="income tax">Over the year you'll pay <span data-calculator-field="SIMPLE-SALARY-CALC-CALC-total-income-tax"class="uk-text-bold"></span></h2>
+                    <h2 class="uk-text-center" data-results-suffix="Income tax">Over the year you'll pay <span data-calculator-field="SIMPLE-SALARY-CALC-CALC-total-income-tax"class="uk-text-bold"></span></h2>
                 </div>
                 <div class="uk-position-relative">
-                    <h2 class="uk-text-center" data-results-suffix="national insurance">& <span data-calculator-field="SIMPLE-SALARY-CALC-CALC-total-national-insurance"class="uk-text-bold"></span></h2>
+                    <h2 class="uk-text-center" data-results-suffix="National Insurance">and <span data-calculator-field="SIMPLE-SALARY-CALC-CALC-total-national-insurance"class="uk-text-bold"></span></h2>
                 </div>
             </div>
 

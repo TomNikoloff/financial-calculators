@@ -54,7 +54,7 @@
         </div>
     </div>
 </div>
-
+<!--
 <div class="uk-animation-slide-left-small">
     <div class="uk-card uk-card-default fd--calc--list--cards">
         <div class="fd--temp--overlay">
@@ -76,4 +76,4 @@
         </div>
     </div>
 </div>
-
+-->

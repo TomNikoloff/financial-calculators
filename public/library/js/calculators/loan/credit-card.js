@@ -41,6 +41,8 @@
 
                 _CORE.utils.numberInputFormatter(_CORE.refs["CREDIT-CARD-CALC-monthly-amount"]);
 
+                _CORE.refs["CREDIT-CARD-CALC-amount-of-months"].value = '18';
+
 				_CORE.refs["CREDIT-CARD-CALC-amount-of-months"].onchange = function(){
 					_CORE.simple_credit.funcs.interestOnlyCalc();
 				}

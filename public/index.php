@@ -219,7 +219,7 @@
                         </div>
 
                     </li>
-                    <li class="uk-animation-scale-up">
+                    <li>
                         <!-- Salary Calcs Menu -->
                         <div class="uk-card uk-card-default uk-padding">
                             <div class="uk-animation-scale-up">

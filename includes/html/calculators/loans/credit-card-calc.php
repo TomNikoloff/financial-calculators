@@ -3,7 +3,7 @@
     <!--
     <li><a href="">Calculators</a></li>
     -->
-    <li><a href="">Credit / Loans</a></li>
+    <li><a href="#" onclick="_CORE.funcs.handleBreadcrumbs('loans')">Credit / Loans</a></li>
     <li><a href="#">Credit Card</a></li>
 </ul>
 

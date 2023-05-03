@@ -3,7 +3,7 @@
     <!--
     <li><a href="">Calculators</a></li>
     -->
-    <li><a href=""> Loans</a></li>
+    <li><a href="#" onclick="_CORE.funcs.handleBreadcrumbs('loans')"> Loans</a></li>
     <li><a href="#">Simple Loan</a></li>
 </ul>
 

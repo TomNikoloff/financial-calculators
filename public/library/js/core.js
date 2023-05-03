@@ -412,6 +412,9 @@ _CORE={
 
             let savingsCalcsList =  document.getElementById('fd_savings_calcs_switcher');
             savingsCalcsList.classList.add('hide');
+
+            let salaryCalcsList =  document.getElementById('fd_salary_calcs_switcher');
+            salaryCalcsList.classList.add('hide');
             
         },
         switchMortgageCalc: function(type){
@@ -479,6 +482,47 @@ _CORE={
             salaryCalcsMenu.classList.add('hide');
             salaryCalcsList.classList.remove('hide');
 
+        },
+        handleBreadcrumbs: function(menu){
+
+            let calcTitles =  document.querySelectorAll('.fd--calcs--list--title');
+            _CORE.utils.forEach(calcTitles, function(index, title){
+                title.classList.remove('hide');
+            });
+
+            if(menu == 'mortgages'){
+
+                let mortgageCalcsMenu =  document.getElementById('fd_mortgage_calcs_menu');
+                let mortgageCalcsList =  document.getElementById('fd_mortgage_calcs_switcher');
+
+                mortgageCalcsMenu.classList.remove('hide');
+                mortgageCalcsList.classList.add('hide');
+
+            } else if(menu == 'loans'){
+
+                let loanCalcsMenu =  document.getElementById('fd_credit_calcs_menu');
+                let loanCalcsList =  document.getElementById('fd_credit_calcs_switcher');
+    
+                loanCalcsMenu.classList.remove('hide');
+                loanCalcsList.classList.add('hide');
+
+            } else if(menu == 'savings'){
+
+                let savingsCalcsMenu =  document.getElementById('fd_savings_calcs_menu');
+                let savingsCalcsList =  document.getElementById('fd_savings_calcs_switcher');
+    
+                savingsCalcsMenu.classList.remove('hide');
+                savingsCalcsList.classList.add('hide');
+
+            } else if(menu == 'salary'){
+
+                let salaryCalcsMenu =  document.getElementById('fd_salary_calcs_menu');
+                let salaryCalcsList =  document.getElementById('fd_salary_calcs_switcher');
+    
+                salaryCalcsMenu.classList.remove('hide');
+                salaryCalcsList.classList.add('hide');
+
+            }
         }
     }
 };

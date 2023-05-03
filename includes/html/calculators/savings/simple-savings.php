@@ -3,7 +3,7 @@
     <!--
     <li><a href="">Calculators</a></li>
     -->
-    <li><a href=""> Savings / Invest</a></li>
+    <li><a href="#" onclick="_CORE.funcs.handleBreadcrumbs('savings')"> Savings / Invest</a></li>
     <li><a href="#">Simple Savings</a></li>
 </ul>
 
@@ -65,14 +65,14 @@
             </div>
             <div>
                 <div class="uk-position-relative">
-                    <h2 class="uk-text-center" data-results-suffix="saved">You'd have a total of <span data-calculator-field="SIMPLE-SAVINGS-CALC-total-saved"class="uk-text-bold">£10,000</span></h2>
+                    <h2 class="uk-text-center" data-results-suffix="Saved">You'd have a total of <span data-calculator-field="SIMPLE-SAVINGS-CALC-total-saved"class="uk-text-bold">£10,000</span></h2>
                 </div>
                 <hr class="uk-divider-icon">
                 <div class="uk-position-relative">
                     <h2 class="uk-text-center" data-results-suffix="Total Savings Added"><span data-calculator-field="SIMPLE-SAVINGS-CALC-total-capital"class="uk-text-bold">£16,585.00</span></h2>
                 </div>
                 <div class="uk-position-relative">
-                    <h2 class="uk-text-center" data-results-suffix="Total Interest Gained"><span data-calculator-field="SIMPLE-SAVINGS-CALC-total-interest-gained"class="uk-text-bold">£1,585.00</span></h2>
+                    <h2 class="uk-text-center" data-results-suffix="Total Interest Earned"><span data-calculator-field="SIMPLE-SAVINGS-CALC-total-interest-gained"class="uk-text-bold">£1,585.00</span></h2>
                 </div>
             </div>
 
