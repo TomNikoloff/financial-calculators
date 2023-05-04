@@ -6,9 +6,9 @@
         },
 		refs:{},
 		funcs:{
-            init: function(){	
-				_CORE.simple_salary.funcs.setupInputs();
-            },
+      init: function(){	
+        _CORE.simple_salary.funcs.setupInputs();
+      },
 			setupInputs: function() {
 				_CORE.refs["SIMPLE-SALARY-CALC-annual-income"].value = '30,000';
 
@@ -40,7 +40,7 @@
 
           // Calculate income tax
           const incomeTax = _CORE.simple_salary.funcs.calculateIncomeTax(taxableIncome);
-          console.log(incomeTax);
+          //console.log(incomeTax);
 
           // Calculate national insurance
           let weeklyIncome = grossSalary / 52;
@@ -48,7 +48,7 @@
 
           // Calculate net salary
           const netSalary = grossSalary - incomeTax - nationalInsurance;
-          console.log(netSalary)
+          //console.log(netSalary)
 
           _CORE.refs["SIMPLE-SALARY-CALC-CALC-annual-take-home"].textContent = netSalary.toLocaleString("en-GB", {style:"currency", currency:"GBP"});;
           _CORE.refs["SIMPLE-SALARY-CALC-CALC-monthly-take-home"].textContent = (netSalary / 12).toLocaleString("en-GB", {style:"currency", currency:"GBP"});;
@@ -59,7 +59,7 @@
         },
         calculateNationalInsurance: function(weeklyIncome){
 
-          console.log(weeklyIncome);
+          //console.log(weeklyIncome);
 
           let totalWeeklyNi = 0;
 
@@ -74,7 +74,7 @@
           }
 
           totalWeeklyNi = niAt2 + niAt12;
-          console.log(totalWeeklyNi);
+          //console.log(totalWeeklyNi);
 
           return (totalWeeklyNi * 52);
 

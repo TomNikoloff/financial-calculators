@@ -69,7 +69,7 @@
 				let totalSavings = initialInvestment;
 				let totalCapital = initialInvestment;
 
-				console.log(totalMonths);
+				//console.log(totalMonths);
 
 				function totalSavingsCalc(){
 					for(let i = 0; i < totalMonths; i++){

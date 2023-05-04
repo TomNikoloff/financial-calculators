@@ -1,9 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+    <!-- Start cookieyes banner --> 
+    <script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/252ede5012b7a8e7ee13384a/script.js"></script> 
+    <!-- End cookieyes banner -->
+    
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A compilation of free financial calculators involving mortgages, loans, savings, investments, salary and more, each with related in-depth information.">
     <title>Financial Calculators</title>
 
     <link rel="icon" href="./images/favicon.png" type="image/x-icon" />

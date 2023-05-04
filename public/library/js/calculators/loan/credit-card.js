@@ -11,8 +11,6 @@
             },
 			setupInputs: function() {
 
-				_CORE.simple_credit.funcs.interestOnlyCalc();
-
                 _CORE.refs["CREDIT-CARD-CALC-balance"].value = '3,600';
 
 				_CORE.refs["CREDIT-CARD-CALC-balance"].onchange = function(){
