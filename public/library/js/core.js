@@ -344,6 +344,9 @@ _CORE={
             console.log('JS Working');
             _CORE.funcs.buildElementReferences();
 
+            _CORE.simple_mortgage.funcs.init();
+            _CORE.overpayment.funcs.init();
+            _CORE.complex_mortgage.funcs.init();
             _CORE.simple_credit.funcs.init();
             _CORE.simple_loan.funcs.init();
             _CORE.simple_savings.funcs.init();

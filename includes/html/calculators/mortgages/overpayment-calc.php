@@ -7,7 +7,7 @@
         <li><a href="#">Overpayment</a></li>
     </ul>
 </div>
-<div class="fd--calc--custom--container">
+<div class="fd--calc--custom--container uk-padding-remove-top">
     <div id="OVERPAYMENT-CALC" class="">
         <div class="">
             <div class="fd--calc--title uk-padding uk-padding-remove-vertical uk-flex uk-flex-center">
@@ -28,7 +28,7 @@
                             <div>
                                 <label class="uk-margin-small">Mortgage Balance</label>
                                 <div class="uk-position-relative" data-prefix="£">
-                                    <input data-calculator-field="OVERPAYMENT-CALC_mortgage_balance" class="uk-input" type="text" vaLue="180000">
+                                    <input data-calculator-field="OVERPAYMENT-CALC_mortgage_balance" class="uk-input" type="text" value="200,000">
                                 </div>
                             </div>
                             <div>

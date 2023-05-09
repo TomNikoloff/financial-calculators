@@ -15,63 +15,60 @@
 
 				_CORE.refs["SIMPLE-MORTGAGE-CALC-rp-balance"].value = '178,000';
 
-				_CORE.refs["SIMPLE-MORTGAGE-CALC-rp-balance"].onchange = function(){
-					_CORE.simple_mortgage.funcs.monthlyCalculation();
-				}
+				_CORE.refs["SIMPLE-MORTGAGE-CALC-rp-balance"].addEventListener("blur", _CORE.simple_mortgage.funcs.monthlyCalculation);
 
 				_CORE.utils.numberInputFormatter(_CORE.refs["SIMPLE-MORTGAGE-CALC-rp-balance"]);
 
 				_CORE.refs["SIMPLE-MORTGAGE-CALC-rp-interest-rate-text"].value = '2.25';
 
-				_CORE.refs["SIMPLE-MORTGAGE-CALC-rp-interest-rate-text"].oninput = function(){
+				
+				_CORE.refs["SIMPLE-MORTGAGE-CALC-rp-interest-rate-text"].addEventListener("blur", function(){
 					_CORE.funcs.updateSlider('input', _CORE.refs["SIMPLE-MORTGAGE-CALC-rp-interest-rate"], this);
 					_CORE.simple_mortgage.funcs.monthlyCalculation();
-				}
-
+				});
+				
 				_CORE.refs["SIMPLE-MORTGAGE-CALC-rp-interest-rate"].value = '2.25';
 
-				_CORE.refs["SIMPLE-MORTGAGE-CALC-rp-interest-rate"].oninput = function(){
+				_CORE.refs["SIMPLE-MORTGAGE-CALC-rp-interest-rate"].addEventListener("input", function(){
 					_CORE.funcs.updateSlider('slider', this, _CORE.refs["SIMPLE-MORTGAGE-CALC-rp-interest-rate-text"]);
 					_CORE.simple_mortgage.funcs.monthlyCalculation();
-				}
+				});		
 
 				_CORE.refs["SIMPLE-MORTGAGE-CALC-rp-term-text"].value = '28';
 
-				_CORE.refs["SIMPLE-MORTGAGE-CALC-rp-term-text"].oninput = function(){
+				_CORE.refs["SIMPLE-MORTGAGE-CALC-rp-term-text"].addEventListener("blur", function(){
 					_CORE.funcs.updateSlider('input', _CORE.refs["SIMPLE-MORTGAGE-CALC-rp-term"], this);
 					_CORE.simple_mortgage.funcs.monthlyCalculation();
-				}
+				});		
 				
 				_CORE.refs["SIMPLE-MORTGAGE-CALC-rp-term"].value = '28';
 
-				_CORE.refs["SIMPLE-MORTGAGE-CALC-rp-term"].oninput = function(){
+				_CORE.refs["SIMPLE-MORTGAGE-CALC-rp-term"].addEventListener("input", function(){
 					_CORE.funcs.updateSlider('slider', this, _CORE.refs["SIMPLE-MORTGAGE-CALC-rp-term-text"]);
 					_CORE.simple_mortgage.funcs.monthlyCalculation();
-				}
+				});		
 
 				// Interest Only
 
 				_CORE.refs["SIMPLE-MORTGAGE-CALC-io-balance"].value = '150,000';
 
-				_CORE.refs["SIMPLE-MORTGAGE-CALC-io-balance"].onchange = function(){
-					_CORE.simple_mortgage.funcs.monthlyCalculation();
-				}
+				_CORE.refs["SIMPLE-MORTGAGE-CALC-io-balance"].addEventListener("blur", _CORE.simple_mortgage.funcs.monthlyCalculation);
 
 				_CORE.utils.numberInputFormatter(_CORE.refs["SIMPLE-MORTGAGE-CALC-io-balance"]);
 				
 				_CORE.refs["SIMPLE-MORTGAGE-CALC-io-interest-rate-text"].value = '4.25';
 
-				_CORE.refs["SIMPLE-MORTGAGE-CALC-io-interest-rate-text"].oninput = function(){
+				_CORE.refs["SIMPLE-MORTGAGE-CALC-io-interest-rate-text"].addEventListener("blur", function(){
 					_CORE.funcs.updateSlider('input', _CORE.refs["SIMPLE-MORTGAGE-CALC-io-interest-rate"], this);
 					_CORE.simple_mortgage.funcs.monthlyCalculation();
-				}
+				});		
 
 				_CORE.refs["SIMPLE-MORTGAGE-CALC-io-interest-rate"].value = '4.25';
 
-				_CORE.refs["SIMPLE-MORTGAGE-CALC-io-interest-rate"].oninput = function(){
+				_CORE.refs["SIMPLE-MORTGAGE-CALC-io-interest-rate"].addEventListener("input", function(){
 					_CORE.funcs.updateSlider('slider', this, _CORE.refs["SIMPLE-MORTGAGE-CALC-io-interest-rate-text"]);
 					_CORE.simple_mortgage.funcs.monthlyCalculation();
-				}
+				});		
 
 				_CORE.simple_mortgage.funcs.monthlyCalculation();
 

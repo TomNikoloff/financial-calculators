@@ -12,18 +12,15 @@
 			setupInputs: function() {
 				_CORE.refs["SIMPLE-SALARY-CALC-annual-income"].value = '30,000';
 
-				_CORE.refs["SIMPLE-SALARY-CALC-annual-income"].onchange = function(){
-					_CORE.simple_salary.funcs.calculateSalary();
-				}
+        _CORE.refs["SIMPLE-SALARY-CALC-annual-income"].addEventListener("blur", _CORE.simple_salary.funcs.calculateSalary);
 
 				_CORE.utils.numberInputFormatter(_CORE.refs["SIMPLE-SALARY-CALC-annual-income"]);
 
 
 				_CORE.refs["SIMPLE-SALARY-CALC-monthly-pension-contributions"].value = '0';
 
-				_CORE.refs["SIMPLE-SALARY-CALC-monthly-pension-contributions"].onchange = function(){
-					_CORE.simple_salary.funcs.calculateSalary();
-				}
+        _CORE.refs["SIMPLE-SALARY-CALC-monthly-pension-contributions"].addEventListener("blur", _CORE.simple_salary.funcs.calculateSalary);
+
 
         _CORE.utils.numberInputFormatter(_CORE.refs["SIMPLE-SALARY-CALC-monthly-pension-contributions"]);
 

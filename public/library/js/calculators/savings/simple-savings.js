@@ -12,45 +12,37 @@
 			setupInputs: function() {
 				_CORE.refs["SIMPLE-SAVINGS-CALC-savings-balance"].value = '3,000';
 
-				_CORE.refs["SIMPLE-SAVINGS-CALC-savings-balance"].onchange = function(){
-					_CORE.simple_savings.funcs.savingsResults();
-				}
+				_CORE.refs["SIMPLE-SAVINGS-CALC-savings-balance"].addEventListener("blur", _CORE.simple_savings.funcs.savingsResults);
 
 				_CORE.utils.numberInputFormatter(_CORE.refs["SIMPLE-SAVINGS-CALC-savings-balance"]);
 
 				_CORE.refs["SIMPLE-SAVINGS-CALC-monthly-savings"].value = '100';
 
-				_CORE.refs["SIMPLE-SAVINGS-CALC-monthly-savings"].onchange = function(){
-					_CORE.simple_savings.funcs.savingsResults();
-				}
+				_CORE.refs["SIMPLE-SAVINGS-CALC-monthly-savings"].addEventListener("blur", _CORE.simple_savings.funcs.savingsResults);
 
 				_CORE.utils.numberInputFormatter(_CORE.refs["SIMPLE-SAVINGS-CALC-monthly-savings"]);
 
 				_CORE.refs["SIMPLE-SAVINGS-CALC_savings-term-years"].value = '1';
 
-				_CORE.refs["SIMPLE-SAVINGS-CALC_savings-term-years"].onchange = function(){
-					_CORE.simple_savings.funcs.savingsResults();
-				}
+				_CORE.refs["SIMPLE-SAVINGS-CALC_savings-term-years"].addEventListener("blur", _CORE.simple_savings.funcs.savingsResults);
 
 				_CORE.refs["SIMPLE-SAVINGS-CALC_savings-term-months"].value = '0';
 
-				_CORE.refs["SIMPLE-SAVINGS-CALC_savings-term-months"].onchange = function(){
-					_CORE.simple_savings.funcs.savingsResults();
-				}
+				_CORE.refs["SIMPLE-SAVINGS-CALC_savings-term-months"].addEventListener("blur", _CORE.simple_savings.funcs.savingsResults);
 
 				_CORE.refs["SIMPLE-SAVINGS-CALC-interest-rate-text"].value = '3';
 
-				_CORE.refs["SIMPLE-SAVINGS-CALC-interest-rate-text"].oninput = function(){
+				_CORE.refs["SIMPLE-SAVINGS-CALC-interest-rate-text"].addEventListener("blur", function(){
 					_CORE.funcs.updateSlider('input', _CORE.refs["SIMPLE-SAVINGS-CALC-interest-rate"], this);
 					_CORE.simple_savings.funcs.savingsResults();
-				}
+				});
 
 				_CORE.refs["SIMPLE-SAVINGS-CALC-interest-rate"].value = '3';
 
-				_CORE.refs["SIMPLE-SAVINGS-CALC-interest-rate"].oninput = function(){
+				_CORE.refs["SIMPLE-SAVINGS-CALC-interest-rate-text"].addEventListener("input", function(){
 					_CORE.funcs.updateSlider('slider', this, _CORE.refs["SIMPLE-SAVINGS-CALC-interest-rate-text"]);
 					_CORE.simple_savings.funcs.savingsResults();
-				}
+				});
 
 				_CORE.simple_savings.funcs.savingsResults();
 			},

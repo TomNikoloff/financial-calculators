@@ -15,25 +15,23 @@
 
 				_CORE.refs["SIMPLE-LOAN-CALC-balance"].value = '11,000';
 
-				_CORE.refs["SIMPLE-LOAN-CALC-balance"].onchange = function(){
-					_CORE.simple_loan.funcs.calculateMonthlyPayments();
-				}
+				_CORE.refs["SIMPLE-LOAN-CALC-balance"].addEventListener("blur", _CORE.simple_loan.funcs.calculateMonthlyPayments);
 
 				_CORE.utils.numberInputFormatter(_CORE.refs["SIMPLE-LOAN-CALC-balance"]);
 
 				_CORE.refs["SIMPLE-LOAN-CALC-interest-rate-text"].value = '4.9';
 
-				_CORE.refs["SIMPLE-LOAN-CALC-interest-rate-text"].oninput = function(){
+				_CORE.refs["SIMPLE-LOAN-CALC-interest-rate-text"].addEventListener("blur", function(){
 					_CORE.funcs.updateSlider('input', _CORE.refs["SIMPLE-LOAN-CALC-interest-rate"], this);
 					_CORE.simple_loan.funcs.calculateMonthlyPayments();
-				}
+				});
 
 				_CORE.refs["SIMPLE-LOAN-CALC-interest-rate"].value = '4.9';
 
-				_CORE.refs["SIMPLE-LOAN-CALC-interest-rate"].oninput = function(){
+				_CORE.refs["SIMPLE-LOAN-CALC-interest-rate"].addEventListener("input", function(){
 					_CORE.funcs.updateSlider('slider', this, _CORE.refs["SIMPLE-LOAN-CALC-interest-rate-text"]);
 					_CORE.simple_loan.funcs.calculateMonthlyPayments();
-				}
+				});
 
 				_CORE.refs["SIMPLE-LOAN-CALC-term-text"].value = '5';
 
@@ -41,6 +39,11 @@
 					_CORE.funcs.updateSlider('input', _CORE.refs["SIMPLE-LOAN-CALC-term"], this);
 					_CORE.simple_loan.funcs.calculateMonthlyPayments();
 				}
+
+				_CORE.refs["SIMPLE-LOAN-CALC-term-text"].addEventListener("blur", function(){
+					_CORE.funcs.updateSlider('input', _CORE.refs["SIMPLE-LOAN-CALC-term"], this);
+					_CORE.simple_loan.funcs.calculateMonthlyPayments();
+				});
 				
 				_CORE.refs["SIMPLE-LOAN-CALC-term"].value = '5';
 
@@ -48,6 +51,11 @@
 					_CORE.funcs.updateSlider('slider', this, _CORE.refs["SIMPLE-LOAN-CALC-term-text"]);
 					_CORE.simple_loan.funcs.calculateMonthlyPayments();
 				}
+
+				_CORE.refs["SIMPLE-LOAN-CALC-term"].addEventListener("input", function(){
+					_CORE.funcs.updateSlider('slider', this, _CORE.refs["SIMPLE-LOAN-CALC-term-text"]);
+					_CORE.simple_loan.funcs.calculateMonthlyPayments();
+				});
 
 				_CORE.simple_loan.funcs.calculateMonthlyPayments();
 

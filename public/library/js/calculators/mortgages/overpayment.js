@@ -27,39 +27,39 @@
 
 				_CORE.utils.numberInputFormatter(_CORE.refs["OVERPAYMENT-CALC_mortgage_balance"]);
 				
-				_CORE.refs["OVERPAYMENT-CALC_mortgage_balance"].onchange = function(){
+				_CORE.refs["OVERPAYMENT-CALC_mortgage_balance"].addEventListener("blur", function(){
 					_CORE.overpayment.funcs.inputValidation(this);
-					_CORE.overpayment.funcs.currentPaymentCalc();
-				}
+					_CORE.overpayment.funcs.currentPaymentCalc();w
+				});		
 
-				_CORE.refs["OVERPAYMENT-CALC_mortgage_term_years"].onchange = function(){
+				_CORE.refs["OVERPAYMENT-CALC_mortgage_term_years"].addEventListener("blur", function(){
 					_CORE.overpayment.funcs.inputValidation(this);
 					_CORE.overpayment.funcs.currentPaymentCalc();
-				}
+				});	
 
-				_CORE.refs["OVERPAYMENT-CALC_mortgage_term_months"].onchange = function(){
+				_CORE.refs["OVERPAYMENT-CALC_mortgage_term_months"].addEventListener("blur", function(){
 					_CORE.overpayment.funcs.inputValidation(this);
 					_CORE.overpayment.funcs.currentPaymentCalc();
-				}
+				});	
 
-				_CORE.refs["OVERPAYMENT-CALC_mortgage_rate"].onchange = function(){
+				_CORE.refs["OVERPAYMENT-CALC_mortgage_rate"].addEventListener("blur", function(){
 					_CORE.overpayment.funcs.inputValidation(this);
 					_CORE.overpayment.funcs.currentPaymentCalc();
-				}
+				});	
 
 				_CORE.utils.numberInputFormatter(_CORE.refs["OVERPAYMENT-CALC_regular_overpayment"]);
 
-				_CORE.refs["OVERPAYMENT-CALC_regular_overpayment"].onchange = function(){
+				_CORE.refs["OVERPAYMENT-CALC_regular_overpayment"].addEventListener("blur", function(){
 					_CORE.overpayment.funcs.inputValidation(this);
 					_CORE.overpayment.funcs.currentPaymentCalc();
-				}
+				});	
 
 				_CORE.utils.numberInputFormatter(_CORE.refs["OVERPAYMENT-CALC_lump_sum_overpayment"]);
 
-				_CORE.refs["OVERPAYMENT-CALC_lump_sum_overpayment"].onchange = function(){
+				_CORE.refs["OVERPAYMENT-CALC_lump_sum_overpayment"].addEventListener("blur", function(){
 					_CORE.overpayment.funcs.inputValidation(this);
 					_CORE.overpayment.funcs.currentPaymentCalc();
-				}
+				});	
 
 				_CORE.overpayment.funcs.currentPaymentCalc();
 
@@ -157,9 +157,11 @@
 						} else if(val == 0 || isNaN(val)){
 
 							resultsContainer.classList.add('uk-hidden');
-
+/*
 							errorText.textContent = "The interest rate must be greater than 0%.";
 							errorContainer.classList.remove("uk-hidden");
+*/
+							input.value = 0;
 						} 
 					} else {
 						//console.log('success');
@@ -218,12 +220,17 @@
 					mortgageTerm = 1;
 				}
 
-				let rate = (interestRate / 100) / 12;
+				let result;
 
-				let pmt =  _CORE.overpayment.funcs.PMT(rate, parseInt(nper), mortgageBalance);
+				if(interestRate > 0){
 
-				let result = pmt.toFixed(2);
+					let rate = (interestRate / 100) / 12;
+					let pmt =  _CORE.overpayment.funcs.PMT(rate, parseInt(nper), mortgageBalance);
 
+					result = pmt.toFixed(2);
+				} else {
+					result = mortgageBalance / nper;
+				}
 
 				if(isNaN(result) || result == 0){
 
@@ -235,11 +242,12 @@
 
 				} else {
 
-					_CORE.refs["OVERPAYMENT-CALC_mortgage-current-monthly-payment"].textContent = '£' + result.toLocaleString();
+					_CORE.refs["OVERPAYMENT-CALC_mortgage-current-monthly-payment"].textContent = result.toLocaleString("en-GB", {style:"currency", currency:"GBP"});;
 					_CORE.overpayment.cache.currentPaymentValue = result;
 
-					_CORE.refs["OVERPAYMENT-CALC_mortgage-new-monthly-payment"].textContent = '£' + result.toLocaleString();
-					_CORE.overpayment.funcs.newPaymentCalc(result);
+					_CORE.refs["OVERPAYMENT-CALC_mortgage-new-monthly-payment"].textContent = result.toLocaleString("en-GB", {style:"currency", currency:"GBP"});
+
+					_CORE.overpayment.funcs.newPaymentCalc(result.toLocaleString());
 
 				}
 
@@ -264,16 +272,21 @@
 						overpaymentAmount = parseFloat(_CORE.refs["OVERPAYMENT-CALC_regular_overpayment"].value.replaceAll(",", ""));
 						newPayment = overpaymentAmount + currentPayment;
 
-						_CORE.refs["OVERPAYMENT-CALC_mortgage-new-monthly-payment"].textContent = '£' + newPayment.toLocaleString();
+						_CORE.refs["OVERPAYMENT-CALC_mortgage-new-monthly-payment"].textContent = newPayment.toLocaleString("en-GB", {style:"currency", currency:"GBP"});
+
 						_CORE.overpayment.cache.newPaymentValue = newPayment;		
 						
 					} else {
-						_CORE.refs["OVERPAYMENT-CALC_mortgage-new-monthly-payment"].textContent = '£' + currentPayment.toLocaleString();
+						_CORE.refs["OVERPAYMENT-CALC_mortgage-new-monthly-payment"].textContent = '£' + currentPayment.toLocaleString("en-GB", {style:"currency", currency:"GBP"});
 					}
 
 					let balance = parseFloat(_CORE.refs["OVERPAYMENT-CALC_mortgage_balance"].value.replaceAll(",", ""));
 					let interestRate = parseFloat(_CORE.refs["OVERPAYMENT-CALC_mortgage_rate"].value.replaceAll(",", ""));
-					let rate = (interestRate / 100) / 12;
+
+					let rate = 0;
+					if(interestRate > 0){
+						rate = (interestRate / 100) / 12;
+					}
 
 					if(_CORE.refs["OVERPAYMENT-CALC_regular_overpayment"].value){	
 					} else {
@@ -305,7 +318,7 @@
 
 						if(overpaymentAmount > 0 && lumpSumAmount > 0) {
 
-							let bothText = "Paying an extra <span class='text-highlight'>£" + overpaymentAmount.toLocaleString() + "</span> per month for the remaining mortgage term and a lump sum of <span class='text-highlight'>£" + lumpSumAmount.toLocaleString() + "</span> could mean you'd save <span class='text-highlight'>£" + Math.round(interestSaved).toLocaleString() + "</span> in interest. These results assume the interest rate stays at <span class='text-highlight'>" + interestRate + "%" + "</span> over the whole remaining mortgage term.";
+							let bothText = "Paying an extra <span class='text-highlight'>" + overpaymentAmount.toLocaleString("en-GB", {style:"currency", currency:"GBP"}) + "</span> per month for the remaining mortgage term and a lump sum of <span class='text-highlight'>" + lumpSumAmount.toLocaleString("en-GB", {style:"currency", currency:"GBP"}) + "</span> could mean you'd save <span class='text-highlight'>" + Math.round(interestSaved).toLocaleString("en-GB", {style:"currency", currency:"GBP"}) + "</span> in interest. These results assume the interest rate stays at <span class='text-highlight'>" + interestRate + "%" + "</span> over the whole remaining mortgage term.";
 
 							_CORE.refs["OVERPAYMENT-CALC_overpayment_message"].innerHTML = bothText;
 
@@ -313,7 +326,7 @@
 
 						} else if(overpaymentAmount > 0 && lumpSumAmount <= 0 ){
 
-							let monthlyText = "Paying an extra <span class='text-highlight'>£" + overpaymentAmount.toLocaleString() + "</span> per month for the remaining mortgage term, could mean you'd save <span class='text-highlight'>£" + Math.round(interestSaved).toLocaleString() + "</span> in interest. These results assume the interest rate stays at <span class='text-highlight'>" + interestRate + "%" + "</span> over the whole remaining mortgage term.";
+							let monthlyText = "Paying an extra <span class='text-highlight'>" + overpaymentAmount.toLocaleString("en-GB", {style:"currency", currency:"GBP"}) + "</span> per month for the remaining mortgage term, could mean you'd save <span class='text-highlight'>" + Math.round(interestSaved).toLocaleString("en-GB", {style:"currency", currency:"GBP"}) + "</span> in interest. These results assume the interest rate stays at <span class='text-highlight'>" + interestRate + "%" + "</span> over the whole remaining mortgage term.";
 
 							_CORE.refs["OVERPAYMENT-CALC_overpayment_message"].innerHTML = monthlyText;
 
@@ -321,7 +334,7 @@
 
 						} else if(lumpSumAmount > 0 && overpaymentAmount <= 0){
 
-							let lumpSumText = "Paying a lump sum of <span class='text-highlight'>£" + lumpSumAmount.toLocaleString() + "</span> could mean you'd save <span class='text-highlight'>£" + Math.round(interestSaved).toLocaleString() + "</span> in interest. These results assume the interest rate stays at <span class='text-highlight'>" + interestRate + "%" + "</span> over the whole remaining mortgage term.";
+							let lumpSumText = "Paying a lump sum of <span class='text-highlight'>" + lumpSumAmount.toLocaleString("en-GB", {style:"currency", currency:"GBP"}) + "</span> could mean you'd save <span class='text-highlight'>" + Math.round(interestSaved).toLocaleString("en-GB", {style:"currency", currency:"GBP"}) + "</span> in interest. These results assume the interest rate stays at <span class='text-highlight'>" + interestRate + "%" + "</span> over the whole remaining mortgage term.";
 
 							_CORE.refs["OVERPAYMENT-CALC_overpayment_message"].innerHTML = lumpSumText;
 
@@ -347,7 +360,12 @@
 
 				let mortgageBalance = parseFloat(_CORE.refs["OVERPAYMENT-CALC_mortgage_balance"].value.replaceAll(",", ""));
 				let interestRate = parseFloat(_CORE.refs["OVERPAYMENT-CALC_mortgage_rate"].value.replaceAll(",", ""));
-				let rate = (interestRate / 100) / 12;
+
+				let rate = 0;
+				if(interestRate > 0){
+					rate = (interestRate / 100) / 12;
+				}
+
 				let mortgageTerm = parseFloat(_CORE.refs["OVERPAYMENT-CALC_mortgage_term_years"].value.replaceAll(",", ""));
 
 				_CORE.overpayment.cache.balanceResults.push([0,Math.trunc(Number(mortgageBalance)),  Math.trunc(Number(mortgageBalance))]);
@@ -510,8 +528,8 @@
 			},
 			buildTableRow: function(year, withOp, withoutOp){
 
-				let withOpText = withOp.toLocaleString();
-				let withoutOpText = withoutOp.toLocaleString();
+				let withOpText = withOp.toLocaleString("en-GB", {style:"currency", currency:"GBP"});
+				let withoutOpText = withoutOp.toLocaleString("en-GB", {style:"currency", currency:"GBP"});
 
 				let gridDiv = document.createElement('div');
 				gridDiv.classList.add('table-results-row', 'uk-grid', 'uk-margin-remove', 'uk-grid-row-collapse', 'uk-grid-collapse');
@@ -534,12 +552,12 @@
 
 				let div2 = document.createElement('div');
 				div2.classList.add('uk-text-center', 'uk-width-2-5', 'uk-width-1-3');
-				let div2Content =  document.createTextNode('£' + withoutOpText);
+				let div2Content =  document.createTextNode(withoutOpText);
 				div2.appendChild(div2Content);
 
 				let div3 = document.createElement('div');
 				div3.classList.add('uk-text-center', 'uk-width-2-5', 'uk-width-1-3');
-				let div3Content =  document.createTextNode('£' + withOpText);
+				let div3Content =  document.createTextNode(withOpText);
 				div3.appendChild(div3Content);
 
 				gridDiv.appendChild(div1);

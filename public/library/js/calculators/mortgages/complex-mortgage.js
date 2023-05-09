@@ -41,50 +41,50 @@
 
 				_CORE.utils.numberInputFormatter(_CORE.refs["COMPLEX-CALC_mortgage_balance"]);
 
-				_CORE.refs["COMPLEX-CALC_mortgage_balance"].onchange = function(){
+				_CORE.refs["COMPLEX-CALC_mortgage_balance"].addEventListener("blur", function(){
 					_CORE.complex_mortgage.funcs.inputValidation(this);
 					_CORE.complex_mortgage.funcs.currentPaymentCalc();
-				}
+				});		
 
-				_CORE.refs["COMPLEX-CALC_mortgage_term_years"].onchange = function(){
+				_CORE.refs["COMPLEX-CALC_mortgage_term_years"].addEventListener("blur", function(){
 					_CORE.complex_mortgage.funcs.inputValidation(this);
 					_CORE.complex_mortgage.funcs.inputValidation(document.querySelector('[data-calculator-field="COMPLEX-CALC_mortgage-product-expiry-date"]'));
 					_CORE.complex_mortgage.funcs.currentPaymentCalc();
-				}
+				});		
 
-				_CORE.refs["COMPLEX-CALC_mortgage_term_months"].onchange = function(){
+				_CORE.refs["COMPLEX-CALC_mortgage_term_months"].addEventListener("blur", function(){
 					_CORE.complex_mortgage.funcs.inputValidation(this);
 					_CORE.complex_mortgage.funcs.currentPaymentCalc();
-				}
+				});		
 
-				_CORE.refs["COMPLEX-CALC_mortgage_rate"].onchange = function(){
+				_CORE.refs["COMPLEX-CALC_mortgage_rate"].addEventListener("blur", function(){
 					_CORE.complex_mortgage.funcs.inputValidation(this);
 					_CORE.complex_mortgage.funcs.currentPaymentCalc();
-				}
+				});		
 
 				_CORE.utils.numberInputFormatter(_CORE.refs["COMPLEX-CALC_mortgage-regular-overpayment"]);
 
-				_CORE.refs["COMPLEX-CALC_mortgage-regular-overpayment"].onchange = function(){
+				_CORE.refs["COMPLEX-CALC_mortgage-regular-overpayment"].addEventListener("blur", function(){
 					_CORE.complex_mortgage.funcs.currentPaymentCalc();
-				}
+				});		
 
 				_CORE.refs["COMPLEX-CALC_mortgage-overpayment-interval"].value = '1';
 
-				_CORE.refs["COMPLEX-CALC_mortgage-overpayment-interval"].onchange = function(){
+				_CORE.refs["COMPLEX-CALC_mortgage-overpayment-interval"].addEventListener("blur", function(){
 					_CORE.complex_mortgage.funcs.inputValidation(this);
 					_CORE.complex_mortgage.funcs.currentPaymentCalc();
-				}
+				});		
 
 				_CORE.utils.numberInputFormatter(_CORE.refs["COMPLEX-CALC_mortgage-annual-overpayment"]);
 
-				_CORE.refs["COMPLEX-CALC_mortgage-annual-overpayment"].onchange = function(){
+				_CORE.refs["COMPLEX-CALC_mortgage-annual-overpayment"].addEventListener("blur", function(){
 					_CORE.complex_mortgage.funcs.currentPaymentCalc();
-				}
+				});		
 
-				_CORE.refs["COMPLEX-CALC_mortgage-product-expiry-date"].onchange = function(){
+				_CORE.refs["COMPLEX-CALC_mortgage-product-expiry-date"].addEventListener("blur", function(){
 					_CORE.complex_mortgage.funcs.inputValidation(this);
 					_CORE.complex_mortgage.funcs.currentPaymentCalc();
-				}
+				});		
 
 				_CORE.complex_mortgage.funcs.currentPaymentCalc();
 
@@ -245,7 +245,7 @@
 					if(val > 12){
 						input.value = 11;
 					} else if(isNaN(val) || !Number.isInteger(val) || val == 0){
-						input.value = 1;
+						//input.value = 1;
 					}
 				}
 			},

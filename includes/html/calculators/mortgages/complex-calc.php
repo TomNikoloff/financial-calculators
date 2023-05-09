@@ -8,7 +8,7 @@
     </ul>
 </div>
 
-<div class="fd--calc--custom--container">
+<div class="fd--calc--custom--container uk-padding-remove-top">
     <div id="COMPLEX-CALC" class="">
         <div class="fd--calc--title uk-padding uk-padding-remove-vertical uk-flex uk-flex-center">
             <h2 class="fd--title--secondary uk-margin-bottom">Complex Mortgage Calculator</h2>
@@ -28,7 +28,7 @@
                         <div>
                             <label class="uk-margin-small">Mortgage Balance</label>
                             <div class="uk-position-relative" data-prefix="£">
-                                <input data-calculator-field="COMPLEX-CALC_mortgage_balance" class="uk-input" type="text" vaLue="180000">
+                                <input data-calculator-field="COMPLEX-CALC_mortgage_balance" class="uk-input" type="text" vaLue="200,000">
                             </div>
                         </div>
                         <div>
