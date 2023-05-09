@@ -11,21 +11,26 @@
             },
 			setupInputs: function() {
 
-				// Repayment
+				/**** Repayment Fields ****/
 
+				// Repayment Balance
 				_CORE.refs["SIMPLE-MORTGAGE-CALC-rp-balance"].value = '178,000';
 
 				_CORE.refs["SIMPLE-MORTGAGE-CALC-rp-balance"].addEventListener("blur", _CORE.simple_mortgage.funcs.monthlyCalculation);
 
+				_CORE.utils.blurOnKeyPress(_CORE.refs["SIMPLE-MORTGAGE-CALC-rp-balance"]);
+
 				_CORE.utils.numberInputFormatter(_CORE.refs["SIMPLE-MORTGAGE-CALC-rp-balance"]);
 
+				// Repayment - Interest Rate
 				_CORE.refs["SIMPLE-MORTGAGE-CALC-rp-interest-rate-text"].value = '2.25';
 
-				
 				_CORE.refs["SIMPLE-MORTGAGE-CALC-rp-interest-rate-text"].addEventListener("blur", function(){
 					_CORE.funcs.updateSlider('input', _CORE.refs["SIMPLE-MORTGAGE-CALC-rp-interest-rate"], this);
 					_CORE.simple_mortgage.funcs.monthlyCalculation();
 				});
+
+				_CORE.utils.blurOnKeyPress(_CORE.refs["SIMPLE-MORTGAGE-CALC-rp-interest-rate-text"]);
 				
 				_CORE.refs["SIMPLE-MORTGAGE-CALC-rp-interest-rate"].value = '2.25';
 
@@ -34,12 +39,15 @@
 					_CORE.simple_mortgage.funcs.monthlyCalculation();
 				});		
 
+				// Repayment - Term
 				_CORE.refs["SIMPLE-MORTGAGE-CALC-rp-term-text"].value = '28';
 
 				_CORE.refs["SIMPLE-MORTGAGE-CALC-rp-term-text"].addEventListener("blur", function(){
 					_CORE.funcs.updateSlider('input', _CORE.refs["SIMPLE-MORTGAGE-CALC-rp-term"], this);
 					_CORE.simple_mortgage.funcs.monthlyCalculation();
 				});		
+
+				_CORE.utils.blurOnKeyPress(_CORE.refs["SIMPLE-MORTGAGE-CALC-rp-term-text"]);
 				
 				_CORE.refs["SIMPLE-MORTGAGE-CALC-rp-term"].value = '28';
 
@@ -48,20 +56,26 @@
 					_CORE.simple_mortgage.funcs.monthlyCalculation();
 				});		
 
-				// Interest Only
+				/**** Interest Only ****/
 
+				// Interest Only - Balance
 				_CORE.refs["SIMPLE-MORTGAGE-CALC-io-balance"].value = '150,000';
 
 				_CORE.refs["SIMPLE-MORTGAGE-CALC-io-balance"].addEventListener("blur", _CORE.simple_mortgage.funcs.monthlyCalculation);
 
+				_CORE.utils.blurOnKeyPress(_CORE.refs["SIMPLE-MORTGAGE-CALC-io-balance"]);
+
 				_CORE.utils.numberInputFormatter(_CORE.refs["SIMPLE-MORTGAGE-CALC-io-balance"]);
 				
+				// Interest Only - Interest Rate
 				_CORE.refs["SIMPLE-MORTGAGE-CALC-io-interest-rate-text"].value = '4.25';
 
 				_CORE.refs["SIMPLE-MORTGAGE-CALC-io-interest-rate-text"].addEventListener("blur", function(){
 					_CORE.funcs.updateSlider('input', _CORE.refs["SIMPLE-MORTGAGE-CALC-io-interest-rate"], this);
 					_CORE.simple_mortgage.funcs.monthlyCalculation();
 				});		
+
+				_CORE.utils.blurOnKeyPress(_CORE.refs["SIMPLE-MORTGAGE-CALC-io-interest-rate-text"]);
 
 				_CORE.refs["SIMPLE-MORTGAGE-CALC-io-interest-rate"].value = '4.25';
 
@@ -70,6 +84,7 @@
 					_CORE.simple_mortgage.funcs.monthlyCalculation();
 				});		
 
+				// Initial Setup
 				_CORE.simple_mortgage.funcs.monthlyCalculation();
 
 			},

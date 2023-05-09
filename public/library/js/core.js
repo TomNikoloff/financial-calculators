@@ -336,6 +336,14 @@ _CORE={
                     if (lastCharIsAdot) event.target.value += ".";
                 }
             })
+        },
+        blurOnKeyPress: function(input){
+            input.addEventListener("keypress", function(event) {
+                if (event.key === "Enter") {
+                  event.preventDefault();
+                  input.blur();
+                }
+            });
         }
     },
     refs:{},

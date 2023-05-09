@@ -17,7 +17,7 @@
                     <div class="uk-margin">
                         <h4 class="uk-margin-small">Interest Only Balance</h4>
                         <div class="uk-position-relative" data-prefix="£">
-                            <input  data-calculator-field="SIMPLE-MORTGAGE-CALC-io-balance" class="uk-input" value="0" onchange="_CORE.simple_mortgage.funcs.monthlyCalculation();">
+                            <input  data-calculator-field="SIMPLE-MORTGAGE-CALC-io-balance" class="uk-input" value="0">
                         </div>
                     </div>
                     <div class="uk-margin-medium uk-position-relative">

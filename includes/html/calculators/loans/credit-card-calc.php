@@ -17,7 +17,7 @@
                 <div class="uk-margin">
                     <h4 class="uk-margin-small">Card Balance</h4>
                     <div class="uk-position-relative" data-prefix="£">
-                        <input data-calculator-field="CREDIT-CARD-CALC-balance" class="uk-input" value="15,000" onchange="">
+                        <input data-calculator-field="CREDIT-CARD-CALC-balance" class="uk-input" value="15,000">
                     </div>
                 </div>
                 <div class="uk-margin-medium uk-position-relative">

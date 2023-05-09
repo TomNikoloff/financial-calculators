@@ -17,7 +17,7 @@
                 <div class="uk-margin">
                     <h4 class="uk-margin-small">Loan Balance</h4>
                     <div class="uk-position-relative" data-prefix="£">
-                        <input data-calculator-field="SIMPLE-LOAN-CALC-balance" class="uk-input" value="15,000" onchange="_CORE.simple_loan.funcs.monthlyCalculation();">
+                        <input data-calculator-field="SIMPLE-LOAN-CALC-balance" class="uk-input" value="15,000">
                     </div>
                 </div>
                 <div class="uk-margin-medium uk-position-relative">

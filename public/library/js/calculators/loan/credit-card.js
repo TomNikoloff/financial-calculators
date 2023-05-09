@@ -15,6 +15,8 @@
 
                 _CORE.refs["CREDIT-CARD-CALC-balance"].addEventListener("blur", _CORE.simple_credit.funcs.interestOnlyCalc);
 
+                _CORE.utils.blurOnKeyPress(_CORE.refs["CREDIT-CARD-CALC-balance"]);
+
                 _CORE.utils.numberInputFormatter(_CORE.refs["CREDIT-CARD-CALC-balance"]);
 
                 _CORE.refs["CREDIT-CARD-CALC-interest-rate-text"].value = '7.9';
@@ -23,6 +25,8 @@
                     _CORE.funcs.updateSlider('input', _CORE.refs["CREDIT-CARD-CALC-interest-rate"], this);
 					_CORE.simple_credit.funcs.interestOnlyCalc();
                 });
+
+                _CORE.utils.blurOnKeyPress(_CORE.refs["CREDIT-CARD-CALC-interest-rate-text"]);
 
                 _CORE.refs["CREDIT-CARD-CALC-interest-rate"].value = '7.9';
 
@@ -33,13 +37,18 @@
 
                 _CORE.refs["CREDIT-CARD-CALC-monthly-amount"].addEventListener("blur", _CORE.simple_credit.funcs.interestOnlyCalc);
 
+                _CORE.utils.blurOnKeyPress(_CORE.refs["CREDIT-CARD-CALC-monthly-amount"]);
+
                 _CORE.utils.numberInputFormatter(_CORE.refs["CREDIT-CARD-CALC-monthly-amount"]);
 
                 _CORE.refs["CREDIT-CARD-CALC-amount-of-months"].value = '18';
 
                 _CORE.refs["CREDIT-CARD-CALC-amount-of-months"].addEventListener("blur", _CORE.simple_credit.funcs.interestOnlyCalc);
 
+                _CORE.utils.blurOnKeyPress(_CORE.refs["CREDIT-CARD-CALC-amount-of-months"]);
+
                 _CORE.simple_credit.funcs.interestOnlyCalc();
+                
 			},
             NPER: function(rate, payment, present, future, type) {
                 // Initialize type
