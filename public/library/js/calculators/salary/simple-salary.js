@@ -41,17 +41,16 @@
 
           // Calculate income tax
           const incomeTax = _CORE.simple_salary.funcs.calculateIncomeTax(taxableIncome);
-          //console.log(incomeTax);
 
           // Calculate national insurance
           let weeklyIncome = grossSalary / 52;
           let nationalInsurance =  _CORE.simple_salary.funcs.calculateNationalInsurance(weeklyIncome);
 
+          // Calculate Pension
           let pension = (pensionContribution / 100) * grossSalary;
 
           // Calculate net salary
           const netSalary = grossSalary - incomeTax - nationalInsurance - pension;
-          //console.log(netSalary)
 
           _CORE.refs["SIMPLE-SALARY-CALC-CALC-annual-take-home"].textContent = netSalary.toLocaleString("en-GB", {style:"currency", currency:"GBP"});;
           _CORE.refs["SIMPLE-SALARY-CALC-CALC-monthly-take-home"].textContent = (netSalary / 12).toLocaleString("en-GB", {style:"currency", currency:"GBP"});;
@@ -77,8 +76,7 @@
           }
 
           totalWeeklyNi = niAt2 + niAt12;
-          //console.log(totalWeeklyNi);
-
+        
           return (totalWeeklyNi * 52);
 
         },
