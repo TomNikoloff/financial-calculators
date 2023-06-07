@@ -47,8 +47,10 @@
           let weeklyIncome = grossSalary / 52;
           let nationalInsurance =  _CORE.simple_salary.funcs.calculateNationalInsurance(weeklyIncome);
 
+          let pension = (pensionContribution / 100) * grossSalary;
+
           // Calculate net salary
-          const netSalary = grossSalary - incomeTax - nationalInsurance;
+          const netSalary = grossSalary - incomeTax - nationalInsurance - pension;
           //console.log(netSalary)
 
           _CORE.refs["SIMPLE-SALARY-CALC-CALC-annual-take-home"].textContent = netSalary.toLocaleString("en-GB", {style:"currency", currency:"GBP"});;
